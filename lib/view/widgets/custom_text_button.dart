@@ -28,15 +28,13 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: TextButton(
-          onPressed: onPressed(),
-          style: TextButton.styleFrom(
-            shape: RoundedRectangleBorder(borderRadius: borderRadius),
-            padding: padding,
-            backgroundColor: backgroundclr,
-          ),
-          child: CustomText(text: text, textStyle: textStyle)),
-    );
+    return TextButton(
+        onPressed: onPressed(),
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
+          padding: padding,
+          backgroundColor: backgroundclr,
+),
+        child: CustomText(text: text, textStyle: textStyle));
   }
 }
