@@ -42,6 +42,7 @@ class loginAs extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
+              TextButton(onPressed: () {}, child: CustomText(text: 'Patient')),
               CustomButton(
                 text: 'PATIENT',
                 textStyle: const TextStyle(
