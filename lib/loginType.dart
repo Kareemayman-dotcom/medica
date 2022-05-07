@@ -39,9 +39,30 @@ class loginAs extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 102),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                    )),
+                    backgroundColor: primaryColor,
+                  ),
+                  child: CustomText(
+                      text: 'PATIENT',
+                      textStyle: TextStyle(
+                        color: Colors.white,
+                      ))),
               CustomButton(
                 text: 'PATIENT',
                 onPressed: () {},
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                padding: EdgeInsets.symmetric(),
                 backgroundclr: primaryColor,
               ),
               CustomButton(

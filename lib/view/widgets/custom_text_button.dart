@@ -10,13 +10,20 @@ class CustomButton extends StatelessWidget {
   final BorderRadius borderRadius;
   final TextStyle textStyle;
   final Function onPressed;
+  final EdgeInsets padding;
   const CustomButton(
       {Key? key,
       required this.text,
       required this.onPressed,
       this.backgroundclr = Colors.transparent,
       this.borderRadius = BorderRadius.zero,
-      this.textStyle = const TextStyle(color: Colors.white)})
+      this.textStyle = const TextStyle(
+        color: Colors.white,
+        fontSize: 14,
+        fontFamily: 'Inter',
+        fontWeight: FontWeight.w800,
+      ),
+      this.padding = EdgeInsets.zero})
       : super(key: key);
 
   @override
@@ -25,6 +32,7 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed(),
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
+          padding: padding,
           backgroundColor: backgroundclr,
         ),
         child: CustomText(text: text, textStyle: textStyle));
