@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medica/view/widgets/custom_background.dart';
+import 'package:medica/view/widgets/custom_text.dart';
+import 'package:medica/view/widgets/custom_text_button.dart';
 
 import 'view/widgets/wavey_shape.dart';
 
@@ -18,9 +20,25 @@ class loginAs extends StatelessWidget {
                       image: AssetImage('assets/images/loginAsBg.png'),
                       fit: BoxFit.fill))),
           Column(
-            children: [Image.asset('assets/images/LogoWhite.png')],
-            crossAxisAlignment:Align ,
-          )
+            children: [
+              SizedBox(
+                height: 130,
+              ),
+              Image.asset('assets/images/LogoWhite.png'),
+              SizedBox(
+                height: 50,
+              ),
+              CustomText(
+                text: 'LOGIN AS',
+                color: Colors.white,
+                fontSize: 25.0,
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.bold,
+              ),
+              CustomButton(text: 'PATIENT', onPressed: () {}),
+              CustomButton(text: 'DOCTOR', onPressed: () {})
+            ],
+          ),
         ],
       ),
     );
