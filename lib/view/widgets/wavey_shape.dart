@@ -51,7 +51,7 @@ class WavyGetStarted extends CustomPainter {
     return true;
   }
 }
-// Column(
+//  Column(
 //             mainAxisAlignment: MainAxisAlignment.end,
 //             children: [
 //               CustomPaint(

@@ -16,9 +16,11 @@ class loginAs extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/images/loginAsBg.png'),
-                      fit: BoxFit.fill)
-                      )
-                      ),
+                      fit: BoxFit.fill))),
+          Column(
+            children: [Image.asset('assets/images/LogoWhite.png')],
+            crossAxisAlignment:Align ,
+          )
         ],
       ),
     );
