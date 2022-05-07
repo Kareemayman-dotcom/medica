@@ -23,7 +23,7 @@ class CustomButton extends StatelessWidget {
         fontFamily: 'Inter',
         fontWeight: FontWeight.w800,
       ),
-      this.padding = EdgeInsets.zero})
+      this.padding = const EdgeInsets.all(20)})
       : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: borderRadius),
           padding: padding,
           backgroundColor: backgroundclr,
-),
+        ),
         child: CustomText(text: text, textStyle: textStyle));
   }
 }
