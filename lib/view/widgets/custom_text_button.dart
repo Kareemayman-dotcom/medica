@@ -1,31 +1,32 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 import 'custom_text.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
-  final backgroundclr;
+  final Color backgroundclr;
+  final BorderRadius borderRadius;
+  final TextStyle textStyle;
   final Function onPressed;
-  const CustomButton({
-    Key? key,
-    required this.text,
-    required this.onPressed,
-    this.backgroundclr,
-  }) : super(key: key);
+  const CustomButton(
+      {Key? key,
+      required this.text,
+      required this.onPressed,
+      this.backgroundclr = Colors.transparent,
+      this.borderRadius = BorderRadius.zero,
+      this.textStyle = const TextStyle(color: Colors.white)})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: onPressed(),
         style: TextButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(borderRadius: borderRadius),
           backgroundColor: backgroundclr,
         ),
-        child: CustomText(
-          text: text,
-          alignment: Alignment.center,
-          color: Colors.white,
-        ));
+        child: CustomText(text: text, textStyle: textStyle));
   }
 }

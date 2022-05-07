@@ -23,8 +23,10 @@ class CustomTextFromField extends StatelessWidget {
       children: [
         CustomText(
           text: text,
-          fontSize: 14,
-          color: Colors.grey.shade900,
+          textStyle: TextStyle(
+            fontSize: 14,
+            color: Colors.grey.shade900,
+          ),
         ),
         TextFormField(
           // onSaved: onSave(),

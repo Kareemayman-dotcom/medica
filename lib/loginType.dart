@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_button.dart';
@@ -12,6 +13,7 @@ class loginAs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        alignment: Alignment.center,
         children: [
           myDefaultBackground(),
           Container(
@@ -30,13 +32,23 @@ class loginAs extends StatelessWidget {
               ),
               CustomText(
                 text: 'LOGIN AS',
-                color: Colors.white,
-                fontSize: 25.0,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.bold,
+                textStyle: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              CustomButton(text: 'PATIENT', onPressed: () {}),
-              CustomButton(text: 'DOCTOR', onPressed: () {})
+              CustomButton(
+                text: 'PATIENT',
+                onPressed: () {},
+                backgroundclr: primaryColor,
+              ),
+              CustomButton(
+                text: 'DOCTOR',
+                onPressed: () {},
+                backgroundclr: secondaryColor,
+              )
             ],
           ),
         ],
