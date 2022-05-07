@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medica/splash.dart';
 
+import 'loginType.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,8 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Splash(),
-      
+      home: loginAs(),
     );
   }
 }
