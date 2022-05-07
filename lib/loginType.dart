@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medica/view/widgets/custom_background.dart';
+
+import 'view/widgets/wavey_shape.dart';
 
 class loginAs extends StatelessWidget {
   const loginAs({Key? key}) : super(key: key);
@@ -6,14 +9,17 @@ class loginAs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: ,
-      body: Container(
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Color(0xffE822AC), Color(0xff9E32C6)],
-                // stops: [0.6, 2],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter)),
+      body: Stack(
+        children: [
+          myDefaultBackground(),
+          Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/loginAsBg.png'),
+                      fit: BoxFit.fill)
+                      )
+                      ),
+        ],
       ),
     );
   }
