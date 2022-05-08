@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/patient_getstarted.dart';
 import 'package:medica/splash.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
@@ -48,7 +49,7 @@ class loginAs extends StatelessWidget {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Splash(),
+                          builder: (context) => getstarted_patient(),
                         ));
                   },
                   style: TextButton.styleFrom(
