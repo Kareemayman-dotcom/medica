@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
+import 'package:medica/view/widgets/custom_text_button.dart';
+import 'package:medica/view/widgets/slider_para.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class getstarted_patient extends StatelessWidget {
-  const getstarted_patient({Key? key}) : super(key: key);
-
+  List<Widget> cardList = [
+    const sliderCard(
+        text: 'Great',
+        graph:
+            'The point of using Lorem Ipsum is that it has a more-or-less no distribution of look like readable english.'),
+    const sliderCard(
+        text: 'Instant',
+        graph:
+            'The point of using Lorem Ipsum is that it has a more-or-less no distribution of look like readable english.'),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,14 +30,94 @@ class getstarted_patient extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage('assets/images/getstarted.png'),
                       fit: BoxFit.fill))),
-          Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-            CustomPaint(
-              size: Size(
-                  double.infinity,
-                  (300 * 0.657932839159359)
-                      .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-              painter: WavyGetStarted(),
-            ),
+          Stack(alignment: Alignment.bottomCenter, children: [
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              CustomPaint(
+                size: Size(
+                    double.infinity,
+                    (350 * 0.657932839159359)
+                        .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                painter: WavyGetStarted(),
+              ),
+            ]),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CustomText(
+                  text: 'Lets Get Started',
+                  textStyle: TextStyle(
+                    color: Color(0xff300C92),
+                    fontFamily: 'Inter',
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => getstarted_patient(),
+                              ));
+                        },
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 17),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25),
+                            bottomRight: Radius.circular(25),
+                          )),
+                          backgroundColor: primaryColor,
+                        ),
+                        child: CustomText(
+                            text: 'REGISTER',
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 14))),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => getstarted_patient(),
+                              ));
+                        },
+                        style: TextButton.styleFrom(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 64, vertical: 17),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(25),
+                            bottomLeft: Radius.circular(25),
+                          )),
+                          backgroundColor: secondaryColor,
+                        ),
+                        child: CustomText(
+                            text: 'LOGIN',
+                            textStyle: TextStyle(
+                                color: Colors.white,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w800,
+                                fontSize: 14))),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                )
+              ],
+            )
           ]),
           Column(children: [
             const SizedBox(
@@ -34,45 +125,17 @@ class getstarted_patient extends StatelessWidget {
             ),
             Image.asset('assets/images/LogoWhite.png'),
             const SizedBox(
-              height: 225,
+              height: 230,
+            ),
+            CarouselSlider(
+              items: cardList,
+              options: CarouselOptions(
+                viewportFraction: 1,
+                enlargeCenterPage: true,
+                autoPlay: true,
+              ),
             )
           ]),
-          Container(
-            height: 350,
-            child: Column(mainAxisAlignment: MainAxisAlignment.end,
-// ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const CustomText(
-                    text: 'Great',
-                    textStyle: TextStyle(
-                      color: Colors.white,
-                      fontSize: 28.0,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                  const Divider(
-                    color: Color(0xffFEB197),
-                    indent: 175,
-                    endIndent: 175,
-                    height: 30,
-                    thickness: 2,
-                  ),
-                  const Align(
-                    alignment: Alignment.center,
-                    child: CustomText(
-                      text:
-                          'The point of using Lorem Ipsum is that\n it has a more-or-less no distribution of\n \t\t\t\t\t\t\t\t\t\tlook like readable english.',
-                      textStyle: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17.0,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                  ),
-                ]),
-          ),
         ],
       ),
     );
