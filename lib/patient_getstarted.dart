@@ -28,7 +28,8 @@ class getstarted_patient extends StatelessWidget {
               Image.asset('assets/images/LogoWhite.png'),
               const SizedBox(
                 height: 225,
-              ),
+              )
+            ]),
 
 Column(
 // ignore: prefer_const_literals_to_create_immutables
@@ -82,8 +83,8 @@ const CustomText(
          
                 ]
               ),
-            ],
-          ),
+            
+         
         ],
       ),
     );
