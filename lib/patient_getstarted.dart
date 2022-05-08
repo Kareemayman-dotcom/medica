@@ -68,8 +68,6 @@ const CustomText(
             ]
 
 ),
-
-
     Column(
            
             children: [
