@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/splash.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
@@ -43,7 +44,13 @@ class loginAs extends StatelessWidget {
                 height: 25,
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Splash(),
+                        ));
+                  },
                   style: TextButton.styleFrom(
                     padding:
                         EdgeInsets.symmetric(horizontal: 102, vertical: 13),

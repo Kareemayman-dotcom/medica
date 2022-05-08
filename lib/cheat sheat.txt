@@ -1,0 +1,7 @@
+Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => yourpage(),
+        ));
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=Button to another page-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
