@@ -42,47 +42,87 @@ class loginAs extends StatelessWidget {
               const SizedBox(
                 height: 25,
               ),
-              TextButton(onPressed: () {}, child: CustomText(text: 'Patient')),
-              CustomButton(
-                text: 'PATIENT',
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w800,
-                ),
-                onPressed: () {},
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(25),
-                  bottomRight: Radius.circular(25),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
-                backgroundclr: primaryColor,
-              ),
+              TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(25),
+                      bottomRight: Radius.circular(25),
+                    )),
+                    backgroundColor: primaryColor,
+                  ),
+                  child: CustomText(
+                      text: 'PATIENT',
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18))),
               const SizedBox(
                 height: 20,
               ),
-              CustomButton(
-                text: 'DOCTOR',
-                textStyle: const TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w800,
-                ),
-                onPressed: () {
-                  // ignore: avoid_print
-                  print('CLICKEDDDDDDDDDDDDDDD');
-                },
-                borderRadius: const BorderRadius.only(
-                  topRight: Radius.circular(25),
-                  bottomLeft: Radius.circular(25),
-                ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
-                backgroundclr: secondaryColor,
-              ),
+              TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(25),
+                      bottomLeft: Radius.circular(25),
+                    )),
+                    backgroundColor: secondaryColor,
+                  ),
+                  child: CustomText(
+                      text: 'DOCTOR',
+                      textStyle: TextStyle(
+                          color: Colors.white,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18))),
+              // CustomButton(
+              //   text: 'PATIENT',
+              //   textStyle: const TextStyle(
+              //     fontSize: 18,
+              //     color: Colors.white,
+              //     fontFamily: 'Inter',
+              //     fontWeight: FontWeight.w800,
+              //   ),
+              //   onPressed: () {},
+              //   borderRadius: const BorderRadius.only(
+              //     topLeft: Radius.circular(25),
+              //     bottomRight: Radius.circular(25),
+              //   ),
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+              //   backgroundclr: primaryColor,
+              // ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // CustomButton(
+              //   text: 'DOCTOR',
+              //   textStyle: const TextStyle(
+              //     fontSize: 18,
+              //     color: Colors.white,
+              //     fontFamily: 'Inter',
+              //     fontWeight: FontWeight.w800,
+              //   ),
+              //   onPressed: () {
+              //     // ignore: avoid_print
+              //     print('CLICKEDDDDDDDDDDDDDDD');
+              //   },
+              //   borderRadius: const BorderRadius.only(
+              //     topRight: Radius.circular(25),
+              //     bottomLeft: Radius.circular(25),
+              //   ),
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+              //   backgroundclr: secondaryColor,
+              // ),
             ],
           ),
         ],
