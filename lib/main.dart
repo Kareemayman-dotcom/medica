@@ -8,6 +8,7 @@ void main() {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   runApp(const MyApp());
   FlutterNativeSplash.remove();
+  
 }
 
 // whenever your initialization is completed, remove the splash screen:
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: loginAs(),
     );
   }

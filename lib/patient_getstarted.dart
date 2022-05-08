@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+
 
 class getstarted_patient extends StatelessWidget {
   const  getstarted_patient ({ Key? key }) : super(key: key);
@@ -25,9 +27,13 @@ class getstarted_patient extends StatelessWidget {
               ),
               Image.asset('assets/images/LogoWhite.png'),
               const SizedBox(
-                height: 250,
+                height: 225,
               ),
-              const CustomText(
+
+Column(
+// ignore: prefer_const_literals_to_create_immutables
+children: [
+const CustomText(
                 text: 'Great',
                 textStyle: TextStyle(
                   color: Colors.white,
@@ -36,7 +42,7 @@ class getstarted_patient extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-                Divider(
+                const Divider(
                         color: Color(0xffFEB197),
                         indent: 175,
                         endIndent: 175,
@@ -44,9 +50,9 @@ class getstarted_patient extends StatelessWidget {
                         thickness: 2,
                       ),
             
-          Align(alignment: Alignment.center,
+          const Align(alignment: Alignment.center,
           
-         child: const CustomText(
+         child: CustomText(
                 text: 'The point of using Lorem Ipsum is that\n it has a more-or-less no distribution of\n \t\t\t\t\t\t\t\t\t\tlook like readable english.',
                 textStyle: TextStyle(
                   color: Colors.white,
@@ -58,14 +64,18 @@ class getstarted_patient extends StatelessWidget {
               ),
           
           ),
+            ]
+
+),
+
 
     Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+           
             children: [
               CustomPaint(
                  size: Size(
                      double.infinity,
-                     (268 * 0.657932839159359)
+                     (306 * 0.657932839159359)
                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                  painter: WavyGetStarted(),
                   ),
@@ -77,5 +87,6 @@ class getstarted_patient extends StatelessWidget {
         ],
       ),
     );
+    
   }
 }
