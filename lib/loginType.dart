@@ -72,7 +72,13 @@ class loginAs extends StatelessWidget {
                 height: 20,
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Splash(),
+                        ));
+                  },
                   style: TextButton.styleFrom(
                     padding:
                         EdgeInsets.symmetric(horizontal: 102, vertical: 13),
