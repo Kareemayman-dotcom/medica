@@ -40,7 +40,6 @@ class getstarted_patient extends StatelessWidget {
           Container(
             height: 350,
             child: Column(mainAxisAlignment: MainAxisAlignment.end,
-            
 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const CustomText(
