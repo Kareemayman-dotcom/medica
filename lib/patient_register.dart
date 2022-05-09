@@ -149,7 +149,13 @@ class PatientRegister extends GetWidget<AuthViewModel> {
           ),
           TextButton(
               onPressed: () {
-                controller.googleSignInMethod();
+                _formKey.currentState?.save();
+
+                if(_formKey.currentState!.validate()){
+
+            controller.createAccountWithEmailAndPassword();
+                }
+                
               },
               style: TextButton.styleFrom(
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),

@@ -11,11 +11,7 @@ class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  String email, password, name;
-
-  Rx<User> _user = Rx<User>();
-
-  String get user => _user.value?.email;
+  late String email, password, name;
 
   @override
   void onInit() {
@@ -47,14 +43,10 @@ class AuthViewModel extends GetxController {
     );
   }
 
-void createAccountWithEmailAndPassword() async {
-
-try {
-  await _auth.createUserWithEmailAndPassword(email: email, password: password)
-} catch (e) {
-  printError();
-}
-
-}
-
+  void createAccountWithEmailAndPassword() async {
+    try {
+      await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } catch (e) {}
+  }
 }
