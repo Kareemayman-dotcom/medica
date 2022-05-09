@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
@@ -35,7 +36,9 @@ class getstarted_patient extends StatelessWidget {
               CustomPaint(
                 size: Size(
                     double.infinity,
-                    (350 * 0.657932839159359)
+                    (MediaQuery.of(context).size.width *
+                            0.9 *
+                            0.657932839159359)
                         .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                 painter: WavyGetStarted(),
               ),
@@ -53,7 +56,7 @@ class getstarted_patient extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -63,7 +66,7 @@ class getstarted_patient extends StatelessWidget {
                           Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => getstarted_patient(),
+                                builder: (context) => PatientRegister(),
                               ));
                         },
                         style: TextButton.styleFrom(
@@ -84,7 +87,7 @@ class getstarted_patient extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 fontSize: 14))),
                     SizedBox(
-                      width: 10,
+                      width: MediaQuery.of(context).size.width * 0.03,
                     ),
                     TextButton(
                         onPressed: () {
@@ -114,18 +117,18 @@ class getstarted_patient extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 30,
+                  height: MediaQuery.of(context).size.height * 0.05,
                 )
               ],
             )
           ]),
           Column(children: [
-            const SizedBox(
-              height: 35,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.09,
             ),
             Image.asset('assets/images/LogoWhite.png'),
-            const SizedBox(
-              height: 230,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.27,
             ),
             CarouselSlider(
               items: cardList,
