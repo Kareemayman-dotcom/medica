@@ -132,7 +132,16 @@ class PatientRegister extends GetWidget<AuthViewModel> {
                   onSave: (value) {
                     controller.password = value!;
                   },
-                  validator: (value){}),
+                  validator: (value){
+                                  confirmPass = value;
+                                  if (value!.isEmpty) {
+                                    return "Please Enter New Password";
+                                  } else if (value.length < 8) {
+                                    return "Password must be atleast 8 characters long";
+                                  } else {
+                                    return null;
+                                  }                 
+}),
               const Divider(
                 color: Color(0xff3E1E96),
                 indent: 20,
@@ -154,7 +163,19 @@ class PatientRegister extends GetWidget<AuthViewModel> {
                     color: Color(0xffF95DDE),
                   ),
                   onSave: (value) {},
-                  validator: (value) {}),
+                  validator: (value) {
+
+                                  if (value!.isEmpty) {
+                                    return "Please Re-Enter New Password";
+                                  } else if (value.length < 8) {
+                                    return "Password must be atleast 8 characters long";
+                                  } else if (value != confirmPass) {
+                                    return "Password must be same as above";
+                                  } else {
+                                    return null;
+                                  }
+
+                  }),
               const Divider(
                 color: Color(0xff3E1E96),
                 indent: 20,
