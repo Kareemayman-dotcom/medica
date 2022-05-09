@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/constance.dart';

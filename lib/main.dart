@@ -1,14 +1,19 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:medica/helper/binding.dart';
 import 'package:medica/splash.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'loginType.dart';
 
-void main() {
+void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const MyApp());
+  await Firebase.initializeApp();
+  runApp(MyApp());
   FlutterNativeSplash.remove();
-  
 }
 
 // whenever your initialization is completed, remove the splash screen:
@@ -19,7 +24,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
       home: loginAs(),
     );
