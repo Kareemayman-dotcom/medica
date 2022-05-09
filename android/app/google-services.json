@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "556329239335",
+    "project_id": "medica-43fa5",
+    "storage_bucket": "medica-43fa5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556329239335:android:5fab14235f82c50a7d9f02",
+        "android_client_info": {
+          "package_name": "com.example.medica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556329239335-j1mjmp016dee8t89m69iags4sg2hk496.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medica",
+            "certificate_hash": "50d09d309311d729c23326b05190e2875e79c033"
+          }
+        },
+        {
+          "client_id": "556329239335-5r55ds9bg0f5hp0q6upej9vkcd91s0e0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWSWi1Fprp0sh8bc7s44bM_uBPKq5s3Eg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556329239335-5r55ds9bg0f5hp0q6upej9vkcd91s0e0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
