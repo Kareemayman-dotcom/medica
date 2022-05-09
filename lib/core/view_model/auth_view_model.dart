@@ -10,8 +10,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   FirebaseAuth _auth = FirebaseAuth.instance;
-
-  late String email, password, name;
+   late String email, password, name;
+  
 
   @override
   void onInit() {
