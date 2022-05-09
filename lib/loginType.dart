@@ -34,7 +34,7 @@ class loginAs extends StatelessWidget {
                   ),
                   const CustomText(
                     text: 'LOGIN AS',
-                    textAlign: Alignment.center,
+                    textAlign: TextAlign.center,
                     textStyle: TextStyle(
                       color: Colors.white,
                       fontSize: 25.0,
@@ -65,7 +65,7 @@ class loginAs extends StatelessWidget {
                       ),
                       child: CustomText(
                           text: 'PATIENT',
-                          textAlign: Alignment.center,
+                          textAlign: TextAlign.center,
                           textStyle: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Inter',
@@ -94,7 +94,7 @@ class loginAs extends StatelessWidget {
                       ),
                       child: CustomText(
                           text: 'DOCTOR',
-                          textAlign: Alignment.center,
+                          textAlign: TextAlign.center,
                           textStyle: TextStyle(
                               color: Colors.white,
                               fontFamily: 'Inter',

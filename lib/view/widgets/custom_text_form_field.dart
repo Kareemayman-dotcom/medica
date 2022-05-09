@@ -29,14 +29,18 @@ class CustomTextFromField extends StatelessWidget {
     return Container(
         child: Column(
       children: [
-        CustomText(
-          text: text,
-          textStyle: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w600,
-            color: color,
-          ),
-          textAlign: Alignment.topLeft,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            CustomText(
+              text: text,
+              textStyle: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                color: color,
+              ),
+            ),
+          ],
         ),
         TextFormField(
           onSaved: onSave,
@@ -45,18 +49,12 @@ class CustomTextFromField extends StatelessWidget {
               hintText: hint,
               prefixIcon: icon_name,
               hintStyle: TextStyle(
-                color: Color(0xff6D6487),
-                fontSize: 15,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.normal
-              ),
+                  color: Color(0xff6D6487),
+                  fontSize: 15,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.normal),
               fillColor: Colors.white,
-              
-               border: InputBorder.none
-   
-              
-
-              ),
+              border: InputBorder.none),
         ),
       ],
     ));
