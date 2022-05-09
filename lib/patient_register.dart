@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
+import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
+import 'package:medica/view/widgets/custom_text.dart';
+import 'package:medica/view/widgets/custom_text_button.dart';
+import 'package:medica/view/widgets/custom_text_form_field.dart';
 
 class PatientRegister extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Stack(children: [
+    return Scaffold(
+        body: Stack(children: [
       myDefaultBackground(),
       Container(
           decoration: const BoxDecoration(
@@ -30,15 +34,11 @@ class PatientRegister extends StatelessWidget {
           ],
         ),
         Column(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            
-          ],
-        ),
-        
-        Column(
-          children: [
-            
-          ],
+CustomTextFromField(text: 'ssssdasdasds', hint: 'sssssssssss', onSave: (value){} , validator: (value){})
+
+          ]
         )
       ]),
     ]));

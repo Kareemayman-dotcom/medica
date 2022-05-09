@@ -6,8 +6,8 @@ import 'custom_text.dart';
 class CustomTextFromField extends StatelessWidget {
   final String text;
   final String hint;
-  final Function onSave;
-  final Function validator;
+  final void Function(String?)? onSave;
+  final FormFieldValidator<String>? validator;
   const CustomTextFromField({
     Key? key,
     required this.text,
@@ -29,13 +29,13 @@ class CustomTextFromField extends StatelessWidget {
           ),
         ),
         TextFormField(
-          onSaved: onSave(),
-          validator: validator(),
+          onSaved: onSave,
+          validator: validator,
           decoration: InputDecoration(
               hintText: hint,
-              hintStyle: TextStyle(color: Colors.black),
+              hintStyle: TextStyle(color: Colors.black,),
               fillColor: Colors.white),
-        )
+        ),
       ],
     ));
   }
