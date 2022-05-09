@@ -33,6 +33,12 @@ class PatientRegister extends StatelessWidget {
           children: [
             
           ],
+        ),
+        
+        Column(
+          children: [
+            
+          ],
         )
       ]),
     ]));

@@ -47,7 +47,7 @@ class getstarted_patient extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 CustomText(
-                  text: 'Lets Get Started',
+                  text: 'Let\'s Get Started',
                   textStyle: TextStyle(
                     color: Color(0xff300C92),
                     fontFamily: 'Inter',
