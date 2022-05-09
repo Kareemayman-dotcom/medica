@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
@@ -33,13 +34,32 @@ class PatientRegister extends StatelessWidget {
             ),
           ],
         ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-CustomTextFromField(text: 'ssssdasdasds', hint: 'sssssssssss', onSave: (value){} , validator: (value){})
-
-          ]
-        )
+        Container(
+          alignment: Alignment.center,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
+              ),
+              CustomText(
+                text: 'MEDICA',
+                textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600),
+              )
+            ],
+          ),
+        ),
+        Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          CustomTextFromField(
+              text: 'ssssdasdasds',
+              hint: 'sssssssssss',
+              onSave: (value) {},
+              validator: (value) {})
+        ])
       ]),
     ]));
   }
