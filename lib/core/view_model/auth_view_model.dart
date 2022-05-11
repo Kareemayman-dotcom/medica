@@ -11,7 +11,7 @@ class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   FirebaseAuth _auth = FirebaseAuth.instance;
    late String email, password, name;
-  
+
 
   @override
   void onInit() {

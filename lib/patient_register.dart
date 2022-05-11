@@ -16,17 +16,26 @@ class PatientRegister extends GetWidget<AuthViewModel> {
   var confirmPass;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Stack(children: [
-      myDefaultBackground(),
-      Container(
-          decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('assets/images/getstarted.png'),
-            fit: BoxFit.fill),
-      )),
-      Form(
-        key: _formKey,
+    return WillPopScope(
+      onWillPop: () async {
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => getstarted_patient(),
+            ));
+        return true;
+      },
+      child: Scaffold(
+          body: Stack(children: [
+        myDefaultBackground(),
+        Container(
+            decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/getstarted.png'),
+              fit: BoxFit.fill),
+        )),
+        Form(
+          key: _formKey,
           child: Stack(children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -128,20 +137,19 @@ class PatientRegister extends GetWidget<AuthViewModel> {
                     size: 20,
                     color: Color(0xffF95DDE),
                   ),
-                  
                   onSave: (value) {
                     controller.password = value!;
                   },
-                  validator: (value){
-                                  confirmPass = value;
-                                  if (value!.isEmpty) {
-                                    return "Please Enter New Password";
-                                  } else if (value.length < 8) {
-                                    return "Password must be atleast 8 characters long";
-                                  } else {
-                                    return null;
-                                  }                 
-}),
+                  validator: (value) {
+                    confirmPass = value;
+                    if (value!.isEmpty) {
+                      return "Please Enter New Password";
+                    } else if (value.length < 8) {
+                      return "Password must be atleast 8 characters long";
+                    } else {
+                      return null;
+                    }
+                  }),
               const Divider(
                 color: Color(0xff3E1E96),
                 indent: 20,
@@ -164,17 +172,15 @@ class PatientRegister extends GetWidget<AuthViewModel> {
                   ),
                   onSave: (value) {},
                   validator: (value) {
-
-                                  if (value!.isEmpty) {
-                                    return "Please Re-Enter New Password";
-                                  } else if (value.length < 8) {
-                                    return "Password must be atleast 8 characters long";
-                                  } else if (value != confirmPass) {
-                                    return "Password must be same as above";
-                                  } else {
-                                    return null;
-                                  }
-
+                    if (value!.isEmpty) {
+                      return "Please Re-Enter New Password";
+                    } else if (value.length < 8) {
+                      return "Password must be atleast 8 characters long";
+                    } else if (value != confirmPass) {
+                      return "Password must be same as above";
+                    } else {
+                      return null;
+                    }
                   }),
               const Divider(
                 color: Color(0xff3E1E96),
@@ -236,9 +242,8 @@ class PatientRegister extends GetWidget<AuthViewModel> {
               ),
             ])
           ]),
-        
-      
-      ),
-    ]));
+        ),
+      ])),
+    );
   }
 }
