@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/splash.dart';
 import 'package:medica/view/widgets/constance.dart';

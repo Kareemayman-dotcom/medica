@@ -18,11 +18,7 @@ class PatientRegister extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => getstarted_patient(),
-            ));
+        Get.to(getstarted_patient());
         return true;
       },
       child: Scaffold(
