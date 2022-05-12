@@ -90,9 +90,9 @@ class doctor_register extends GetWidget<AuthViewModel> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.22222,
-                ),
+                // SizedBox(
+                //   height: MediaQuery.of(context).size.height * 0.22222,
+                // ),
                 CustomPaint(
                   size: Size(
                       double.infinity,

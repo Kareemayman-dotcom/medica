@@ -76,7 +76,7 @@ class patient_getstarted extends StatelessWidget {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => PatientRegister(),
+                                  builder: (context) => patient_register(),
                                 ));
                           },
                           style: TextButton.styleFrom(

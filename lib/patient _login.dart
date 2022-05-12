@@ -228,7 +228,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     padding: EdgeInsets.all(0),
                                   ),
                                   onPressed: () {
-                                    Get.to(PatientRegister());
+                                    Get.to(patient_register());
                                   },
                                   child: CustomText(
                                     text: "Register",
