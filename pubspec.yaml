@@ -76,6 +76,7 @@ flutter:
     - assets/images/facebook.svg
     - assets/images/linkedin.svg
     - assets/images/twitter.svg
+    - assets/images/loginwhitewave.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

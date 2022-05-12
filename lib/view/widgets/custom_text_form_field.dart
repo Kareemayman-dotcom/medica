@@ -12,6 +12,8 @@ class CustomTextFromField extends StatelessWidget {
   final Color color;
   final String hint;
   final Icon? icon_name;
+  final TextInputType keyboardType;
+  final bool obscureText;
   final void Function(String?)? onSave;
   final FormFieldValidator<String>? validator;
   CustomTextFromField({
@@ -22,6 +24,8 @@ class CustomTextFromField extends StatelessWidget {
     this.icon_name,
     required this.onSave,
     required this.validator,
+    this.keyboardType = TextInputType.text,
+    this.obscureText = false,
   });
 
   @override
@@ -43,8 +47,10 @@ class CustomTextFromField extends StatelessWidget {
           ],
         ),
         TextFormField(
+          obscureText: obscureText,
           onSaved: onSave,
           validator: validator,
+          keyboardType: keyboardType,
           decoration: InputDecoration(
               hintText: hint,
               prefixIcon: icon_name,

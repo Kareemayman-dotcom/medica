@@ -24,31 +24,15 @@ class PatientLogin extends GetWidget<AuthViewModel> {
         return true;
       },
       child: Scaffold(
+          resizeToAvoidBottomInset: false,
           body: Stack(children: [
-        myDefaultBackground(),
-        Container(
-            decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/getstarted.png'),
-              fit: BoxFit.fill),
-        )),
-        Form(
-          key: _formKey,
-          child: Stack(children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CustomPaint(
-                  size: Size(
-                      double.infinity,
-                      (MediaQuery.of(context).size.height *
-                              0.45 *
-                              1.6680872965861588)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: LnRCurve(),
-                ),
-              ],
-            ),
+            myDefaultBackground(),
+            Container(
+                decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/getstarted.png'),
+                  fit: BoxFit.fill),
+            )),
             Container(
               // padding: EdgeInsets.symmetric(
               //   horizontal: MediaQuery.of(context).size.width * 0.05,
@@ -70,259 +54,291 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.035,
+                    height: MediaQuery.of(context).size.height * 0.04,
                   ),
                   SvgPicture.asset(
                     'assets/images/userLogin.svg',
                     width: MediaQuery.of(context).size.width * 0.2,
                   ),
-                  SizedBox(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  ),
                   CustomText(
                     text: 'Login to Continue',
                     textStyle: TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'Inter',
-                    ),
+                        color: Colors.white,
+                        fontFamily: 'Inter',
+                        fontSize: MediaQuery.of(context).size.width * 0.06),
                   )
                 ],
               ),
             ),
-            Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.333333,
+            Form(
+              key: _formKey,
+              child: Stack(children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    CustomPaint(
+                      size: Size(
+                          double.infinity,
+                          (MediaQuery.of(context).size.height *
+                                  0.45 *
+                                  1.6680872965861588)
+                              .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                      painter: LnRCurve(),
+                    ),
+                  ],
                 ),
-                Container(
-                  height: MediaQuery.of(context).size.height * 0.666666,
-                  // color: Colors.green,
-                  padding: EdgeInsets.symmetric(
-                    vertical: MediaQuery.of(context).size.height * 0.06,
-                    horizontal: MediaQuery.of(context).size.width * 0.05,
-                  ),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        CustomTextFromField(
-                            text: '\t\t\tEmail',
-                            fontSize: 20,
-                            color: Color(0xff300C92),
-                            hint: 'Your email',
-                            icon_name: Icon(
-                              MyFlutterApp.mail,
-                              size: 12,
-                              color: Color(0xffF95DDE),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.666666,
+                      // color: Colors.green,
+                      padding: EdgeInsets.symmetric(
+                        vertical: MediaQuery.of(context).size.height * 0.06,
+                        horizontal: MediaQuery.of(context).size.width * 0.05,
+                      ),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            CustomTextFromField(
+                                text: '\t\t\tEmail',
+                                fontSize: 20,
+                                color: Color(0xff300C92),
+                                hint: 'Your email',
+                                icon_name: Icon(
+                                  MyFlutterApp.mail,
+                                  size: 12,
+                                  color: Color(0xffF95DDE),
+                                ),
+                                onSave: (value) {
+                                  controller.email = value!;
+                                },
+                                validator: (value) {
+                                  if (value == null) {
+                                    print("Error");
+                                  }
+                                }),
+                            const Divider(
+                              color: Color(0xff3E1E96),
+                              indent: 20,
+                              endIndent: 20,
+                              height: 1,
+                              thickness: 2,
                             ),
-                            onSave: (value) {
-                              controller.email = value!;
-                            },
-                            validator: (value) {
-                              if (value == null) {
-                                print("Error");
-                              }
-                            }),
-                        const Divider(
-                          color: Color(0xff3E1E96),
-                          indent: 20,
-                          endIndent: 20,
-                          height: 1,
-                          thickness: 2,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
-                        ),
-                        CustomTextFromField(
-                            text: '\t\t\tPassword',
-                            fontSize: 18,
-                            color: Color(0xff300C92),
-                            hint: 'Password',
-                            icon_name: Icon(
-                              MyFlutterApp.lock,
-                              size: 20,
-                              color: Color(0xffF95DDE),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
                             ),
-                            onSave: (value) {
-                              controller.password = value!;
-                            },
-                            validator: (value) {
-                              confirmPass = value;
-                              if (value!.isEmpty) {
-                                return "Please Enter New Password";
-                              } else if (value.length < 8) {
-                                return "Password must be atleast 8 characters long";
-                              } else {
-                                return null;
-                              }
-                            }),
-                        const Divider(
-                          color: Color(0xff3E1E96),
-                          indent: 20,
-                          endIndent: 20,
-                          height: 1,
-                          thickness: 2,
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
-                        ),
-                        Container(
-                          child: TextButton(
-                              onPressed: () {
-                                _formKey.currentState?.save();
+                            CustomTextFromField(
+                                obscureText: true,
+                                text: '\t\t\tPassword',
+                                fontSize: 18,
+                                color: Color(0xff300C92),
+                                hint: 'Password',
+                                icon_name: Icon(
+                                  MyFlutterApp.lock,
+                                  size: 20,
+                                  color: Color(0xffF95DDE),
+                                ),
+                                onSave: (value) {
+                                  controller.password = value!;
+                                },
+                                validator: (value) {
+                                  confirmPass = value;
+                                  if (value!.isEmpty) {
+                                    return "Please Enter New Password";
+                                  } else if (value.length < 8) {
+                                    return "Password must be atleast 8 characters long";
+                                  } else {
+                                    return null;
+                                  }
+                                }),
+                            const Divider(
+                              color: Color(0xff3E1E96),
+                              indent: 20,
+                              endIndent: 20,
+                              height: 1,
+                              thickness: 2,
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
+                            Container(
+                              child: TextButton(
+                                  onPressed: () {
+                                    _formKey.currentState?.save();
 
-                                if (_formKey.currentState!.validate()) {
-                                  controller
-                                      .createAccountWithEmailAndPassword();
-                                }
-                              },
-                              style: TextButton.styleFrom(
-                                minimumSize: Size.fromHeight(50),
-                                // padding: EdgeInsets.symmetric(
-                                //   horizontal:
-                                //       MediaQuery.of(context).size.width * 0.35,
-                                //   // double.infinity,
-                                //   vertical: MediaQuery.of(context).size.height *
-                                //       0.023,
+                                    if (_formKey.currentState!.validate()) {
+                                      controller
+                                          .createAccountWithEmailAndPassword();
+                                    }
+                                  },
+                                  style: TextButton.styleFrom(
+                                    minimumSize: Size.fromHeight(50),
+                                    // padding: EdgeInsets.symmetric(
+                                    //   horizontal:
+                                    //       MediaQuery.of(context).size.width * 0.35,
+                                    //   // double.infinity,
+                                    //   vertical: MediaQuery.of(context).size.height *
+                                    //       0.023,
+                                    // ),
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(25),
+                                      bottomRight: Radius.circular(25),
+                                    )),
+                                    backgroundColor: secondaryColor,
+                                  ),
+                                  child: CustomText(
+                                      text: 'LOGIN',
+                                      textStyle: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 14))),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                CustomText(
+                                  text: "Dont't have an account?",
+                                  textStyle:
+                                      TextStyle(color: Color(0xff6D6487)),
+                                ),
+                                // SizedBox(
+                                //   width: MediaQuery.of(context).size.width * 0.001,
                                 // ),
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(25),
-                                  bottomRight: Radius.circular(25),
-                                )),
-                                backgroundColor: secondaryColor,
-                              ),
-                              child: CustomText(
-                                  text: 'LOGIN',
-                                  textStyle: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: 14))),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                                TextButton(
+                                  style: TextButton.styleFrom(
+                                    padding: EdgeInsets.all(0),
+                                  ),
+                                  onPressed: () {
+                                    Get.to(PatientRegister());
+                                  },
+                                  child: CustomText(
+                                    text: "Register",
+                                    textStyle: TextStyle(
+                                        color: Color(0xff4CD2CF),
+                                        decoration: TextDecoration.underline),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.03,
+                            ),
                             CustomText(
-                              text: "Dont't have an account?",
-                              textStyle: TextStyle(color: Color(0xff6D6487)),
-                            ),
-                            // SizedBox(
-                            //   width: MediaQuery.of(context).size.width * 0.001,
-                            // ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.all(0),
+                              text:
+                                  '-\u00a0 - \u00a0- \u00a0 or \u00a0 -\u00a0 -\u00a0 - ',
+                              textStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16,
+                                // (
+                                //   MediaQuery.of(context).size.width +
+                                //         MediaQuery.of(context).size.width) /
+                                //     2 *
+                                //     0.05,
                               ),
-                              onPressed: () {
-                                Get.to(PatientRegister());
-                              },
-                              child: CustomText(
-                                text: "Register",
-                                textStyle: TextStyle(
-                                    color: Color(0xff4CD2CF),
-                                    decoration: TextDecoration.underline),
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03,
-                        ),
-                        CustomText(
-                          text:
-                              '-\u00a0 - \u00a0- \u00a0 or \u00a0 -\u00a0 -\u00a0 - ',
-                          textStyle: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            // (
-                            //   MediaQuery.of(context).size.width +
-                            //         MediaQuery.of(context).size.width) /
-                            //     2 *
-                            //     0.05,
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
-                        ),
-                        CustomText(
-                          text: 'Continue with',
-                          textStyle: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            // (
-                            //   MediaQuery.of(context).size.width +
-                            //         MediaQuery.of(context).size.width) /
-                            //     2 *
-                            //     0.05,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
-                                )),
-                                backgroundColor: primaryColor,
-                                padding: EdgeInsets.symmetric(vertical: 18),
-                              ),
-                              child: SvgPicture.asset(
-                                  'assets/images/facebook.svg'),
                             ),
                             SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.02),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
-                                )),
-                                padding: EdgeInsets.symmetric(vertical: 18),
-                                backgroundColor: primaryColor,
+                              height: MediaQuery.of(context).size.height * 0.02,
+                            ),
+                            CustomText(
+                              text: 'Continue with',
+                              textStyle: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 16,
+                                // (
+                                //   MediaQuery.of(context).size.width +
+                                //         MediaQuery.of(context).size.width) /
+                                //     2 *
+                                //     0.05,
                               ),
-                              child:
-                                  SvgPicture.asset('assets/images/twitter.svg'),
                             ),
                             SizedBox(
-                                width:
-                                    MediaQuery.of(context).size.width * 0.02),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(15),
-                                  bottomRight: Radius.circular(15),
-                                )),
-                                backgroundColor: primaryColor,
-                                padding: EdgeInsets.symmetric(
-                                    vertical:
+                              height: 10,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                    )),
+                                    backgroundColor: primaryColor,
+                                    minimumSize: Size(
+                                        MediaQuery.of(context).size.width *
+                                            0.15,
                                         MediaQuery.of(context).size.height *
-                                            0.02),
-                              ),
-                              child: SvgPicture.asset(
-                                  'assets/images/linkedin.svg'),
-                            ),
-                          ],
-                        )
-                      ]),
-                )
-              ],
+                                            0.062),
+                                  ),
+                                  child: SvgPicture.asset(
+                                      'assets/images/facebook.svg'),
+                                ),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.02),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                    )),
+                                    // padding: EdgeInsets.symmetric(
+                                    //   vertical:
+                                    //       MediaQuery.of(context).size.height * 0.02,
+                                    // ),
+                                    minimumSize: Size(
+                                        MediaQuery.of(context).size.width *
+                                            0.15,
+                                        MediaQuery.of(context).size.height *
+                                            0.062),
+                                    backgroundColor: primaryColor,
+                                  ),
+                                  child: SvgPicture.asset(
+                                      'assets/images/twitter.svg'),
+                                ),
+                                SizedBox(
+                                    width: MediaQuery.of(context).size.width *
+                                        0.02),
+                                TextButton(
+                                  onPressed: () {},
+                                  style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15),
+                                      bottomRight: Radius.circular(15),
+                                    )),
+                                    backgroundColor: primaryColor,
+                                    minimumSize: Size(
+                                        MediaQuery.of(context).size.width *
+                                            0.15,
+                                        MediaQuery.of(context).size.height *
+                                            0.062),
+                                  ),
+                                  child: SvgPicture.asset(
+                                      'assets/images/linkedin.svg'),
+                                ),
+                              ],
+                            )
+                          ]),
+                    )
+                  ],
+                ),
+              ]),
             ),
-          ]),
-        ),
-      ])),
+          ])),
     );
   }
 }
