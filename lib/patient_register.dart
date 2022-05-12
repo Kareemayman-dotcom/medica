@@ -18,7 +18,7 @@ class PatientRegister extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.to(getstarted_patient());
+        Get.to(patient_getstarted());
         return true;
       },
       child: Scaffold(

@@ -20,7 +20,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.to(getstarted_patient());
+        Get.to(patient_getstarted());
         return true;
       },
       child: Scaffold(
@@ -69,7 +69,14 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                         color: Colors.white,
                         fontFamily: 'Inter',
                         fontSize: MediaQuery.of(context).size.width * 0.06),
-                  )
+                  ),
+                  Divider(
+                    color: Color(0xffFEB197),
+                    indent: MediaQuery.of(context).size.width * 0.4,
+                    endIndent: MediaQuery.of(context).size.width * 0.4,
+                    height: 15,
+                    thickness: 2,
+                  ),
                 ],
               ),
             ),
@@ -176,7 +183,10 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     }
                                   },
                                   style: TextButton.styleFrom(
-                                    minimumSize: Size.fromHeight(50),
+                                    minimumSize: Size(
+                                        MediaQuery.of(context).size.width * 0.8,
+                                        MediaQuery.of(context).size.height *
+                                            0.06),
                                     // padding: EdgeInsets.symmetric(
                                     //   horizontal:
                                     //       MediaQuery.of(context).size.width * 0.35,

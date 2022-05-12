@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medica/doctor_getstarted.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/splash.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -48,15 +49,12 @@ class loginAs extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => getstarted_patient(),
-                            ));
+                        Get.to(patient_getstarted());
                       },
                       style: TextButton.styleFrom(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+                        minimumSize: Size(
+                            MediaQuery.of(context).size.width * 0.7,
+                            MediaQuery.of(context).size.width * 0.125),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(25),
@@ -77,15 +75,12 @@ class loginAs extends StatelessWidget {
                   ),
                   TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => Splash(),
-                            ));
+                        Get.to(doctor_getstarted());
                       },
                       style: TextButton.styleFrom(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 102, vertical: 13),
+                        minimumSize: Size(
+                            MediaQuery.of(context).size.width * 0.7,
+                            MediaQuery.of(context).size.width * 0.125),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                           topRight: Radius.circular(25),

@@ -2,18 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:medica/doctor_register.dart';
 import 'package:medica/loginType.dart';
-import 'package:medica/patient%20_login.dart';
+
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
-import 'package:medica/view/widgets/custom_text_button.dart';
+
 import 'package:medica/view/widgets/slider_para.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class patient_getstarted extends StatelessWidget {
+import 'doctor_login.dart';
+
+class doctor_getstarted extends StatelessWidget {
   List<Widget> cardList = [
     const sliderCard(
         text: 'Great',
@@ -73,11 +76,7 @@ class patient_getstarted extends StatelessWidget {
                     children: [
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PatientRegister(),
-                                ));
+                            Get.to(doctor_register());
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(
@@ -101,11 +100,7 @@ class patient_getstarted extends StatelessWidget {
                       ),
                       TextButton(
                           onPressed: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => PatientLogin(),
-                                ));
+                            Get.to(doctor_login());
                           },
                           style: TextButton.styleFrom(
                             padding: EdgeInsets.symmetric(
