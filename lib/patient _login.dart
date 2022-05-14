@@ -125,7 +125,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                 },
                                 validator: (value) {
                                   if (value == null) {
-                                    print("Error");
+                                    print("ERROR");
                                   }
                                 }),
                             const Divider(
@@ -153,13 +153,8 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   controller.password = value!;
                                 },
                                 validator: (value) {
-                                  confirmPass = value;
-                                  if (value!.isEmpty) {
-                                    return "Please Enter New Password";
-                                  } else if (value.length < 8) {
-                                    return "Password must be atleast 8 characters long";
-                                  } else {
-                                    return null;
+                                  if (value == null) {
+                                    print("ERROR");
                                   }
                                 }),
                             const Divider(
@@ -179,7 +174,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
 
                                     if (_formKey.currentState!.validate()) {
                                       controller
-                                          .createAccountWithEmailAndPassword();
+                                          .signInWithEmailAndPassword();
                                     }
                                   },
                                   style: TextButton.styleFrom(

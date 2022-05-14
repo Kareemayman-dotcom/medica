@@ -6,6 +6,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:medica/patient_getstarted.dart';
 
 class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
@@ -41,6 +42,22 @@ class AuthViewModel extends GetxController {
       idToken: googleSignInAuthentication?.idToken,
       accessToken: googleSignInAuthentication?.accessToken,
     );
+  }
+
+
+  void signInWithEmailAndPassword() async {
+    try {
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      Get.offAll(patient_getstarted());
+    } catch (FirebaseException) {
+      print(FirebaseException);
+      Get.snackbar(
+        'Error login account',
+        FirebaseException.toString(),
+        colorText: Colors.black,
+        snackPosition: SnackPosition.BOTTOM,
+      );
+    }
   }
 
   void createAccountWithEmailAndPassword() async {
