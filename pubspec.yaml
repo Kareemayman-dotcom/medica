@@ -48,7 +48,7 @@ dev_dependencies:
 flutter_native_splash:
   # background_image: "assets/images/splashBackground.png"
   color: "#ffffff"
-  image: "assets/images/Logo.png"
+  image: "assets/images/0.75x/cArtboard_3ldpi.png"
   android: true
   ios: true
   # The "flutter_lints" package below contains a set of recommended lints to
