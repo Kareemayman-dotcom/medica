@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:medica/helper/binding.dart';
-import 'package:medica/splash.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:medica/patient%20_login.dart';
 import 'loginType.dart';
 
 void main() async {

@@ -16,7 +16,6 @@ class loginAs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-
     return WillPopScope(
       onWillPop: () async {
         Get.back();
@@ -29,8 +28,8 @@ class loginAs extends StatelessWidget {
             myDefaultBackground(),
             Container(
                 decoration: BoxDecoration(
-                    backgroundBlendMode: BlendMode.luminosity,
-                    color: Colors.transparent,
+                    // backgroundBlendMode: BlendMode.luminosity,
+                    // color: Colors.black12,
                     image: DecorationImage(
                         image: AssetImage(
                             'assets/images/png/Selecting_Login_Type.png'),
@@ -39,6 +38,7 @@ class loginAs extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
+                  // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Image.asset('assets/images/LogoWhite.png'),
                     const SizedBox(
@@ -107,46 +107,6 @@ class loginAs extends StatelessWidget {
                     SizedBox(
                       height: size.height * 0.07,
                     ),
-                    // CustomButton(
-                    //   text: 'PATIENT',
-                    //   textStyle: const TextStyle(
-                    //     fontSize: 18,
-                    //     color: Colors.white,
-                    //     fontFamily: 'Inter',
-                    //     fontWeight: FontWeight.w800,
-                    //   ),
-                    //   onPressed: () {},
-                    //   borderRadius: const BorderRadius.only(
-                    //     topLeft: Radius.circular(25),
-                    //     bottomRight: Radius.circular(25),
-                    //   ),
-                    //   padding:
-                    //       const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
-                    //   backgroundclr: primaryColor,
-                    // ),
-                    // const SizedBox(
-                    //   height: 20,
-                    // ),
-                    // CustomButton(
-                    //   text: 'DOCTOR',
-                    //   textStyle: const TextStyle(
-                    //     fontSize: 18,
-                    //     color: Colors.white,
-                    //     fontFamily: 'Inter',
-                    //     fontWeight: FontWeight.w800,
-                    //   ),
-                    //   onPressed: () {
-                    //     // ignore: avoid_print
-                    //     print('CLICKEDDDDDDDDDDDDDDD');
-                    //   },
-                    //   borderRadius: const BorderRadius.only(
-                    //     topRight: Radius.circular(25),
-                    //     bottomLeft: Radius.circular(25),
-                    //   ),
-                    //   padding:
-                    //       const EdgeInsets.symmetric(horizontal: 102, vertical: 13),
-                    //   backgroundclr: secondaryColor,
-                    // ),
                   ],
                 ),
               ],

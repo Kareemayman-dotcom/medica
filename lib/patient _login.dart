@@ -173,8 +173,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     _formKey.currentState?.save();
 
                                     if (_formKey.currentState!.validate()) {
-                                      controller
-                                          .signInWithEmailAndPassword();
+                                      controller.signInWithEmailAndPassword();
                                     }
                                   },
                                   style: TextButton.styleFrom(
