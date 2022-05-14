@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 Widget myDefaultBackground() {
-  
   return Container(
       decoration: BoxDecoration(
           gradient: LinearGradient(

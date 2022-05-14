@@ -24,7 +24,8 @@ class doctor_register extends GetWidget<AuthViewModel> {
     final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     return WillPopScope(
       onWillPop: () async {
-        Get.to(doctor_getstarted());
+        // Get.to(doctor_getstarted());
+        Get.back();
         return true;
       },
       child: Scaffold(
@@ -34,7 +35,7 @@ class doctor_register extends GetWidget<AuthViewModel> {
         Container(
             decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/getstarted.png'),
+              image: AssetImage('assets/images/png/register.png'),
               fit: BoxFit.fill),
         )),
         Container(

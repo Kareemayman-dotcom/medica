@@ -31,7 +31,8 @@ class doctor_getstarted extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.to(loginAs());
+        // Get.to(loginAs());
+        Get.back();
         return true;
       },
       child: Scaffold(
@@ -42,7 +43,8 @@ class doctor_getstarted extends StatelessWidget {
             Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/images/getstarted.png'),
+                        image: AssetImage(
+                            'assets/images/png/login_register_select.png'),
                         fit: BoxFit.fill))),
             Stack(alignment: Alignment.bottomCenter, children: [
               Column(mainAxisAlignment: MainAxisAlignment.end, children: [

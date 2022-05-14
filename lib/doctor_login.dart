@@ -23,7 +23,8 @@ class doctor_login extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        Get.to(doctor_getstarted());
+        // Get.to(doctor_getstarted());
+        Get.back();
         return true;
       },
       child: Scaffold(
@@ -33,7 +34,7 @@ class doctor_login extends GetWidget<AuthViewModel> {
             Container(
                 decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/images/getstarted.png'),
+                  image: AssetImage('assets/images/png/Login.png'),
                   fit: BoxFit.fill),
             )),
             Container(
