@@ -15,6 +15,8 @@ class loginAs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return WillPopScope(
       onWillPop: () async {
         Get.back();
@@ -60,9 +62,8 @@ class loginAs extends StatelessWidget {
                           Get.to(patient_getstarted());
                         },
                         style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width * 0.7,
-                              MediaQuery.of(context).size.width * 0.125),
+                          minimumSize:
+                              Size(size.width * 0.7, size.width * 0.125),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(25),
@@ -86,9 +87,8 @@ class loginAs extends StatelessWidget {
                           Get.to(doctor_getstarted());
                         },
                         style: TextButton.styleFrom(
-                          minimumSize: Size(
-                              MediaQuery.of(context).size.width * 0.7,
-                              MediaQuery.of(context).size.width * 0.125),
+                          minimumSize:
+                              Size(size.width * 0.7, size.width * 0.125),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                             topRight: Radius.circular(25),
@@ -105,7 +105,7 @@ class loginAs extends StatelessWidget {
                                 fontWeight: FontWeight.w800,
                                 fontSize: 18))),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.07,
+                      height: size.height * 0.07,
                     ),
                     // CustomButton(
                     //   text: 'PATIENT',

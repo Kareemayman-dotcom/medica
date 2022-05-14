@@ -26,6 +26,8 @@ class patient_getstarted extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return WillPopScope(
       onWillPop: () async {
         // Get.to(loginAs());
@@ -48,9 +50,7 @@ class patient_getstarted extends StatelessWidget {
                 CustomPaint(
                   size: Size(
                       double.infinity,
-                      (MediaQuery.of(context).size.width *
-                              0.9 *
-                              0.657932839159359)
+                      (size.width * 0.9 * 0.657932839159359)
                           .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                   painter: WavyGetStarted(),
                 ),
@@ -68,7 +68,7 @@ class patient_getstarted extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.02,
+                    height: size.height * 0.02,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +95,7 @@ class patient_getstarted extends StatelessWidget {
                                   fontWeight: FontWeight.w800,
                                   fontSize: 14))),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.03,
+                        width: size.width * 0.03,
                       ),
                       TextButton(
                           onPressed: () {
@@ -121,18 +121,18 @@ class patient_getstarted extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: size.height * 0.05,
                   )
                 ],
               )
             ]),
             Column(children: [
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.09,
+                height: size.height * 0.09,
               ),
               Image.asset('assets/images/LogoWhite.png'),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.27,
+                height: size.height * 0.27,
               ),
               CarouselSlider(
                 items: cardList,

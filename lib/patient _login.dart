@@ -18,6 +18,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
   var confirmPass;
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () async {
         // Get.to(patient_getstarted());
@@ -36,7 +37,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
             )),
             Container(
               // padding: EdgeInsets.symmetric(
-              //   horizontal: MediaQuery.of(context).size.width * 0.05,
+              //   horizontal: size.width * 0.05,
               // ),
               // color: Colors.green,
               alignment: Alignment.center,
@@ -44,7 +45,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.05,
+                    height: size.height * 0.05,
                   ),
                   CustomText(
                     text: 'MEDICA',
@@ -55,26 +56,26 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.04,
+                    height: size.height * 0.04,
                   ),
                   SvgPicture.asset(
                     'assets/images/userLogin.svg',
-                    width: MediaQuery.of(context).size.width * 0.2,
+                    width: size.width * 0.2,
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.04,
+                    height: size.height * 0.04,
                   ),
                   CustomText(
                     text: 'Login to Continue',
                     textStyle: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Inter',
-                        fontSize: MediaQuery.of(context).size.width * 0.06),
+                        fontSize: size.width * 0.06),
                   ),
                   Divider(
                     color: Color(0xffFEB197),
-                    indent: MediaQuery.of(context).size.width * 0.4,
-                    endIndent: MediaQuery.of(context).size.width * 0.4,
+                    indent: size.width * 0.4,
+                    endIndent: size.width * 0.4,
                     height: 15,
                     thickness: 2,
                   ),
@@ -90,9 +91,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                     CustomPaint(
                       size: Size(
                           double.infinity,
-                          (MediaQuery.of(context).size.height *
-                                  0.45 *
-                                  1.6680872965861588)
+                          (size.height * 0.45 * 1.6680872965861588)
                               .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
                       painter: LnRCurve(),
                     ),
@@ -102,11 +101,11 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.666666,
+                      height: size.height * 0.666666,
                       // color: Colors.green,
                       padding: EdgeInsets.symmetric(
-                        vertical: MediaQuery.of(context).size.height * 0.06,
-                        horizontal: MediaQuery.of(context).size.width * 0.05,
+                        vertical: size.height * 0.06,
+                        horizontal: size.width * 0.05,
                       ),
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -137,7 +136,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                               thickness: 2,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.03,
+                              height: size.height * 0.03,
                             ),
                             CustomTextFromField(
                                 obscureText: true,
@@ -171,7 +170,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                               thickness: 2,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.03,
+                              height: size.height * 0.03,
                             ),
                             Container(
                               child: TextButton(
@@ -185,14 +184,12 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   },
                                   style: TextButton.styleFrom(
                                     minimumSize: Size(
-                                        MediaQuery.of(context).size.width * 0.8,
-                                        MediaQuery.of(context).size.height *
-                                            0.06),
+                                        size.width * 0.8, size.height * 0.06),
                                     // padding: EdgeInsets.symmetric(
                                     //   horizontal:
-                                    //       MediaQuery.of(context).size.width * 0.35,
+                                    //       size.width * 0.35,
                                     //   // double.infinity,
-                                    //   vertical: MediaQuery.of(context).size.height *
+                                    //   vertical: size.height *
                                     //       0.023,
                                     // ),
                                     shape: RoundedRectangleBorder(
@@ -211,7 +208,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                           fontSize: 14))),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
+                              height: size.height * 0.02,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -222,7 +219,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                       TextStyle(color: Color(0xff6D6487)),
                                 ),
                                 // SizedBox(
-                                //   width: MediaQuery.of(context).size.width * 0.001,
+                                //   width: size.width * 0.001,
                                 // ),
                                 TextButton(
                                   style: TextButton.styleFrom(
@@ -241,7 +238,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                               ],
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.03,
+                              height: size.height * 0.03,
                             ),
                             CustomText(
                               text:
@@ -250,14 +247,14 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                 color: Colors.grey,
                                 fontSize: 16,
                                 // (
-                                //   MediaQuery.of(context).size.width +
-                                //         MediaQuery.of(context).size.width) /
+                                //   size.width +
+                                //         size.width) /
                                 //     2 *
                                 //     0.05,
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.02,
+                              height: size.height * 0.02,
                             ),
                             CustomText(
                               text: 'Continue with',
@@ -265,8 +262,8 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                 color: Colors.grey,
                                 fontSize: 16,
                                 // (
-                                //   MediaQuery.of(context).size.width +
-                                //         MediaQuery.of(context).size.width) /
+                                //   size.width +
+                                //         size.width) /
                                 //     2 *
                                 //     0.05,
                               ),
@@ -287,17 +284,12 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     )),
                                     backgroundColor: primaryColor,
                                     minimumSize: Size(
-                                        MediaQuery.of(context).size.width *
-                                            0.15,
-                                        MediaQuery.of(context).size.height *
-                                            0.062),
+                                        size.width * 0.15, size.height * 0.062),
                                   ),
                                   child: SvgPicture.asset(
                                       'assets/images/facebook.svg'),
                                 ),
-                                SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.02),
+                                SizedBox(width: size.width * 0.02),
                                 TextButton(
                                   onPressed: () {},
                                   style: TextButton.styleFrom(
@@ -308,21 +300,16 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     )),
                                     // padding: EdgeInsets.symmetric(
                                     //   vertical:
-                                    //       MediaQuery.of(context).size.height * 0.02,
+                                    //       size.height * 0.02,
                                     // ),
                                     minimumSize: Size(
-                                        MediaQuery.of(context).size.width *
-                                            0.15,
-                                        MediaQuery.of(context).size.height *
-                                            0.062),
+                                        size.width * 0.15, size.height * 0.062),
                                     backgroundColor: primaryColor,
                                   ),
                                   child: SvgPicture.asset(
                                       'assets/images/twitter.svg'),
                                 ),
-                                SizedBox(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.02),
+                                SizedBox(width: size.width * 0.02),
                                 TextButton(
                                   onPressed: () {},
                                   style: TextButton.styleFrom(
@@ -333,10 +320,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     )),
                                     backgroundColor: primaryColor,
                                     minimumSize: Size(
-                                        MediaQuery.of(context).size.width *
-                                            0.15,
-                                        MediaQuery.of(context).size.height *
-                                            0.062),
+                                        size.width * 0.15, size.height * 0.062),
                                   ),
                                   child: SvgPicture.asset(
                                       'assets/images/linkedin.svg'),
