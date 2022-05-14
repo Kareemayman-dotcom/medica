@@ -71,7 +71,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                 height: size.height * 0.04,
               ),
               SvgPicture.asset(
-                'assets/images/userLogin.svg',
+                'assets/images/user_register.svg',
                 width: size.width * 0.2,
               ),
               SizedBox(
