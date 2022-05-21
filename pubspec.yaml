@@ -37,6 +37,7 @@ dependencies:
   get: ^4.6.1
   firebase_core: ^1.16.0
   firebase_auth: ^3.3.17
+  cloud_firestore: ^3.1.15
   flutter_facebook_auth: ^4.3.3
   flutter_svg: ^1.0.3
 
@@ -72,6 +73,7 @@ flutter:
     - assets/images/loginAsBg.png
     - assets/images/LogoWhite.png
     - assets/images/getstarted.png
+    - assets/images/Menu.png
     - assets/images/userLogin.svg
     - assets/images/user_register.svg
     - assets/images/facebook.svg

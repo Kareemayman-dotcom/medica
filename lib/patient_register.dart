@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/doctor_login.dart';
 import 'package:medica/patient_getstarted.dart';
+import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -259,7 +260,8 @@ class patient_register extends GetWidget<AuthViewModel> {
 
                                   if (_formKey.currentState!.validate()) {
                                     controller
-                                        .createAccountWithEmailAndPassword();
+                                        .createAccountWithEmailAndPassword(
+                                            );
                                   }
                                 },
                                 style: TextButton.styleFrom(
