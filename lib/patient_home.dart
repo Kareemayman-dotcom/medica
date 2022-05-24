@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_register.dart';
+import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
@@ -70,7 +71,7 @@ class patient_home extends StatelessWidget {
                       double.infinity,
                       (size.height * 0.45 * 1.9280575539568345)
                           .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: LnRCurve(),
+                  painter: HomeCurve(),
                 ),
               ]),
             ]),
