@@ -1,5 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe
 
+import 'dart:ffi';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,14 +14,34 @@ import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
+import 'package:medica/view/widgets/depts.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_home extends StatelessWidget {
+  // final numbers = List.generate(100, (index) => '$index');
+
+  List depts = [
+    const Depts(
+      deptName: 'Cardio',
+      icon: 'assets/images/depts/Cardio.png',
+    ),
+    const Depts(
+      deptName: 'Biochem',
+      icon: 'assets/images/depts/BioChem.png',
+    ),
+    const Depts(
+      deptName: 'Research',
+      icon: 'assets/images/depts/Research.png',
+    ),
+    const Depts(
+      deptName: 'Neurology',
+      icon: 'assets/images/depts/Neurology.png',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-
     return WillPopScope(
       onWillPop: () async {
         // Get.to(loginAs());
@@ -34,11 +56,9 @@ class patient_home extends StatelessWidget {
             Container(
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage(
-                            'assets/images/png/register.png'),
+                        image: AssetImage('assets/images/png/register.png'),
                         fit: BoxFit.fill))),
-
-                        Container(
+            Container(
               // padding: EdgeInsets.symmetric(
               //   horizontal: size.width * 0.05,
               // ),
@@ -50,15 +70,16 @@ class patient_home extends StatelessWidget {
                   SizedBox(
                     height: size.height * 0.06,
                   ),
-                  Row(mainAxisAlignment: MainAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                    SizedBox(
-                    width: size.width * 0.09,
-                  ),
-                    Image.asset('assets/images/Menu.png'),
-                    SizedBox(
-                    width: size.width * 0.09,
-                  ),
+                      SizedBox(
+                        width: size.width * 0.09,
+                      ),
+                      Image.asset('assets/images/Menu.png'),
+                      SizedBox(
+                        width: size.width * 0.09,
+                      ),
                     ],
                   ),
                 ],
@@ -74,10 +95,452 @@ class patient_home extends StatelessWidget {
                   painter: HomeCurve(),
                 ),
               ]),
+              Container(
+                  alignment: Alignment.topCenter,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          top: size.height * 0.26,
+                          right: size.width * 0.08,
+                          left: size.width * 0.08,
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // crossAxisAlignment: CrossAxisAlignment.baseline,
+                              // ignore: prefer_const_literals_to_create_immutables
+                              children: [
+                                CustomText(
+                                  text: 'Departments',
+                                  textStyle: TextStyle(
+                                      color: primaryColor,
+                                      fontSize: 18,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Row(
+                                      children: [
+                                        CustomText(
+                                          text: ' VIEW MORE',
+                                          textStyle: TextStyle(
+                                            color: primaryColorOutOfFocus,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: size.width * 0.04,
+                                        ),
+                                        SvgPicture.asset(
+                                            'assets/images/view_more_arrow.svg')
+                                      ],
+                                    ))
+                              ],
+                            ),
+                            // SizedBox(
+                            //   height: size.height * 0.01,
+                            // ),
+                            Wrap(spacing: 10, children: [
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: size.height * 0.01),
+                                child: depts[0],
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: size.height * 0.01),
+                                child: depts[1],
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: size.height * 0.01),
+                                child: depts[2],
+                              ),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(bottom: size.height * 0.01),
+                                child: depts[3],
+                              ),
+                            ]),
+                            SizedBox(
+                              height: size.height * 0.025,
+                            ),
+                            TextButton(
+                                style: TextButton.styleFrom(
+                                    maximumSize: Size(
+                                        double.infinity, size.height * 0.085),
+                                    minimumSize: Size(
+                                        double.infinity, size.height * 0.085),
+                                    // minimumSize: ,
+                                    // foregroundColor: secondaryColor,
+                                    backgroundColor: secondaryColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15)))),
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: size.width * 0.03),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SvgPicture.asset(
+                                          'assets/images/meds.svg'),
+                                      CustomText(
+                                        text: 'Buy Medicines &',
+                                        textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'Inter',
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 18),
+                                      ),
+                                      Container(
+                                        child: Image.asset(
+                                            'assets/images/whiteArrow.png'),
+                                        height: 35,
+                                        width: 35,
+                                        decoration: BoxDecoration(
+                                            color: primaryColor,
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(50))),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                            SizedBox(
+                              height: size.height * 0.015,
+                            ),
+                            TextButton(
+                                style: TextButton.styleFrom(
+                                    maximumSize: Size(
+                                        double.infinity, size.height * 0.085),
+                                    minimumSize: Size(
+                                        double.infinity, size.height * 0.085),
+                                    // foregroundColor: secondaryColor,
+                                    backgroundColor: secondaryColor,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(15)))),
+                                onPressed: () {},
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: size.width * 0.03),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      SvgPicture.asset(
+                                          'assets/images/search-for-symptoms.svg'),
+                                      CustomText(
+                                        text: 'Know about symptoms',
+                                        textStyle: TextStyle(
+                                            color: Colors.white,
+                                            fontFamily: 'Inter',
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 19),
+                                      ),
+                                      Container(
+                                        child: Image.asset(
+                                            'assets/images/whiteArrow.png'),
+                                        height: 35,
+                                        width: 35,
+                                        decoration: BoxDecoration(
+                                            color: primaryColor,
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(50))),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                            SizedBox(height: size.height * 0.02),
+                            Container(
+                              decoration: BoxDecoration(boxShadow: [
+                                BoxShadow(
+                                    color: primaryColorShadow,
+                                    blurRadius: 70,
+                                    spreadRadius: 15,
+                                    // blurStyle: BlurStyle.normalc,
+                                    offset: Offset(0, 60))
+                              ]),
+                              child: Wrap(
+                                spacing: 20,
+                                children: [
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        backgroundColor: Colors.white,
+                                        minimumSize: Size(size.width * 0.38,
+                                            size.height * 0.215),
+                                        maximumSize: Size(size.width * 0.38,
+                                            size.height * 0.215),
+                                      ),
+                                      onPressed: () {},
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Container(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                        'assets/images/Map.svg')
+                                                  ],
+                                                ),
+                                                height: 30,
+                                                width: 30,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                50)),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                          color: Colors.black12,
+                                                          blurRadius: 2,
+                                                          spreadRadius: 1,
+                                                          offset:
+                                                              Offset(0, 1.5))
+                                                    ]),
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.1,
+                                          ),
+                                          Row(
+                                            children: [
+                                              CustomText(
+                                                text: 'Find Doctors',
+                                                textStyle: TextStyle(
+                                                    fontSize: 15,
+                                                    fontFamily: 'Inter',
+                                                    fontWeight: FontWeight.w600,
+                                                    color: primaryColor),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              CustomText(
+                                                text: 'The points of using to',
+                                                textStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Inter',
+                                                    color: secondaryTextColor),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      )),
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        backgroundColor: Colors.white,
+                                        minimumSize: Size(size.width * 0.38,
+                                            size.height * 0.215),
+                                        maximumSize: Size(size.width * 0.38,
+                                            size.height * 0.215),
+                                      ),
+                                      onPressed: () {},
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Container(
+                                                child: Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                        'assets/images/video.svg')
+                                                  ],
+                                                ),
+                                                height: 30,
+                                                width: 30,
+                                                decoration: BoxDecoration(
+                                                    color: Colors.white,
+                                                    borderRadius:
+                                                        BorderRadius.all(
+                                                            Radius.circular(
+                                                                50)),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                          color: Colors.black12,
+                                                          blurRadius: 2,
+                                                          spreadRadius: 1,
+                                                          offset:
+                                                              Offset(0, 1.5))
+                                                    ]),
+                                              )
+                                            ],
+                                          ),
+                                          SizedBox(
+                                            height: size.height * 0.1,
+                                          ),
+                                          Row(
+                                            children: [
+                                              CustomText(
+                                                text: 'Online Consult!',
+                                                textStyle: TextStyle(
+                                                    fontSize: 15,
+                                                    fontFamily: 'Inter',
+                                                    fontWeight: FontWeight.w600,
+                                                    color: primaryColor),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            children: [
+                                              CustomText(
+                                                text: 'The points of using to',
+                                                textStyle: TextStyle(
+                                                    fontSize: 12,
+                                                    fontFamily: 'Inter',
+                                                    color: secondaryTextColor),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      )),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
             ]),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  // padding: EdgeInsets.only(
+                  //   top: size.height * 0.02,
+                  //   right: size.width * 0.1,
+                  //   left: size.width * 0.1,
+                  // ),
+                  width: double.infinity,
+                  height: size.height * 0.080,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      )),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: size.width * 0.04),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'assets/images/homeNavBarHome.svg'),
+                              SizedBox(
+                                height: size.height * 0.008,
+                              ),
+                              CustomText(
+                                text: 'Home',
+                                textStyle: TextStyle(color: linkColor),
+                              )
+                            ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'assets/images/clipboardNavBarHome.svg',
+                                  color: primaryColorOutOfFocus),
+                              SizedBox(
+                                height: size.height * 0.008,
+                              ),
+                              CustomText(
+                                text: 'Consul',
+                                textStyle:
+                                    TextStyle(color: primaryColorOutOfFocus),
+                              )
+                            ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'assets/images/message-circleNavBarHome.svg',
+                                  color: primaryColorOutOfFocus),
+                              SizedBox(
+                                height: size.height * 0.008,
+                              ),
+                              CustomText(
+                                text: 'Chat',
+                                textStyle:
+                                    TextStyle(color: primaryColorOutOfFocus),
+                              )
+                            ],
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SvgPicture.asset(
+                                  'assets/images/UserNavBarHome.svg',
+                                  color: primaryColorOutOfFocus),
+                              SizedBox(
+                                height: size.height * 0.008,
+                              ),
+                              CustomText(
+                                text: 'Profile',
+                                textStyle:
+                                    TextStyle(color: primaryColorOutOfFocus),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
+
+//   Widget buildGridView() => GridView.builder(
+//         gridDelegate:
+//             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+//         itemCount: numbers.length,
+//         itemBuilder: (context, index) {
+//           final item = numbers[index];
+//           return buildNumber(item);
+//         },
+//       );
+//   Widget buildNumber(String number) => Container(
+//     child: GridTile(header: Text,),
+//   );
 }

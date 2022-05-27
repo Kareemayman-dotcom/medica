@@ -40,6 +40,7 @@ dependencies:
   cloud_firestore: ^3.1.15
   flutter_facebook_auth: ^4.3.3
   flutter_svg: ^1.0.3
+  flutter_staggered_grid_view: ^0.4.0
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/splashBackground.png
+    - assets/images/view_more_arrow.svg
     - assets/images/logo.png
     - assets/images/loginAsBg.png
     - assets/images/LogoWhite.png
@@ -84,6 +86,19 @@ flutter:
     - assets/images/png/login_register_select.png
     - assets/images/png/register.png
     - assets/images/png/Selecting_Login_Type.png
+    - assets/images/depts/BioChem.png
+    - assets/images/depts/Cardio.png
+    - assets/images/depts/Neurology.png
+    - assets/images/depts/Research.png
+    - assets/images/meds.svg
+    - assets/images/whiteArrow.png
+    - assets/images/search-for-symptoms.svg
+    - assets/images/Map.svg
+    - assets/images/video.svg
+    - assets/images/clipboardNavBarHome.svg
+    - assets/images/homeNavBarHome.svg
+    - assets/images/message-circleNavBarHome.svg
+    - assets/images/UserNavBarHome.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:

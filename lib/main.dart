@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:medica/helper/binding.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:medica/patient%20_login.dart';
+import 'package:medica/patient_home.dart';
 import 'loginType.dart';
 
 void main() async {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
-      home: loginAs(),
+      home: patient_home(),
     );
   }
 }
