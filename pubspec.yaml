@@ -76,6 +76,7 @@ flutter:
     - assets/images/LogoWhite.png
     - assets/images/getstarted.png
     - assets/images/Menu.png
+    - assets/images/Notify.png
     - assets/images/userLogin.svg
     - assets/images/user_register.svg
     - assets/images/facebook.svg

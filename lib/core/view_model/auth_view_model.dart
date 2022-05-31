@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_overrides, prefer_final_fields, avoid_print, unused_import, unnecessary_null_comparison, prefer_if_null_operators
+// ignore_for_file: unnecessary_overrides, prefer_final_fields, avoid_print, unused_import, unnecessary_null_comparison, prefer_if_null_operators, await_only_futures, non_constant_identifier_names
 // ignore_for_file: todo
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,12 +12,24 @@ import 'package:medica/patient_getstarted.dart';
 import '../../patient_home.dart';
 
 class AuthViewModel extends GetxController {
-  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
-  FirebaseAuth _auth = FirebaseAuth.instance;
-   late String email, password, name;
-   Rxn<User> _user = Rxn<User>();
-   String? get user => _user.value?.email;
+  late String _get_name;
 
+  String get get_name => _get_name;
+
+  set get_name(String get_name) {
+    _get_name = get_name;
+  }
+  late String email, password, name;
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+  Rxn<User> _user = Rxn<User>();
+
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
+  }
 
   @override
   void onInit() {
@@ -31,11 +43,7 @@ class AuthViewModel extends GetxController {
     super.onReady();
   }
 
-  @override
-  void onClose() {
-    // TODO: implement onClose
-    super.onClose();
-  }
+  String? get user => _user.value?.email;
 
   void googleSignInMethod() async {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
@@ -48,7 +56,6 @@ class AuthViewModel extends GetxController {
       accessToken: googleSignInAuthentication?.accessToken,
     );
   }
-
 
   void signInWithEmailAndPassword() async {
     try {
@@ -67,15 +74,34 @@ class AuthViewModel extends GetxController {
 
   void createAccountWithEmailAndPassword() async {
     try {
-      await _auth.createUserWithEmailAndPassword(
-          email: email, password: password).then((_user){
-            FirebaseFirestore.instance.collection('Users').doc(_user.user!.uid).set({
-                          'uid': _user.user?.uid,
-                          'email': email,
-                          'password': password,
-                          'name': name });
-          });
-          Get.offAll(patient_home());
+      await _auth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((_user) {
+        FirebaseFirestore.instance
+            .collection('Users')
+            .doc(_user.user!.uid)
+            .set({
+          'uid': _user.user?.uid,
+          'email': email,
+          'password': password,
+          'name': name
+        });
+      });
+      Get.offAll(patient_home());
     } catch (firebaseAuthException) {}
+  }
+
+  void getCurrentUserData() async {
+    try {
+      User? user = await FirebaseAuth.instance.currentUser;
+      DocumentSnapshot ds = await FirebaseFirestore.instance
+          .collection('Users')
+          .doc(user?.uid)
+          .get()
+          .then((ds) => get_name = ds.get('name'));
+      print(get_name);
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }

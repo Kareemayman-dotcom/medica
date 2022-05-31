@@ -1,5 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, await_only_futures
 
+import 'dart:core';
 import 'dart:ffi';
 
 import 'package:carousel_slider/carousel_slider.dart';
@@ -14,13 +15,12 @@ import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
+import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/depts.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_home extends StatelessWidget {
-  // final numbers = List.generate(100, (index) => '$index');
-
   List depts = [
     const Depts(
       deptName: 'Cardio',
@@ -39,6 +39,22 @@ class patient_home extends StatelessWidget {
       icon: 'assets/images/depts/Neurology.png',
     ),
   ];
+
+  // final numbers = List.generate(100, (index) => '$index');
+
+//   Widget buildGridView() => GridView.builder(
+//         gridDelegate:
+//             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+//         itemCount: numbers.length,
+//         itemBuilder: (context, index) {
+//           final item = numbers[index];
+//           return buildNumber(item);
+//         },
+//       );
+//   Widget buildNumber(String number) => Container(
+//     child: GridTile(header: Text,),
+//   );
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -78,10 +94,45 @@ class patient_home extends StatelessWidget {
                       ),
                       Image.asset('assets/images/Menu.png'),
                       SizedBox(
-                        width: size.width * 0.09,
+                        width: size.width * 0.19,
                       ),
+                      CustomText(
+                        text: "USERNAME",
+                        textStyle: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontFamily: 'Inter',
+                            fontWeight: FontWeight.w600),
+                      ),
+                       SizedBox(
+                        width: size.width * 0.19,
+                      ),
+                      Image.asset('assets/images/Notify.png')
                     ],
                   ),
+                  SizedBox(
+                        height: size.height * 0.03,
+                      ),
+                  TextFormField(
+                            cursorColor: Colors.white,
+                            decoration: InputDecoration(
+                              hintText: 'What are you looking for?',
+                              hintStyle: TextStyle(color: Colors.white),
+                              fillColor: Colors.white,
+                              border: InputBorder.none,
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: Colors.white,
+                              ),
+                            ),
+                        ),
+                        Divider(
+                          color: Colors.white,
+                          indent: size.width * 0.04,
+                          endIndent: size.width * 0.04,
+                          thickness: 1,
+                          height: 1,
+                        ),
                 ],
               ),
             ),
@@ -530,17 +581,4 @@ class patient_home extends StatelessWidget {
       ),
     );
   }
-
-//   Widget buildGridView() => GridView.builder(
-//         gridDelegate:
-//             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-//         itemCount: numbers.length,
-//         itemBuilder: (context, index) {
-//           final item = numbers[index];
-//           return buildNumber(item);
-//         },
-//       );
-//   Widget buildNumber(String number) => Container(
-//     child: GridTile(header: Text,),
-//   );
 }
