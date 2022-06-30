@@ -1,8 +1,5 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, await_only_futures, unnecessary_new, empty_constructor_bodies
 
-import 'dart:core';
-import 'dart:ffi';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +64,7 @@ class patient_home extends StatelessWidget {
         return true;
       },
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Stack(
           alignment: Alignment.center,
           children: [
@@ -89,15 +87,9 @@ class patient_home extends StatelessWidget {
                     height: size.height * 0.06,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      SizedBox(
-                        width: size.width * 0.09,
-                      ),
                       Image.asset('assets/images/Menu.png'),
-                      SizedBox(
-                        width: size.width * 0.19,
-                      ),
                       CustomText(
                         text: name,
                         textStyle: TextStyle(
@@ -106,35 +98,32 @@ class patient_home extends StatelessWidget {
                             fontFamily: 'Inter',
                             fontWeight: FontWeight.w600),
                       ),
-                       SizedBox(
-                        width: size.width * 0.19,
-                      ),
                       Image.asset('assets/images/Notify.png')
                     ],
                   ),
                   SizedBox(
-                        height: size.height * 0.03,
-                      ),
+                    height: size.height * 0.03,
+                  ),
                   TextFormField(
-                            cursorColor: Colors.white,
-                            decoration: InputDecoration(
-                              hintText: 'What are you looking for?',
-                              hintStyle: TextStyle(color: Colors.white),
-                              fillColor: Colors.white,
-                              border: InputBorder.none,
-                              prefixIcon: Icon(
-                                Icons.search,
-                                color: Colors.white,
-                              ),
-                            ),
-                        ),
-                        Divider(
-                          color: Colors.white,
-                          indent: size.width * 0.04,
-                          endIndent: size.width * 0.04,
-                          thickness: 1,
-                          height: 1,
-                        ),
+                    cursorColor: Colors.white,
+                    decoration: InputDecoration(
+                      hintText: 'What are you looking for?',
+                      hintStyle: TextStyle(color: Colors.white),
+                      fillColor: Colors.white,
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        Icons.search,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  Divider(
+                    color: Colors.white,
+                    indent: size.width * 0.04,
+                    endIndent: size.width * 0.06,
+                    thickness: 1,
+                    height: 1,
+                  ),
                 ],
               ),
             ),
@@ -160,6 +149,9 @@ class patient_home extends StatelessWidget {
                         ),
                         child: Column(
                           children: [
+                            // SizedBox(
+                            //   height: size.height * 0.01,
+                            // ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               // crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -173,25 +165,10 @@ class patient_home extends StatelessWidget {
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w600),
                                 ),
-                                TextButton(
-                                    onPressed: () {},
-                                    child: Row(
-                                      children: [
-                                        CustomText(
-                                          text: ' VIEW MORE',
-                                          textStyle: TextStyle(
-                                            color: primaryColorOutOfFocus,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: size.width * 0.04,
-                                        ),
-                                        SvgPicture.asset(
-                                            'assets/images/view_more_arrow.svg')
-                                      ],
-                                    ))
                               ],
+                            ),
+                            SizedBox(
+                              height: size.height * 0.02,
                             ),
                             // SizedBox(
                             //   height: size.height * 0.01,
@@ -527,7 +504,7 @@ class patient_home extends StatelessWidget {
                                 height: size.height * 0.008,
                               ),
                               CustomText(
-                                text: 'Consul',
+                                text: 'Consult',
                                 textStyle:
                                     TextStyle(color: primaryColorOutOfFocus),
                               )
