@@ -59,7 +59,7 @@ class loginAs extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(patient_getstarted());
+                          Get.to(() => patient_getstarted());
                         },
                         style: TextButton.styleFrom(
                           minimumSize:
@@ -84,7 +84,7 @@ class loginAs extends StatelessWidget {
                     ),
                     TextButton(
                         onPressed: () {
-                          Get.to(doctor_getstarted());
+                          Get.to(() => doctor_getstarted());
                         },
                         style: TextButton.styleFrom(
                           minimumSize:

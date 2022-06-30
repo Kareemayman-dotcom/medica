@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/doctor_login.dart';
+import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
@@ -308,7 +309,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                                     // minimumSize: Size(1, 1)
                                     ),
                                 onPressed: () {
-                                  Get.to(doctor_login());
+                                  Get.to(PatientLogin());
                                 },
                                 child: CustomText(
                                   text: "Login",

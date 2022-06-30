@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_overrides, prefer_final_fields, avoid_print, unused_import, unnecessary_null_comparison, prefer_if_null_operators, await_only_futures, non_constant_identifier_names
+// ignore_for_file: unnecessary_overrides, prefer_final_fields, avoid_print, unused_import, unnecessary_null_comparison, prefer_if_null_operators, await_only_futures, non_constant_identifier_names, curly_braces_in_flow_control_structures, unnecessary_getters_setters
 // ignore_for_file: todo
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +12,7 @@ import 'package:medica/patient_getstarted.dart';
 import '../../patient_home.dart';
 
 class AuthViewModel extends GetxController {
-  late String _get_name;
+  late String _get_name = "USERNAME";
 
   String get get_name => _get_name;
 
@@ -29,12 +29,13 @@ class AuthViewModel extends GetxController {
   void onClose() {
     // TODO: implement onClose
     super.onClose();
-  }
+}
 
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+    get_name;
   }
 
   @override
@@ -58,9 +59,21 @@ class AuthViewModel extends GetxController {
   }
 
   void signInWithEmailAndPassword() async {
+        get_name = "...";
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.offAll(patient_home());
+       FirebaseFirestore.instance
+          .collection('Users')
+          .doc((await FirebaseAuth.instance.currentUser)?.uid)
+          .get()
+          .then((ds) {
+        get_name = ds.get('name').toString();
+        print(get_name);
+        Get.offAll(() => patient_home(get_name = ds.get('name')));
+      }).catchError((e) {
+        print(e);
+      });
+       
     } catch (FirebaseException) {
       print(FirebaseException);
       Get.snackbar(
@@ -87,21 +100,25 @@ class AuthViewModel extends GetxController {
           'name': name
         });
       });
-      Get.offAll(patient_home());
+      Get.offAll(() => patient_home(name));
     } catch (firebaseAuthException) {}
   }
 
+/*
   void getCurrentUserData() async {
-    try {
-      User? user = await FirebaseAuth.instance.currentUser;
-      DocumentSnapshot ds = await FirebaseFirestore.instance
+        final firebaseUser = await FirebaseAuth.instance.currentUser!;
+    if (firebaseUser != null)
+      await FirebaseFirestore.instance
           .collection('Users')
-          .doc(user?.uid)
+          .doc(firebaseUser.uid)
           .get()
-          .then((ds) => get_name = ds.get('name'));
-      print(get_name);
-    } catch (e) {
-      print(e.toString());
-    }
+          .then((ds) {
+        get_name = ds.get('name');
+        print(get_name);
+      }).catchError((e) {
+        print(e);
+      });
   }
+  */
 }
+

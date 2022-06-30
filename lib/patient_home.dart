@@ -1,4 +1,4 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, await_only_futures
+// ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, await_only_futures, unnecessary_new, empty_constructor_bodies
 
 import 'dart:core';
 import 'dart:ffi';
@@ -21,6 +21,8 @@ import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_home extends StatelessWidget {
+  String name;
+  patient_home(this.name);
   List depts = [
     const Depts(
       deptName: 'Cardio',
@@ -97,7 +99,7 @@ class patient_home extends StatelessWidget {
                         width: size.width * 0.19,
                       ),
                       CustomText(
-                        text: "USERNAME",
+                        text: name,
                         textStyle: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
