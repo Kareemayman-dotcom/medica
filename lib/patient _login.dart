@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, unused_field
+// ignore_for_file: prefer_const_constructors, unused_field, unused_import, invalid_use_of_protected_member
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_home.dart';
@@ -13,10 +14,20 @@ import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/my_flutter_app_icons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class PatientLogin extends GetWidget<AuthViewModel> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var confirmPass;
+  bool keepMeLoggedIn = false;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final CheckController ctrl = Get.put(CheckController());
+
+  void keepUserLoggedIn() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setBool(k_keepMeLoggedIn, ctrl.checkbool.value);
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -174,6 +185,9 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     _formKey.currentState?.save();
 
                                     if (_formKey.currentState!.validate()) {
+                                      if(ctrl.checkbool.value == true){
+                                        keepUserLoggedIn();
+                                      }
                                       controller.signInWithEmailAndPassword();
                                     }
                                   },
@@ -203,7 +217,31 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                           fontSize: 14))),
                             ),
                             SizedBox(
-                              height: size.height * 0.02,
+                              height: size.height * 0.001,
+                            ),
+                            Row(
+                              children: <Widget> [
+                                Theme(
+                                  data: ThemeData(unselectedWidgetColor: primaryColor),
+                                  child:  Obx(()=> Checkbox( 
+                                    checkColor: primaryColor,
+                                    activeColor: secondaryColor,
+                                    value: ctrl.checkbool.value,
+                                    onChanged: (value)
+                                  {
+                                      ctrl.checkbool.value = !ctrl.checkbool.value;
+                                      print(ctrl.checkbool.value);
+                                  },
+                                  ),
+                                  ),
+                                ),
+                                CustomText(text: "Remember Me ", 
+                                textStyle: TextStyle(
+                                          color: Color(0xff300C92),
+                                          fontFamily: 'Inter',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14)),
+                              ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -331,4 +369,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
           ])),
     );
   }
+}
+class CheckController extends GetxController{
+  var checkbool = false.obs;
 }

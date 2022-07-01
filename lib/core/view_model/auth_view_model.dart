@@ -12,7 +12,7 @@ import 'package:medica/patient_getstarted.dart';
 import '../../patient_home.dart';
 
 class AuthViewModel extends GetxController {
-  late String _get_name = "USERNAME";
+  late String _get_name = "NAME";
 
   String get get_name => _get_name;
 
@@ -69,7 +69,7 @@ class AuthViewModel extends GetxController {
           .then((ds) {
         get_name = ds.get('name').toString();
         print(get_name);
-        Get.offAll(() => patient_home(get_name = ds.get('name')));
+        Get.offAll(() => patient_home.withuser(get_name = ds.get('name')));
       }).catchError((e) {
         print(e);
       });
@@ -100,7 +100,7 @@ class AuthViewModel extends GetxController {
           'name': name
         });
       });
-      Get.offAll(() => patient_home(name));
+      Get.offAll(() => patient_home.withuser(name));
     } catch (firebaseAuthException) {}
   }
 

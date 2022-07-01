@@ -18,8 +18,17 @@ import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_home extends StatelessWidget {
-  String name;
-  patient_home(this.name);
+  String _name;
+
+  String get name => _name;
+
+  set name(String name) {
+    _name = name;
+  }
+  patient_home() : _name = "DEFAULT";
+  patient_home.withuser(this._name);
+  
+
   List depts = [
     const Depts(
       deptName: 'Cardio',
