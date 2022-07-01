@@ -14,27 +14,24 @@ import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/depts.dart';
+import 'package:medica/view/widgets/symptom_card.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_symptoms extends StatelessWidget {
-  List depts = [
-    const Depts(
-      deptName: 'Cardio',
-      icon: 'assets/images/depts/Cardio.png',
-    ),
-    const Depts(
-      deptName: 'Biochem',
-      icon: 'assets/images/depts/BioChem.png',
-    ),
-    const Depts(
-      deptName: 'Research',
-      icon: 'assets/images/depts/Research.png',
-    ),
-    const Depts(
-      deptName: 'Neurology',
-      icon: 'assets/images/depts/Neurology.png',
-    ),
+  List symptoms = [
+    symptomCard(
+        primary: 'Wear Mask Compulsory',
+        secondary: 'The point of using Lor Ipsum normal of letters...'),
+    symptomCard(
+        primary: 'Use Sanitizer',
+        secondary: 'The point of using Lor Ipsum normal of letters...'),
+    symptomCard(
+        primary: 'Regular Hand Wash',
+        secondary: 'The point of using Lor Ipsum normal of letters...'),
+    symptomCard(
+        primary: 'Check Temperature',
+        secondary: 'The point of using Lor Ipsum normal of letters...'),
   ];
 
   // final numbers = List.generate(100, (index) => '$index');
@@ -157,42 +154,21 @@ class patient_symptoms extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.025,
+                      height: size.height * 0.012,
                     ),
-                    TextButton(
-                        onPressed: () {},
-                        style: TextButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            minimumSize:
-                                Size(double.infinity, size.height * 0.09),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                            padding: EdgeInsets.all(10)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Container(
-                              height: size.height * 0.12,
-                              width: size.width * 0.3,
-                              decoration: BoxDecoration(
-                                color: Color(0xffF2EEFD),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                            Container(
-                              width: size.width * 0.44,
-                              child: Column(
-                                children: [
-                                  CustomText(
-                                    text: 'wear mask compulsory',
-                                    textStyle: TextStyle(),
-                                  )
-                                ],
-                              ),
-                            )
-                          ],
-                        ))
+                    symptoms[0],
+                    SizedBox(
+                      height: size.height * 0.012,
+                    ),
+                    symptoms[1],
+                    SizedBox(
+                      height: size.height * 0.012,
+                    ),
+                    symptoms[2],
+                    SizedBox(
+                      height: size.height * 0.012,
+                    ),
+                    symptoms[3],
                   ],
                 ),
               )
