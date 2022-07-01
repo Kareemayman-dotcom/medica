@@ -50,6 +50,7 @@ class symptomCard extends StatelessWidget {
                 children: [
                   CustomText(
                     text: primary,
+                    textAlign: TextAlign.left,
                     textStyle: TextStyle(
                       color: primaryColor,
                       fontSize: 16,
@@ -58,10 +59,11 @@ class symptomCard extends StatelessWidget {
                   ),
                   CustomText(
                     text: secondary,
+                    textAlign: TextAlign.left,
                     textStyle: TextStyle(
-                        color: Colors.grey, fontSize: 13, fontFamily: 'Inter'
-                        // fontWeight: FontWeight.w600,
-                        ),
+                      color: Colors.grey, fontSize: 13, fontFamily: 'Inter',
+                      // fontWeight: FontWeight.w600,
+                    ),
                   ),
                   SizedBox(
                     height: size.height * 0.02,
