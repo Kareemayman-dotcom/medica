@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
+import 'package:medica/patient_book.dart';
+import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/patient_symptoms.dart';
 import 'package:medica/patient_consult.dart';
@@ -72,7 +74,7 @@ class patient_home extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async {
         // Get.to(loginAs());
-        Get.back();
+        Get.to(() => patient_getstarted());
         return true;
       },
       child: Scaffold(
@@ -233,7 +235,7 @@ class patient_home extends StatelessWidget {
                                       SvgPicture.asset(
                                           'assets/images/meds.svg'),
                                       CustomText(
-                                        text: 'Buy Medicines &',
+                                        text: 'Buy Medicines',
                                         textStyle: TextStyle(
                                             color: Colors.white,
                                             fontFamily: 'Inter',
@@ -505,7 +507,7 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(() => patient_consult());},
+                          onPressed: () {Get.to(() => patient_book());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

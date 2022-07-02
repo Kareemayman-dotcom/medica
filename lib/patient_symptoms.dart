@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
+import 'package:medica/patient_book.dart';
 import 'package:medica/patient_consult.dart';
 import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
@@ -216,7 +217,7 @@ class patient_symptoms extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(() => patient_consult());},
+                          onPressed: () {Get.to(() => patient_book());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

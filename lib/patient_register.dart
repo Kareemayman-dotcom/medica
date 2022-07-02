@@ -1,4 +1,6 @@
-// ignore_for_file: prefer_const_constructors, unused_field
+// ignore_for_file: prefer_const_constructors, unused_field, prefer_const_literals_to_create_immutables
+
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,6 +23,7 @@ import 'doctor_getstarted.dart';
 class patient_register extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final AuthViewModel avm = Get.put(AuthViewModel());
+  late File _pickedImage;
   var confirmPass;
   @override
   Widget build(BuildContext context) {
@@ -56,46 +59,6 @@ class patient_register extends GetWidget<AuthViewModel> {
           // ),
           // color: Colors.green,
           alignment: Alignment.center,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: size.height * 0.05,
-              ),
-              CustomText(
-                text: 'MEDICA',
-                textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32,
-                    fontFamily: 'Inter',
-                    fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                height: size.height * 0.04,
-              ),
-              SvgPicture.asset(
-                'assets/images/user_register.svg',
-                width: size.width * 0.2,
-              ),
-              SizedBox(
-                height: size.height * 0.04,
-              ),
-              CustomText(
-                text: 'Register to Continue',
-                textStyle: TextStyle(
-                    color: Colors.white,
-                    fontFamily: 'Inter',
-                    fontSize: size.width * 0.06),
-              ),
-              Divider(
-                color: Color(0xffFEB197),
-                indent: size.width * 0.4,
-                endIndent: size.width * 0.4,
-                height: 15,
-                thickness: 2,
-              ),
-            ],
-          ),
         ),
         SingleChildScrollView(
           child: Form(
@@ -335,7 +298,99 @@ class patient_register extends GetWidget<AuthViewModel> {
             ]),
           ),
         ),
-      ])),
+      Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: size.height * 0.05,
+              ),
+              CustomText(
+                text: 'MEDICA',
+                textStyle: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600),
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
+              Stack(
+                children:[
+                  Container(
+                    child: CircleAvatar(
+                          radius: 51,
+                          backgroundColor: Colors.purple,
+                          child: CircleAvatar(
+                            radius: 46,
+                            // backgroundImage: _pickedImage == null
+                            //  ? null 
+                            //  : FileImage(_pickedImage),
+                            child: SvgPicture.asset(
+                    'assets/images/user_register.svg',
+                    width: size.width * 0.26,
+                ),
+                          ),
+                        ),
+                  ),
+                  
+                  Positioned(
+                    top: 58,
+                    left: 35,
+                    child: RawMaterialButton(
+                      fillColor: primaryColor,
+                      child: Icon(Icons.add),
+                      shape: CircleBorder(),
+                      onPressed: (){
+                        showDialog(context: context,
+                          builder: (BuildContext context){
+                          return AlertDialog(title: Text("Choose Option: ",
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            color: primaryColor
+                          ),),
+                          content: SingleChildScrollView(
+                            child: ListBody(
+                              children: [
+                                InkWell(
+                                  splashColor: primaryColor,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.logout
+                                        color: primaryColor,
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ]),
+                          ),
+                          );
+                        });
+                      },
+                    )),
+                    
+                  ] 
+              ),
+              SizedBox(
+                height: size.height * 0.02,
+              ),
+              CustomText(
+                text: 'Register to Continue',
+                textStyle: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'Inter',
+                    fontSize: size.width * 0.06),
+              ),
+              Divider(
+                color: Color(0xffFEB197),
+                indent: size.width * 0.4,
+                endIndent: size.width * 0.4,
+                height: 15,
+                thickness: 2,
+              ),
+            ],
+          ),])),
     );
   }
 }

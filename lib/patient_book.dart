@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
+import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
@@ -62,7 +63,7 @@ class patient_book extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async {
         // Get.to(loginAs());
-        Get.back();
+        Get.to(() => patient_home());
         return true;
       },
       child: Scaffold(
@@ -201,18 +202,19 @@ class patient_book extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {Get.to(() => patient_home());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/homeNavBarHome.svg'),
+                                  'assets/images/homeNavBarHome.svg',
+                                  color: primaryColorOutOfFocus,),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Home',
-                                textStyle: TextStyle(color: linkColor),
+                                textStyle: TextStyle(color: primaryColorOutOfFocus),
                               )
                             ],
                           ),
@@ -223,15 +225,14 @@ class patient_book extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/clipboardNavBarHome.svg',
-                                  color: primaryColorOutOfFocus),
+                                  'assets/images/clipboardNavBarHome.svg'),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Consult',
                                 textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
+                                    TextStyle(color: linkColor),
                               )
                             ],
                           ),
