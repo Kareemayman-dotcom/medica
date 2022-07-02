@@ -56,7 +56,7 @@ class patient_consult extends StatelessWidget {
     return WillPopScope(
       onWillPop: () async {
         // Get.to(loginAs());
-        Get.back();
+        Get.to(() => patient_home());
         return true;
       },
       child: Scaffold(
