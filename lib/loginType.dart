@@ -2,13 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medica/doctor_getstarted.dart';
 import 'package:medica/patient_getstarted.dart';
-import 'package:medica/splash.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
-import 'package:medica/view/widgets/custom_text_button.dart';
-
-import 'view/widgets/wavey_shape.dart';
 
 class loginAs extends StatelessWidget {
   const loginAs({Key? key}) : super(key: key);

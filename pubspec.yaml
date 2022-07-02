@@ -101,6 +101,11 @@ flutter:
     - assets/images/homeNavBarHome.svg
     - assets/images/message-circleNavBarHome.svg
     - assets/images/UserNavBarHome.svg
+    - assets/images/doctor.jpg
+    - assets/images/onlineConsult.jpg
+    - assets/images/wearMask.jpg
+    - assets/images/useSanitizer.jpg
+    - assets/images/washHands.jpg
     - assets/icons/chevron-right.svg
     - assets/icons/Doc.svg
 

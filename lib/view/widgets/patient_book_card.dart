@@ -8,11 +8,15 @@ class patientAppointmentCard extends StatelessWidget {
   String speciality;
   String numberOfDoctor;
   String description;
+  String imageaddress;
+  BoxFit imageFit;
   patientAppointmentCard({
     Key? key,
     required this.speciality,
     required this.numberOfDoctor,
     required this.description,
+    this.imageaddress = 'assets/images/logo.png',
+    this.imageFit = BoxFit.fitHeight,
   }) : super(key: key);
 
   @override
@@ -49,6 +53,10 @@ class patientAppointmentCard extends StatelessWidget {
                 // color: Colors.amber,
                 decoration: BoxDecoration(
                     // color: Colors.amber,
+                    image: DecorationImage(
+                      image: AssetImage(imageaddress),
+                      fit: imageFit,
+                    ),
                     borderRadius: BorderRadius.circular(10)),
               ),
               SizedBox(

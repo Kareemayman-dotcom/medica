@@ -269,7 +269,9 @@ class patient_home extends StatelessWidget {
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(15)))),
-                                onPressed: () {Get.to(() => patient_symptoms());},
+                                onPressed: () {
+                                  Get.to(() => patient_symptoms());
+                                },
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: size.width * 0.03),
@@ -327,38 +329,56 @@ class patient_home extends StatelessWidget {
                                       onPressed: () {},
                                       child: Column(
                                         children: [
-                                          Row(
+                                          Stack(
                                             children: [
                                               Container(
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                        'assets/images/Map.svg')
-                                                  ],
-                                                ),
-                                                height: 30,
-                                                width: 30,
+                                                // child: Image.asset(
+                                                //     'assets/images/doctor.jpg'),
+                                                height: size.height * 0.13,
+                                                // color: Colors.amber,
                                                 decoration: BoxDecoration(
-                                                    color: Colors.white,
+                                                    // color: Colors.amber,
+                                                    image: DecorationImage(
+                                                        fit: BoxFit.fill,
+                                                        image: AssetImage(
+                                                            'assets/images/doctor.jpg')),
                                                     borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50)),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                          color: Colors.black12,
-                                                          blurRadius: 2,
-                                                          spreadRadius: 1,
-                                                          offset:
-                                                              Offset(0, 1.5))
-                                                    ]),
-                                              )
+                                                        BorderRadius.circular(
+                                                            10)),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        SvgPicture.asset(
+                                                            'assets/images/Map.svg')
+                                                      ],
+                                                    ),
+                                                    height: 30,
+                                                    width: 30,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    50)),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                              color: Colors
+                                                                  .black12,
+                                                              blurRadius: 2,
+                                                              spreadRadius: 1,
+                                                              offset: Offset(
+                                                                  0, 1.5))
+                                                        ]),
+                                                  )
+                                                ],
+                                              ),
                                             ],
-                                          ),
-                                          SizedBox(
-                                            height: size.height * 0.1,
                                           ),
                                           Row(
                                             children: [
@@ -399,43 +419,61 @@ class patient_home extends StatelessWidget {
                                       onPressed: () {},
                                       child: Column(
                                         children: [
-                                          Row(
+                                          Stack(
                                             children: [
                                               Container(
-                                                child: Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                        'assets/images/video.svg')
-                                                  ],
-                                                ),
-                                                height: 30,
-                                                width: 30,
+                                                // child: Image.asset(
+                                                //     'assets/images/doctor.jpg'),
+                                                height: size.height * 0.13,
+                                                // color: Colors.amber,
                                                 decoration: BoxDecoration(
-                                                    color: Colors.white,
+                                                    // color: Colors.amber,
+                                                    image: DecorationImage(
+                                                        fit: BoxFit.fitHeight,
+                                                        image: AssetImage(
+                                                            'assets/images/onlineConsult.jpg')),
                                                     borderRadius:
-                                                        BorderRadius.all(
-                                                            Radius.circular(
-                                                                50)),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                          color: Colors.black12,
-                                                          blurRadius: 2,
-                                                          spreadRadius: 1,
-                                                          offset:
-                                                              Offset(0, 1.5))
-                                                    ]),
-                                              )
+                                                        BorderRadius.circular(
+                                                            10)),
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    child: Column(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        SvgPicture.asset(
+                                                            'assets/images/video.svg')
+                                                      ],
+                                                    ),
+                                                    height: 30,
+                                                    width: 30,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.white,
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    50)),
+                                                        boxShadow: [
+                                                          BoxShadow(
+                                                              color: Colors
+                                                                  .black12,
+                                                              blurRadius: 2,
+                                                              spreadRadius: 1,
+                                                              offset: Offset(
+                                                                  0, 1.5))
+                                                        ]),
+                                                  )
+                                                ],
+                                              ),
                                             ],
-                                          ),
-                                          SizedBox(
-                                            height: size.height * 0.1,
                                           ),
                                           Row(
                                             children: [
                                               CustomText(
-                                                text: 'Online Consult!',
+                                                text: 'Online consult',
                                                 textStyle: TextStyle(
                                                     fontSize: 15,
                                                     fontFamily: 'Inter',
@@ -507,7 +545,13 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
+<<<<<<< Updated upstream
                           onPressed: () {Get.to(() => patient_book());},
+=======
+                          onPressed: () {
+                            Get.to(() => patient_consult());
+                          },
+>>>>>>> Stashed changes
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

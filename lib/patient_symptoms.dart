@@ -24,14 +24,21 @@ import 'package:medica/core/view_model/auth_view_model.dart';
 class patient_symptoms extends StatelessWidget {
   List symptoms = [
     symptomCard(
-        primary: 'Wear Mask Compulsory',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
+      primary: 'Wear Mask Compulsory',
+      secondary: 'The point of using Lor Ipsum normal of letters...',
+      imageAddress: 'assets/images/wearMask.jpg',
+      imageFit: BoxFit.fitWidth,
+    ),
     symptomCard(
-        primary: 'Use Sanitizer',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
+      primary: 'Use Sanitizer',
+      secondary: 'The point of using Lor Ipsum normal of letters...',
+      imageAddress: 'assets/images/useSanitizer.jpg',
+    ),
     symptomCard(
-        primary: 'Regular Hand Wash',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
+      primary: 'Regular Hand Wash',
+      secondary: 'The point of using Lor Ipsum normal of letters...',
+      imageAddress: 'assets/images/washHands.jpg',
+    ),
     symptomCard(
         primary: 'Check Temperature',
         secondary: 'The point of using Lor Ipsum normal of letters...'),
@@ -200,7 +207,9 @@ class patient_symptoms extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {Get.to(() => patient_home());},
+                          onPressed: () {
+                            Get.to(() => patient_home());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -217,7 +226,13 @@ class patient_symptoms extends StatelessWidget {
                           ),
                         ),
                         TextButton(
+<<<<<<< Updated upstream
                           onPressed: () {Get.to(() => patient_book());},
+=======
+                          onPressed: () {
+                            Get.to(() => patient_consult());
+                          },
+>>>>>>> Stashed changes
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

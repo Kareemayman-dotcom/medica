@@ -5,8 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/doctor_login.dart';
-import 'package:medica/patient_getstarted.dart';
-import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
@@ -14,7 +12,6 @@ import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/my_flutter_app_icons.dart';
 
-import 'doctor_getstarted.dart';
 
 class doctor_register extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();

@@ -7,10 +7,14 @@ import 'custom_text.dart';
 class symptomCard extends StatelessWidget {
   String primary;
   String secondary;
+  String imageAddress;
+  BoxFit imageFit;
   symptomCard({
     Key? key,
     required this.primary,
     required this.secondary,
+    this.imageAddress = 'assets/images/logo.png',
+    this.imageFit = BoxFit.fitHeight,
   }) : super(key: key);
 
   @override
@@ -34,6 +38,10 @@ class symptomCard extends StatelessWidget {
               width: size.width * 0.28,
               decoration: BoxDecoration(
                 color: Color(0xffF2EEFD),
+                image: DecorationImage(
+                  fit: imageFit,
+                  image: AssetImage(imageAddress),
+                ),
                 borderRadius: BorderRadius.circular(15),
               ),
             ),

@@ -20,20 +20,7 @@ import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_consult extends StatelessWidget {
-  List symptoms = [
-    symptomCard(
-        primary: 'Wear Mask Compulsory',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
-    symptomCard(
-        primary: 'Use Sanitizer',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
-    symptomCard(
-        primary: 'Regular Hand Wash',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
-    symptomCard(
-        primary: 'Check Temperature',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
-  ];
+  
 
   // final numbers = List.generate(100, (index) => '$index');
 
