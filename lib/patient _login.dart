@@ -21,6 +21,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final CheckController ctrl = Get.put(CheckController());
+  final AuthViewModel avm = Get.put(AuthViewModel());
 
   void keepUserLoggedIn() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -33,7 +34,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
     return WillPopScope(
       onWillPop: () async {
         // Get.to(patient_getstarted());
-        Get.back();
+        Get.to(() => patient_getstarted());
         return true;
       },
       child: Scaffold(
@@ -135,10 +136,13 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   controller.email = value!;
                                 },
                                 validator: (value) {
-                                  if (value == null) {
-                                    print("ERROR");
-                                  }
-                                }),
+                                if (value!.isEmpty) {
+                                  return "\t\t\t\t\t\tE-Mail Is Required";
+                                }
+                                if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                                  return "\t\t\t\t\t\tPlease Enter Valid E-Mail";
+                                }
+                              }),
                             const Divider(
                               color: Color(0xff3E1E96),
                               indent: 20,
@@ -164,10 +168,13 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   controller.password = value!;
                                 },
                                 validator: (value) {
-                                  if (value == null) {
-                                    print("ERROR");
-                                  }
-                                }),
+                                confirmPass = value;
+                                if (value!.isEmpty) {
+                                  return "\t\t\t\t\t\tPassword Is Required";
+                                } else {
+                                  return null;
+                                }
+                              }),
                             const Divider(
                               color: Color(0xff3E1E96),
                               indent: 20,
@@ -258,7 +265,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     padding: EdgeInsets.all(0),
                                   ),
                                   onPressed: () {
-                                    Get.to(patient_register());
+                                    Get.to(() => patient_register());
                                   },
                                   child: CustomText(
                                     text: "Register",

@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
-import 'package:medica/patient_consult.dart';
-import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
+import 'package:medica/patient_home.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -20,7 +19,7 @@ import 'package:medica/view/widgets/symptom_card.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
-class patient_symptoms extends StatelessWidget {
+class patient_consult extends StatelessWidget {
   List symptoms = [
     symptomCard(
         primary: 'Wear Mask Compulsory',
@@ -62,7 +61,7 @@ class patient_symptoms extends StatelessWidget {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Stack(
+        body: Container(child:Stack(
           alignment: Alignment.center,
           children: [
             myDefaultBackground(),
@@ -154,27 +153,31 @@ class patient_symptoms extends StatelessWidget {
                           ),
                         ),
                       ],
+                      
                     ),
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    symptoms[0],
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    symptoms[1],
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    symptoms[2],
-                    SizedBox(
-                      height: size.height * 0.012,
-                    ),
-                    symptoms[3],
+                    
                   ],
+                  
                 ),
-              )
-            ]),
+                
+              ),
+              
+              
+            ]
+            
+            ),
+            /*
+            Padding(
+                
+                    padding: const EdgeInsets.all(10.0), child: GridView(children:[
+                      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.red,),),
+                      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.yellow,),),
+                      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.green,),),
+                      Container(decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: Colors.grey,),),
+                    ],
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10,childAspectRatio: 0.8), 
+                    ),),
+                    */
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -204,32 +207,33 @@ class patient_symptoms extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/homeNavBarHome.svg'),
+                                  'assets/images/homeNavBarHome.svg',
+                                 color: primaryColorOutOfFocus ),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Home',
-                                textStyle: TextStyle(color: linkColor),
+                                textStyle: TextStyle(color: primaryColorOutOfFocus),
                               )
                             ],
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(() => patient_consult());},
+                          onPressed: () {},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
                                   'assets/images/clipboardNavBarHome.svg',
-                                  color: primaryColorOutOfFocus),
+                                  ),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Consult',
                                 textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
+                                    TextStyle(color: linkColor),
                               )
                             ],
                           ),
@@ -278,7 +282,11 @@ class patient_symptoms extends StatelessWidget {
                 )
               ],
             )
+            
           ],
+        
+                    
+          ),
         ),
       ),
     );
