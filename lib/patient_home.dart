@@ -267,7 +267,7 @@ class patient_home extends StatelessWidget {
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(15)))),
-                                onPressed: () {Get.to(patient_symptoms());},
+                                onPressed: () {Get.to(() => patient_symptoms());},
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: size.width * 0.03),
@@ -505,7 +505,7 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(patient_consult());},
+                          onPressed: () {Get.to(() => patient_consult());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

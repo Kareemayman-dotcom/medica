@@ -21,6 +21,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final CheckController ctrl = Get.put(CheckController());
+  final AuthViewModel avm = Get.put(AuthViewModel());
 
   void keepUserLoggedIn() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
@@ -33,7 +34,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
     return WillPopScope(
       onWillPop: () async {
         // Get.to(patient_getstarted());
-        Get.back();
+        Get.to(() => patient_getstarted());
         return true;
       },
       child: Scaffold(
@@ -258,7 +259,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     padding: EdgeInsets.all(0),
                                   ),
                                   onPressed: () {
-                                    Get.to(patient_register());
+                                    Get.to(() => patient_register());
                                   },
                                   child: CustomText(
                                     text: "Register",

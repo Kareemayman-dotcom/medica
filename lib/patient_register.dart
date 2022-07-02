@@ -20,6 +20,7 @@ import 'doctor_getstarted.dart';
 
 class patient_register extends GetWidget<AuthViewModel> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final AuthViewModel avm = Get.put(AuthViewModel());
   var confirmPass;
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class patient_register extends GetWidget<AuthViewModel> {
 
     return WillPopScope(
       onWillPop: () async {
-        Get.back();
+        Get.to(() => patient_getstarted());
         return true;
       },
       child: Scaffold(
@@ -145,9 +146,10 @@ class patient_register extends GetWidget<AuthViewModel> {
                                 controller.name = value!;
                               },
                               validator: (value) {
-                                if (value == null) {
-                                  print("Error");
+                                if (value!.isEmpty) {
+                                  return "\t\t\t\t\tPlease Enter Name";
                                 }
+                                return null;
                               }),
                           Divider(
                             color: Color(0xff3E1E96),
@@ -173,8 +175,11 @@ class patient_register extends GetWidget<AuthViewModel> {
                                 controller.email = value!;
                               },
                               validator: (value) {
-                                if (value == null) {
-                                  print("Error");
+                                if (value!.isEmpty) {
+                                  return "\t\t\t\t\tPlease Enter E-Mail";
+                                }
+                                if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                                  return "\t\t\t\t\tPlease Enter Valid E-Mail";
                                 }
                               }),
                           Divider(
@@ -204,9 +209,9 @@ class patient_register extends GetWidget<AuthViewModel> {
                               validator: (value) {
                                 confirmPass = value;
                                 if (value!.isEmpty) {
-                                  return "Please Enter New Password";
+                                  return "\t\t\t\t\tPlease Enter Password";
                                 } else if (value.length < 8) {
-                                  return "Password must be atleast 8 characters long";
+                                  return "\t\t\t\t\tPassword must be at least 8 characters long";
                                 } else {
                                   return null;
                                 }
@@ -235,11 +240,9 @@ class patient_register extends GetWidget<AuthViewModel> {
                               onSave: (value) {},
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Please Re-Enter New Password";
-                                } else if (value.length < 8) {
-                                  return "Password must be atleast 8 characters long";
+                                  return "\t\t\t\t\tPlease Re-Enter New Password";
                                 } else if (value != confirmPass) {
-                                  return "Password must be same as above";
+                                  return "\t\t\t\t\tPassword must be same as above";
                                 } else {
                                   return null;
                                 }
@@ -258,11 +261,13 @@ class patient_register extends GetWidget<AuthViewModel> {
                             child: TextButton(
                                 onPressed: () {
                                   _formKey.currentState?.save();
-
                                   if (_formKey.currentState!.validate()) {
                                     controller
                                         .createAccountWithEmailAndPassword(
                                             );
+                                            print("Successful");
+                                  }else{
+                                    print("Unsuccessful");
                                   }
                                 },
                                 style: TextButton.styleFrom(
@@ -309,7 +314,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                                     // minimumSize: Size(1, 1)
                                     ),
                                 onPressed: () {
-                                  Get.to(PatientLogin());
+                                  Get.to(() => PatientLogin());
                                 },
                                 child: CustomText(
                                   text: "Login",

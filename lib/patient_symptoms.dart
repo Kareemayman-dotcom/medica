@@ -199,7 +199,7 @@ class patient_symptoms extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {Get.to(patient_home());},
+                          onPressed: () {Get.to(() => patient_home());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -216,7 +216,7 @@ class patient_symptoms extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(patient_consult());},
+                          onPressed: () {Get.to(() => patient_consult());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

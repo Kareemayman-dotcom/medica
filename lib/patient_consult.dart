@@ -202,7 +202,7 @@ class patient_consult extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {Get.to(patient_home());},
+                          onPressed: () {Get.to(() => patient_home());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
