@@ -7,6 +7,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_register.dart';
+import 'package:medica/patient_symptoms.dart';
+import 'package:medica/patient_consult.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -18,16 +20,9 @@ import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
 class patient_home extends StatelessWidget {
-  String _name;
-
-  String get name => _name;
-
-  set name(String name) {
-    _name = name;
-  }
   patient_home() : _name = "DEFAULT";
+
   patient_home.withuser(this._name);
-  
 
   List depts = [
     const Depts(
@@ -47,6 +42,14 @@ class patient_home extends StatelessWidget {
       icon: 'assets/images/depts/Neurology.png',
     ),
   ];
+
+  String _name;
+
+  String get name => _name;
+
+  set name(String name) {
+    _name = name;
+  }
 
   // final numbers = List.generate(100, (index) => '$index');
 
@@ -264,7 +267,7 @@ class patient_home extends StatelessWidget {
                                     shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(15)))),
-                                onPressed: () {},
+                                onPressed: () {Get.to(patient_symptoms());},
                                 child: Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: size.width * 0.03),
@@ -502,7 +505,7 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {Get.to(patient_consult());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
