@@ -16,8 +16,7 @@ import '../../patient_home.dart';
 
 class AuthViewModel extends GetxController {
   late String email, password, name;
-  var selectedImagePath = ''.obs;
-  var selectedImageSize = ''.obs;
+
 
   FirebaseAuth _auth = FirebaseAuth.instance;
   late String _get_name = "NAME";
@@ -50,48 +49,6 @@ class AuthViewModel extends GetxController {
   }
 
   String? get user => _user.value?.email;
-
-  void getImage(ImageSource imageSource) async {
-    final pickedFile = await ImagePicker().getImage(source: imageSource);
-    if (pickedFile != null) {
-      selectedImagePath.value = pickedFile.path;
-      selectedImageSize.value =
-          ((File(selectedImagePath.value)).lengthSync() / 1024 / 1024)
-                  .toStringAsFixed(2) +
-              " Mb";
-      print("image_path save");
-
-    } else {
-      Get.snackbar("Error!", "Photo Not Selected",
-          backgroundColor: Colors.red,
-          snackPosition: SnackPosition.TOP,
-          colorText: Colors.white);
-    }
-  }
-
-  fireStore_Get_ImagePath() {
-    FirebaseFirestore.instance
-        .collection("usersImage").where("uid",isEqualTo: FirebaseAuth.instance.currentUser!.uid)
-        .get()
-        .then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
-        if(doc != null){
-          if(FirebaseAuth.instance.currentUser!.uid == doc["uid"]){
-            selectedImagePath.value = doc["image_path"];
-      print(1);
-          }else{
-            selectedImagePath.value = '';
-print(0);
-          }
-
-        }
-      });
-    });
-  }
-
-  void deleteMemoryImage(){
- selectedImagePath.value = '';
-}
 
   void googleSignInMethod() async {
     final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
