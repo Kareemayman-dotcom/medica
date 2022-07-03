@@ -141,369 +141,344 @@ class patient_home extends StatelessWidget {
                 ],
               ),
             ),
-            Stack(alignment: Alignment.bottomCenter, children: [
-              Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                CustomPaint(
-                  size: Size(
-                      double.infinity,
-                      (size.height * 0.45 * 1.9280575539568345)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: HomeCurve(),
-                ),
-              ]),
-              Container(
-                  alignment: Alignment.topCenter,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  height: size.height * 0.78,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius:
+                          BorderRadius.only(topLeft: Radius.circular(75))),
+                  padding: EdgeInsets.only(
+                    top: size.height * 0.05,
+                    right: size.width * 0.08,
+                    left: size.width * 0.08,
+                  ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: size.height * 0.26,
-                          right: size.width * 0.08,
-                          left: size.width * 0.08,
+                      // SizedBox(
+                      //   height: size.height * 0.01,
+                      // ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        // crossAxisAlignment: CrossAxisAlignment.baseline,
+                        // ignore: prefer_const_literals_to_create_immutables
+                        children: [
+                          CustomText(
+                            text: 'Departments',
+                            textStyle: TextStyle(
+                                color: primaryColor,
+                                fontSize: 18,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: size.height * 0.02,
+                      ),
+                      // SizedBox(
+                      //   height: size.height * 0.01,
+                      // ),
+                      Wrap(spacing: 10, children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: size.height * 0.01),
+                          child: depts[0],
                         ),
-                        child: Column(
-                          children: [
-                            // SizedBox(
-                            //   height: size.height * 0.01,
-                            // ),
-                            Row(
+                        Padding(
+                          padding: EdgeInsets.only(bottom: size.height * 0.01),
+                          child: depts[1],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: size.height * 0.01),
+                          child: depts[2],
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: size.height * 0.01),
+                          child: depts[3],
+                        ),
+                      ]),
+                      SizedBox(
+                        height: size.height * 0.025,
+                      ),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              maximumSize:
+                                  Size(double.infinity, size.height * 0.085),
+                              minimumSize:
+                                  Size(double.infinity, size.height * 0.085),
+                              // minimumSize: ,
+                              // foregroundColor: secondaryColor,
+                              backgroundColor: secondaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)))),
+                          onPressed: () {},
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.03),
+                            child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              // crossAxisAlignment: CrossAxisAlignment.baseline,
-                              // ignore: prefer_const_literals_to_create_immutables
                               children: [
+                                SvgPicture.asset('assets/images/meds.svg'),
                                 CustomText(
-                                  text: 'Departments',
+                                  text: 'Buy Medicines',
                                   textStyle: TextStyle(
-                                      color: primaryColor,
-                                      fontSize: 18,
+                                      color: Colors.white,
                                       fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w600),
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18),
                                 ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/whiteArrow.png'),
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: primaryColor,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(50))),
+                                )
                               ],
                             ),
-                            SizedBox(
-                              height: size.height * 0.02,
+                          )),
+                      SizedBox(
+                        height: size.height * 0.015,
+                      ),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                              maximumSize:
+                                  Size(double.infinity, size.height * 0.085),
+                              minimumSize:
+                                  Size(double.infinity, size.height * 0.085),
+                              // foregroundColor: secondaryColor,
+                              backgroundColor: secondaryColor,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(15)))),
+                          onPressed: () {
+                            Get.to(() => patient_symptoms());
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.03),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SvgPicture.asset(
+                                    'assets/images/search-for-symptoms.svg'),
+                                CustomText(
+                                  text: 'Know about symptoms',
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 19),
+                                ),
+                                Container(
+                                  child: Image.asset(
+                                      'assets/images/whiteArrow.png'),
+                                  height: 35,
+                                  width: 35,
+                                  decoration: BoxDecoration(
+                                      color: primaryColor,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(50))),
+                                )
+                              ],
                             ),
-                            // SizedBox(
-                            //   height: size.height * 0.01,
-                            // ),
-                            Wrap(spacing: 10, children: [
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(bottom: size.height * 0.01),
-                                child: depts[0],
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(bottom: size.height * 0.01),
-                                child: depts[1],
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(bottom: size.height * 0.01),
-                                child: depts[2],
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(bottom: size.height * 0.01),
-                                child: depts[3],
-                              ),
-                            ]),
-                            SizedBox(
-                              height: size.height * 0.025,
-                            ),
+                          )),
+                      SizedBox(height: size.height * 0.02),
+                      Container(
+                        decoration: BoxDecoration(boxShadow: [
+                          BoxShadow(
+                              color: primaryColorShadow,
+                              blurRadius: 70,
+                              spreadRadius: 15,
+                              // blurStyle: BlurStyle.normalc,
+                              offset: Offset(0, 60))
+                        ]),
+                        child: Wrap(
+                          spacing: 20,
+                          children: [
                             TextButton(
                                 style: TextButton.styleFrom(
-                                    maximumSize: Size(
-                                        double.infinity, size.height * 0.085),
-                                    minimumSize: Size(
-                                        double.infinity, size.height * 0.085),
-                                    // minimumSize: ,
-                                    // foregroundColor: secondaryColor,
-                                    backgroundColor: secondaryColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(15)))),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor: Colors.white,
+                                  minimumSize: Size(
+                                      size.width * 0.38, size.height * 0.215),
+                                  maximumSize: Size(
+                                      size.width * 0.38, size.height * 0.215),
+                                ),
                                 onPressed: () {},
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: size.width * 0.03),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SvgPicture.asset(
-                                          'assets/images/meds.svg'),
-                                      CustomText(
-                                        text: 'Buy Medicines',
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 18),
-                                      ),
-                                      Container(
-                                        child: Image.asset(
-                                            'assets/images/whiteArrow.png'),
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                            color: primaryColor,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(50))),
-                                      )
-                                    ],
-                                  ),
+                                child: Column(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          // child: Image.asset(
+                                          //     'assets/images/doctor.jpg'),
+                                          height: size.height * 0.13,
+                                          // color: Colors.amber,
+                                          decoration: BoxDecoration(
+                                              // color: Colors.amber,
+                                              image: DecorationImage(
+                                                  fit: BoxFit.fill,
+                                                  image: AssetImage(
+                                                      'assets/images/doctor.jpg')),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  SvgPicture.asset(
+                                                      'assets/images/Map.svg')
+                                                ],
+                                              ),
+                                              height: 30,
+                                              width: 30,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(50)),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black12,
+                                                        blurRadius: 2,
+                                                        spreadRadius: 1,
+                                                        offset: Offset(0, 1.5))
+                                                  ]),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        CustomText(
+                                          text: 'Find Doctors',
+                                          textStyle: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w600,
+                                              color: primaryColor),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        CustomText(
+                                          text: 'The points of using to',
+                                          textStyle: TextStyle(
+                                              fontSize: 12,
+                                              fontFamily: 'Inter',
+                                              color: secondaryTextColor),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 )),
-                            SizedBox(
-                              height: size.height * 0.015,
-                            ),
                             TextButton(
                                 style: TextButton.styleFrom(
-                                    maximumSize: Size(
-                                        double.infinity, size.height * 0.085),
-                                    minimumSize: Size(
-                                        double.infinity, size.height * 0.085),
-                                    // foregroundColor: secondaryColor,
-                                    backgroundColor: secondaryColor,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(15)))),
-                                onPressed: () {
-                                  Get.to(() => patient_symptoms());
-                                },
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: size.width * 0.03),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      SvgPicture.asset(
-                                          'assets/images/search-for-symptoms.svg'),
-                                      CustomText(
-                                        text: 'Know about symptoms',
-                                        textStyle: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Inter',
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 19),
-                                      ),
-                                      Container(
-                                        child: Image.asset(
-                                            'assets/images/whiteArrow.png'),
-                                        height: 35,
-                                        width: 35,
-                                        decoration: BoxDecoration(
-                                            color: primaryColor,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(50))),
-                                      )
-                                    ],
-                                  ),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10)),
+                                  backgroundColor: Colors.white,
+                                  minimumSize: Size(
+                                      size.width * 0.38, size.height * 0.215),
+                                  maximumSize: Size(
+                                      size.width * 0.38, size.height * 0.215),
+                                ),
+                                onPressed: () {},
+                                child: Column(
+                                  children: [
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          // child: Image.asset(
+                                          //     'assets/images/doctor.jpg'),
+                                          height: size.height * 0.13,
+                                          // color: Colors.amber,
+                                          decoration: BoxDecoration(
+                                              // color: Colors.amber,
+                                              image: DecorationImage(
+                                                  fit: BoxFit.fitHeight,
+                                                  image: AssetImage(
+                                                      'assets/images/onlineConsult.jpg')),
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Container(
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  SvgPicture.asset(
+                                                      'assets/images/video.svg')
+                                                ],
+                                              ),
+                                              height: 30,
+                                              width: 30,
+                                              decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(50)),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                        color: Colors.black12,
+                                                        blurRadius: 2,
+                                                        spreadRadius: 1,
+                                                        offset: Offset(0, 1.5))
+                                                  ]),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        CustomText(
+                                          text: 'Online consult',
+                                          textStyle: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w600,
+                                              color: primaryColor),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        CustomText(
+                                          text: 'The points of using to',
+                                          textStyle: TextStyle(
+                                              fontSize: 12,
+                                              fontFamily: 'Inter',
+                                              color: secondaryTextColor),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 )),
-                            SizedBox(height: size.height * 0.02),
-                            Container(
-                              decoration: BoxDecoration(boxShadow: [
-                                BoxShadow(
-                                    color: primaryColorShadow,
-                                    blurRadius: 70,
-                                    spreadRadius: 15,
-                                    // blurStyle: BlurStyle.normalc,
-                                    offset: Offset(0, 60))
-                              ]),
-                              child: Wrap(
-                                spacing: 20,
-                                children: [
-                                  TextButton(
-                                      style: TextButton.styleFrom(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        backgroundColor: Colors.white,
-                                        minimumSize: Size(size.width * 0.38,
-                                            size.height * 0.215),
-                                        maximumSize: Size(size.width * 0.38,
-                                            size.height * 0.215),
-                                      ),
-                                      onPressed: () {},
-                                      child: Column(
-                                        children: [
-                                          Stack(
-                                            children: [
-                                              Container(
-                                                // child: Image.asset(
-                                                //     'assets/images/doctor.jpg'),
-                                                height: size.height * 0.13,
-                                                // color: Colors.amber,
-                                                decoration: BoxDecoration(
-                                                    // color: Colors.amber,
-                                                    image: DecorationImage(
-                                                        fit: BoxFit.fill,
-                                                        image: AssetImage(
-                                                            'assets/images/doctor.jpg')),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        SvgPicture.asset(
-                                                            'assets/images/Map.svg')
-                                                      ],
-                                                    ),
-                                                    height: 30,
-                                                    width: 30,
-                                                    decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    50)),
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                              color: Colors
-                                                                  .black12,
-                                                              blurRadius: 2,
-                                                              spreadRadius: 1,
-                                                              offset: Offset(
-                                                                  0, 1.5))
-                                                        ]),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              CustomText(
-                                                text: 'Find Doctors',
-                                                textStyle: TextStyle(
-                                                    fontSize: 15,
-                                                    fontFamily: 'Inter',
-                                                    fontWeight: FontWeight.w600,
-                                                    color: primaryColor),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              CustomText(
-                                                text: 'The points of using to',
-                                                textStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    fontFamily: 'Inter',
-                                                    color: secondaryTextColor),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      )),
-                                  TextButton(
-                                      style: TextButton.styleFrom(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10)),
-                                        backgroundColor: Colors.white,
-                                        minimumSize: Size(size.width * 0.38,
-                                            size.height * 0.215),
-                                        maximumSize: Size(size.width * 0.38,
-                                            size.height * 0.215),
-                                      ),
-                                      onPressed: () {},
-                                      child: Column(
-                                        children: [
-                                          Stack(
-                                            children: [
-                                              Container(
-                                                // child: Image.asset(
-                                                //     'assets/images/doctor.jpg'),
-                                                height: size.height * 0.13,
-                                                // color: Colors.amber,
-                                                decoration: BoxDecoration(
-                                                    // color: Colors.amber,
-                                                    image: DecorationImage(
-                                                        fit: BoxFit.fitHeight,
-                                                        image: AssetImage(
-                                                            'assets/images/onlineConsult.jpg')),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Container(
-                                                    child: Column(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        SvgPicture.asset(
-                                                            'assets/images/video.svg')
-                                                      ],
-                                                    ),
-                                                    height: 30,
-                                                    width: 30,
-                                                    decoration: BoxDecoration(
-                                                        color: Colors.white,
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    50)),
-                                                        boxShadow: [
-                                                          BoxShadow(
-                                                              color: Colors
-                                                                  .black12,
-                                                              blurRadius: 2,
-                                                              spreadRadius: 1,
-                                                              offset: Offset(
-                                                                  0, 1.5))
-                                                        ]),
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              CustomText(
-                                                text: 'Online consult',
-                                                textStyle: TextStyle(
-                                                    fontSize: 15,
-                                                    fontFamily: 'Inter',
-                                                    fontWeight: FontWeight.w600,
-                                                    color: primaryColor),
-                                              ),
-                                            ],
-                                          ),
-                                          Row(
-                                            children: [
-                                              CustomText(
-                                                text: 'The points of using to',
-                                                textStyle: TextStyle(
-                                                    fontSize: 12,
-                                                    fontFamily: 'Inter',
-                                                    color: secondaryTextColor),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      )),
-                                ],
-                              ),
-                            )
                           ],
                         ),
-                      ),
+                      )
                     ],
-                  )),
-            ]),
+                  ),
+                ),
+              ],
+            ),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -545,7 +520,9 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {Get.to(() => patient_book());},
+                          onPressed: () {
+                            Get.to(() => patient_book());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

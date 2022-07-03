@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:medica/helper/binding.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_home.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
                 initialBinding: Binding(),
                 debugShowCheckedModeBanner: false,
-                home: isUserLoggedIn ? patient_home() : patient_getstarted());
+                home: isUserLoggedIn ? patient_book() : patient_getstarted());
           }
         });
   }

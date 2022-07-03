@@ -1,4 +1,3 @@
-
 // ignore_for_file: camel_case_types, prefer_const_constructors, unused_import, unnecessary_import, import_of_legacy_library_into_null_safe, must_be_immutable, use_key_in_widget_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, await_only_futures
 
 import 'dart:ui';
@@ -132,52 +131,68 @@ class patient_book extends StatelessWidget {
               ),
             ),
             Stack(alignment: Alignment.bottomCenter, children: [
-              Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                CustomPaint(
-                  size: Size(
-                      double.infinity,
-                      (size.height * 0.45 * 1.9280575539568345)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: HomeCurve(),
-                ),
-              ]),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: size.width * 0.08),
-                // color: Colors.green,
-                height: size.height * 0.75,
-                width: double.infinity,
-                child: Column(
-                  children: [
-                    Wrap(
-                      // alignment: WrapAlignment.start,
-                      // direction: Axis.horizontal,
-                      children: [
-                        CustomText(
-                          textAlign: TextAlign.left,
-                          text: "Book Appointments with Top Specialists!",
-                          textStyle: TextStyle(
-                            color: primaryColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Inter',
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(
+                      right: size.width * 0.08,
+                      left: size.width * 0.08,
+                      top: size.height * 0.04,
+                    ),
+                    // color: Colors.green,
+
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(75),
+                        // topRight: Radius.circular(10),
+                      ),
+                      color: Colors.white,
+                    ),
+                    height: size.height * 0.78,
+                    width: double.infinity,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Wrap(
+                            // alignment: WrapAlignment.start,
+                            // direction: Axis.horizontal,
+                            children: [
+                              CustomText(
+                                textAlign: TextAlign.left,
+                                text: "Book Appointments with Top Specialists!",
+                                textStyle: TextStyle(
+                                  color: primaryColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                  fontFamily: 'Inter',
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: size.height * 0.05,
+                          ),
+                          Wrap(
+                            // alignment: WrapAlignment.spaceBetween,
+                            // crossAxisAlignment: WrapCrossAlignment.end,
+                            children: [
+                              book[0],
+                              book[1],
+                              book[2],
+                              book[3],
+                              book[3],
+                              book[3],
+                              book[3],
+                              book[3],
+                            ],
+                          )
+                        ],
+                      ),
                     ),
-                    SizedBox(
-                      height: size.height * 0.05,
-                    ),
-                    Wrap(
-                      children: [
-                        book[0],
-                        book[1],
-                        book[2],
-                        book[3],
-                      ],
-                    )
-                  ],
-                ),
-              )
+                  )
+                ],
+              ),
             ]),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -203,19 +218,23 @@ class patient_book extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {Get.to(() => patient_home());},
+                          onPressed: () {
+                            Get.to(() => patient_home());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/homeNavBarHome.svg',
-                                  color: primaryColorOutOfFocus,),
+                                'assets/images/homeNavBarHome.svg',
+                                color: primaryColorOutOfFocus,
+                              ),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Home',
-                                textStyle: TextStyle(color: primaryColorOutOfFocus),
+                                textStyle:
+                                    TextStyle(color: primaryColorOutOfFocus),
                               )
                             ],
                           ),
@@ -232,8 +251,7 @@ class patient_book extends StatelessWidget {
                               ),
                               CustomText(
                                 text: 'Consult',
-                                textStyle:
-                                    TextStyle(color: linkColor),
+                                textStyle: TextStyle(color: linkColor),
                               )
                             ],
                           ),

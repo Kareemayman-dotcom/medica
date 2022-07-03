@@ -25,8 +25,9 @@ class patientAppointmentCard extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.only(
-        right: 10,
-        bottom: 10,
+        right: size.width * 0.01,
+        left: size.width * 0.01,
+        bottom: size.height * 0.01,
       ),
       decoration: BoxDecoration(boxShadow: [
         BoxShadow(
@@ -42,8 +43,8 @@ class patientAppointmentCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               backgroundColor: Colors.white,
-              minimumSize: Size(size.width * 0.392, size.height * 0.25),
-              maximumSize: Size(size.width * 0.392, size.height * 0.25),
+              minimumSize: Size(size.width * 0.393, size.height * 0.25),
+              maximumSize: Size(size.width * 0.393, size.height * 0.25),
               padding: EdgeInsets.all(8)),
           onPressed: () {},
           child: Column(
