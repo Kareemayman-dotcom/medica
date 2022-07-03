@@ -545,13 +545,7 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-<<<<<<< Updated upstream
                           onPressed: () {Get.to(() => patient_book());},
-=======
-                          onPressed: () {
-                            Get.to(() => patient_consult());
-                          },
->>>>>>> Stashed changes
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

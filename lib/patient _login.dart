@@ -136,13 +136,15 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   controller.email = value!;
                                 },
                                 validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "\t\t\t\t\t\tE-Mail Is Required";
-                                }
-                                if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-                                  return "\t\t\t\t\t\tPlease Enter Valid E-Mail";
-                                }
-                              }),
+                                  if (value!.isEmpty) {
+                                    return "\t\t\t\t\t\tE-Mail Is Required";
+                                  }
+                                  if (!RegExp(
+                                          "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                      .hasMatch(value)) {
+                                    return "\t\t\t\t\t\tPlease Enter Valid E-Mail";
+                                  }
+                                }),
                             const Divider(
                               color: Color(0xff3E1E96),
                               indent: 20,
@@ -168,13 +170,13 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                   controller.password = value!;
                                 },
                                 validator: (value) {
-                                confirmPass = value;
-                                if (value!.isEmpty) {
-                                  return "\t\t\t\t\t\tPassword Is Required";
-                                } else {
-                                  return null;
-                                }
-                              }),
+                                  confirmPass = value;
+                                  if (value!.isEmpty) {
+                                    return "\t\t\t\t\t\tPassword Is Required";
+                                  } else {
+                                    return null;
+                                  }
+                                }),
                             const Divider(
                               color: Color(0xff3E1E96),
                               indent: 20,
@@ -191,7 +193,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                                     _formKey.currentState?.save();
 
                                     if (_formKey.currentState!.validate()) {
-                                      if(ctrl.checkbool.value == true){
+                                      if (ctrl.checkbool.value == true) {
                                         keepUserLoggedIn();
                                       }
                                       controller.signInWithEmailAndPassword();
@@ -226,27 +228,30 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                               height: size.height * 0.001,
                             ),
                             Row(
-                              children: <Widget> [
+                              children: <Widget>[
                                 Theme(
-                                  data: ThemeData(unselectedWidgetColor: primaryColor),
-                                  child:  Obx(()=> Checkbox( 
-                                    checkColor: primaryColor,
-                                    activeColor: secondaryColor,
-                                    value: ctrl.checkbool.value,
-                                    onChanged: (value)
-                                  {
-                                      ctrl.checkbool.value = !ctrl.checkbool.value;
-                                      print(ctrl.checkbool.value);
-                                  },
-                                  ),
+                                  data: ThemeData(
+                                      unselectedWidgetColor: primaryColor),
+                                  child: Obx(
+                                    () => Checkbox(
+                                      checkColor: primaryColor,
+                                      activeColor: secondaryColor,
+                                      value: ctrl.checkbool.value,
+                                      onChanged: (value) {
+                                        ctrl.checkbool.value =
+                                            !ctrl.checkbool.value;
+                                        print(ctrl.checkbool.value);
+                                      },
+                                    ),
                                   ),
                                 ),
-                                CustomText(text: "Remember Me ", 
-                                textStyle: TextStyle(
-                                          color: Color(0xff300C92),
-                                          fontFamily: 'Inter',
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14)),
+                                CustomText(
+                                    text: "Remember Me ",
+                                    textStyle: TextStyle(
+                                        color: Color(0xff300C92),
+                                        fontFamily: 'Inter',
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14)),
                               ],
                             ),
                             Row(
@@ -277,7 +282,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                               ],
                             ),
                             SizedBox(
-                              height: size.height * 0.03,
+                              height: size.height * 0.015,
                             ),
                             CustomText(
                               text:
@@ -376,6 +381,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
     );
   }
 }
-class CheckController extends GetxController{
+
+class CheckController extends GetxController {
   var checkbool = false.obs;
 }

@@ -357,7 +357,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                                   child: Row(
                                     children: [
                                       Icon(
-                                        Icons.logout
+                                        Icons.camera,
                                         color: primaryColor,
                                       )
                                     ],

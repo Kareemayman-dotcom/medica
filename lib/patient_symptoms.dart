@@ -226,13 +226,9 @@ class patient_symptoms extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-<<<<<<< Updated upstream
-                          onPressed: () {Get.to(() => patient_book());},
-=======
                           onPressed: () {
-                            Get.to(() => patient_consult());
+                            Get.to(() => patient_book());
                           },
->>>>>>> Stashed changes
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
