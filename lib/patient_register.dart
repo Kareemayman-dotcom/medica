@@ -1,16 +1,14 @@
-// ignore_for_file: prefer_const_constructors, unused_field, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, unused_field, prefer_const_literals_to_create_immutables, unused_local_variable, use_key_in_widget_constructors, camel_case_types, must_be_immutable, unnecessary_new
 
 import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
-import 'package:medica/doctor_login.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_getstarted.dart';
-import 'package:medica/patient_home.dart';
-import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:medica/view/widgets/custom_background.dart';
@@ -18,13 +16,15 @@ import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/my_flutter_app_icons.dart';
 
-import 'doctor_getstarted.dart';
 
-class patient_register extends GetWidget<AuthViewModel> {
+class patient_register extends GetWidget<AuthViewModel>{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final AuthViewModel avm = Get.put(AuthViewModel());
-  late File _pickedImage;
   var confirmPass;
+  File? _image;
+
+  
+  
   @override
   Widget build(BuildContext context) {
     // final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
@@ -228,6 +228,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                                     controller
                                         .createAccountWithEmailAndPassword(
                                             );
+                                            
                                             print("Successful");
                                   }else{
                                     print("Unsuccessful");
@@ -313,67 +314,34 @@ class patient_register extends GetWidget<AuthViewModel> {
                     fontWeight: FontWeight.w600),
               ),
               SizedBox(
-                height: size.height * 0.02,
+                height: size.height * 0.005,
               ),
               Stack(
                 children:[
-                  Container(
+                  Obx(
+                  () => RawMaterialButton(
+                    onPressed: () { _showPicker(context); },
                     child: CircleAvatar(
-                          radius: 51,
-                          backgroundColor: Colors.purple,
-                          child: CircleAvatar(
-                            radius: 46,
-                            // backgroundImage: _pickedImage == null
-                            //  ? null 
-                            //  : FileImage(_pickedImage),
-                            child: SvgPicture.asset(
+                        radius: 59,
+                        backgroundColor: Colors.purple,
+                        child: avm.selectedImagePath.value != ''
+                            ? CircleAvatar(
+                                radius: 55,
+                                backgroundColor:Colors.purple ,
+                                backgroundImage: FileImage(
+                                  File((avm.selectedImagePath.value)),
+                                ))
+                            : SvgPicture.asset(
                     'assets/images/user_register.svg',
-                    width: size.width * 0.26,
-                ),
-                          ),
-                        ),
+                    width: size.width * 0.30,
+                ),),
                   ),
-                  
-                  Positioned(
-                    top: 58,
-                    left: 35,
-                    child: RawMaterialButton(
-                      fillColor: primaryColor,
-                      child: Icon(Icons.add),
-                      shape: CircleBorder(),
-                      onPressed: (){
-                        showDialog(context: context,
-                          builder: (BuildContext context){
-                          return AlertDialog(title: Text("Choose Option: ",
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            color: primaryColor
-                          ),),
-                          content: SingleChildScrollView(
-                            child: ListBody(
-                              children: [
-                                InkWell(
-                                  splashColor: primaryColor,
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.camera,
-                                        color: primaryColor,
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ]),
-                          ),
-                          );
-                        });
-                      },
-                    )),
-                    
+                ),
+              
                   ] 
               ),
               SizedBox(
-                height: size.height * 0.02,
+                height: size.height * 0.005,
               ),
               CustomText(
                 text: 'Register to Continue',
@@ -393,4 +361,51 @@ class patient_register extends GetWidget<AuthViewModel> {
           ),])),
     );
   }
+  void pickImage() async{
+  final picker = ImagePicker();
+  var image = picker.pickImage(source: ImageSource.camera);
+
+  _image = image as File;
+
+
 }
+}
+void _showPicker(context) {
+    final AuthViewModel avm = Get.put(AuthViewModel());
+  showModalBottomSheet(
+      context: context,
+      builder: (BuildContext bc) {
+        return SafeArea(
+          child: Container(
+            child: new Wrap(
+              children: <Widget>[
+                new ListTile(
+                    leading: new Icon(Icons.photo_library),
+                    title: new Text('Gallery'),
+                    onTap: () {
+                      avm.getImage(ImageSource.gallery);
+                      Navigator.of(context).pop();
+                    }),
+                new ListTile(
+                  leading: new Icon(Icons.photo_camera),
+                  title: new Text('Camera'),
+                  onTap: () {
+                    avm.getImage(ImageSource.camera);
+                    Navigator.of(context).pop();
+                  },
+                ),
+                new ListTile(
+                  leading: new Icon(Icons.delete),
+                  title: new Text('Remove Photo'),
+                  onTap: () {
+                    avm.deleteMemoryImage();
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      });
+}
+
