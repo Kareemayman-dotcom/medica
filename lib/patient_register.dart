@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medica/controllers/profileController.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_getstarted.dart';
@@ -20,6 +21,8 @@ import 'package:medica/view/widgets/my_flutter_app_icons.dart';
 class patient_register extends GetWidget<AuthViewModel>{
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final AuthViewModel avm = Get.put(AuthViewModel());
+  profileController profileCtrl = Get.put(profileController());
+
   var confirmPass;
   File? _image;
 
@@ -324,12 +327,12 @@ class patient_register extends GetWidget<AuthViewModel>{
                     child: CircleAvatar(
                         radius: 59,
                         backgroundColor: Colors.purple,
-                        child: avm.selectedImagePath.value != ''
+                        child: profileCtrl.selectedImagePath.value != ''
                             ? CircleAvatar(
                                 radius: 55,
                                 backgroundColor:Colors.purple ,
                                 backgroundImage: FileImage(
-                                  File((avm.selectedImagePath.value)),
+                                  File((profileCtrl.selectedImagePath.value)),
                                 ))
                             : SvgPicture.asset(
                     'assets/images/user_register.svg',
@@ -371,7 +374,7 @@ class patient_register extends GetWidget<AuthViewModel>{
 }
 }
 void _showPicker(context) {
-    final AuthViewModel avm = Get.put(AuthViewModel());
+  profileController profileCtrl = Get.put(profileController());
   showModalBottomSheet(
       context: context,
       builder: (BuildContext bc) {
@@ -383,14 +386,14 @@ void _showPicker(context) {
                     leading: new Icon(Icons.photo_library),
                     title: new Text('Gallery'),
                     onTap: () {
-                      avm.getImage(ImageSource.gallery);
+                      profileCtrl.getImage(ImageSource.gallery);
                       Navigator.of(context).pop();
                     }),
                 new ListTile(
                   leading: new Icon(Icons.photo_camera),
                   title: new Text('Camera'),
                   onTap: () {
-                    avm.getImage(ImageSource.camera);
+                    profileCtrl.getImage(ImageSource.camera);
                     Navigator.of(context).pop();
                   },
                 ),
@@ -398,7 +401,7 @@ void _showPicker(context) {
                   leading: new Icon(Icons.delete),
                   title: new Text('Remove Photo'),
                   onTap: () {
-                    avm.deleteMemoryImage();
+                    profileCtrl.deleteMemoryImage();
                     Navigator.of(context).pop();
                   },
                 ),
