@@ -17,31 +17,75 @@ import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/depts.dart';
+import 'package:medica/view/widgets/find_doc_cat.dart';
+import 'package:medica/view/widgets/find_doctor.dart';
 import 'package:medica/view/widgets/symptom_card.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
-class patient_symptoms extends StatelessWidget {
-  List symptoms = [
-    symptomCard(
-      primary: 'Wear Mask Compulsory',
-      secondary: 'The point of using Lor Ipsum normal of letters...',
+class patient_find extends StatelessWidget {
+  List doctorCat = [
+    docCat(
+      catName: 'General',
+      numOfDoctors: 25,
+      isActiv: true,
+    ),
+    docCat(
+      catName: 'Dental',
+      numOfDoctors: 12,
+      // isActiv: true,
+    ),
+    docCat(
+      catName: 'Cardio',
+      numOfDoctors: 45,
+      // isActiv: true,
+    ),
+    docCat(
+      catName: 'General',
+      numOfDoctors: 25,
+      // isActiv: true,
+    ),
+    docCat(
+      catName: 'General',
+      numOfDoctors: 25,
+      // isActiv: true,
+    ),
+    docCat(
+      catName: 'General',
+      numOfDoctors: 25,
+      // isActiv: true,
+    ),
+    docCat(
+      catName: 'General',
+      numOfDoctors: 25,
+      // isActiv: true,
+    ),
+  ];
+  List findDoctor = [
+    FindDoctor(
+      docName: 'Wear Mask ',
+      docSpec: 'The point of using Lor Ipsum normal of letters...',
       imageAddress: 'assets/images/wearMask.jpg',
       imageFit: BoxFit.fitWidth,
+      experienceYears: 15,
     ),
-    symptomCard(
-      primary: 'Use Sanitizer',
-      secondary: 'The point of using Lor Ipsum normal of letters...',
+    FindDoctor(
+      docName: 'Use Sanitizer',
+      experienceYears: 15,
+      docSpec: 'The point of using Lor Ipsum normal of letters...',
       imageAddress: 'assets/images/useSanitizer.jpg',
     ),
-    symptomCard(
-      primary: 'Regular Hand Wash',
-      secondary: 'The point of using Lor Ipsum normal of letters...',
+    FindDoctor(
+      docName: 'Regular Hand Wash',
+      docSpec: 'The point of using Lor Ipsum normal of letters...',
       imageAddress: 'assets/images/washHands.jpg',
+      experienceYears: 15,
     ),
-    symptomCard(
-        primary: 'Check Temperature',
-        secondary: 'The point of using Lor Ipsum normal of letters...'),
+    FindDoctor(
+      docName: 'Check Temperature',
+      docSpec: 'The point of using Lor Ipsum normal of letters...',
+      experienceYears: 15,
+    ),
   ];
 
   // final numbers = List.generate(100, (index) => '$index');
@@ -138,28 +182,28 @@ class patient_symptoms extends StatelessWidget {
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(75)),
                   color: whitegrayish,
                 ),
-                // padding: EdgeInsets.only(
-                //   // left: size.width * 0.08,
-                //   // right: size.width * 0.08,
-                //   // top: size.height * 0.05,
-                // ),
-                // color: Colors.green,
+                padding: EdgeInsets.only(
+                    // left: size.width * 0.08,
+                    // right: size.width * 0.08,
+                    // top: size.height * 0.05,
+                    ),
+                // // color: Colors.green,
                 height: size.height * 0.78,
 
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(
-                            right: size.width * 0.08,
-                            left: size.width * 0.08,
-                          ),
-                          child: CustomText(
-                            text: "Know about symptoms",
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: size.width * 0.08,
+                        right: size.width * 0.08,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          CustomText(
+                            text: "Find Doctors A vailable near",
                             textStyle: TextStyle(
                               color: primaryColor,
                               fontSize: 20,
@@ -167,29 +211,51 @@ class patient_symptoms extends StatelessWidget {
                               fontFamily: 'Inter',
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: size.height * 0.02,
+                        ],
+                      ),
                     ),
                     Container(
                       padding: EdgeInsets.only(
-                        right: size.width * 0.08,
                         left: size.width * 0.08,
+                        top: size.height * 0.02,
                       ),
-                      height: size.height * 0.62,
+                      // margin: EdgeInsets.only(right: size.width * 0.02),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        // reverse: true,
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            doctorCat[0],
+                            doctorCat[1],
+                            doctorCat[2],
+                            doctorCat[3],
+                            doctorCat[4],
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(
+                        left: size.width * 0.08,
+                        right: size.width * 0.08,
+                        // top: size.height * 0.05,
+                      ),
+                      height: size.height * 0.55,
                       width: double.infinity,
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
-                            symptoms[0],
-                            symptoms[1],
-                            symptoms[2],
-                            symptoms[3],
-                            symptoms[3],
-                            symptoms[3],
-                            symptoms[3],
+                            findDoctor[0],
+                            findDoctor[1],
+                            findDoctor[2],
+                            findDoctor[3],
+                            findDoctor[3],
+                            findDoctor[3],
+                            findDoctor[3],
                           ],
                         ),
                       ),

@@ -110,6 +110,7 @@ flutter:
     - assets/images/washHands.jpg
     - assets/icons/chevron-right.svg
     - assets/icons/Doc.svg
+    - assets/icons/star.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
