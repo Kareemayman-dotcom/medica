@@ -6,12 +6,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:medica/chatRoomsScreen.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/patient_symptoms.dart';
-import 'package:medica/patient_consult.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
 import 'package:medica/view/widgets/constance.dart';
@@ -539,7 +539,7 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () { Get.to(() => ChatRoom());},
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

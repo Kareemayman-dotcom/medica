@@ -7,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:medica/chatRoomsScreen.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
@@ -254,7 +255,7 @@ class patient_book extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {Get.to(() => ChatRoom());},
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
