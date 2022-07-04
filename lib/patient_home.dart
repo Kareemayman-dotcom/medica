@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/chatRoomsScreen.dart';
+import 'package:medica/find_doctor_near.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
@@ -311,7 +312,9 @@ class patient_home extends StatelessWidget {
                                   maximumSize: Size(
                                       size.width * 0.38, size.height * 0.215),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Get.to(() => patient_find());
+                                },
                                 child: Column(
                                   children: [
                                     Stack(

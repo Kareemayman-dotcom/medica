@@ -137,8 +137,8 @@ class patient_book extends StatelessWidget {
                 children: [
                   Container(
                     padding: EdgeInsets.only(
-                      right: size.width * 0.08,
-                      left: size.width * 0.08,
+                      // right: size.width * 0.08,
+                      // left: size.width * 0.08,
                       top: size.height * 0.04,
                     ),
                     // color: Colors.green,
@@ -161,20 +161,31 @@ class patient_book extends StatelessWidget {
                             // alignment: WrapAlignment.start,
                             // direction: Axis.horizontal,
                             children: [
-                              CustomText(
-                                textAlign: TextAlign.left,
-                                text: "Book Appointments with Top Specialists!",
-                                textStyle: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                  fontFamily: 'Inter',
+                              Container(
+                                padding: EdgeInsets.only(
+                                  right: size.width * 0.08,
+                                  left: size.width * 0.08,
+                                ),
+                                child: CustomText(
+                                  textAlign: TextAlign.left,
+                                  text:
+                                      "Book Appointments with Top Specialists!",
+                                  textStyle: TextStyle(
+                                    color: primaryColor,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Inter',
+                                  ),
                                 ),
                               ),
                             ],
                           ),
                         ),
                         Container(
+                          padding: EdgeInsets.only(
+                            right: size.width * 0.08,
+                            left: size.width * 0.08,
+                          ),
                           // width: double.infinity,
                           // color: Colors.amber,
                           height: size.height * 0.58,

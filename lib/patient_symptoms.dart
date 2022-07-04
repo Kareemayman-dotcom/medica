@@ -137,11 +137,11 @@ class patient_symptoms extends StatelessWidget {
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(75)),
                   color: whitegrayish,
                 ),
-                padding: EdgeInsets.only(
-                  left: size.width * 0.08,
-                  right: size.width * 0.08,
-                  // top: size.height * 0.05,
-                ),
+                // padding: EdgeInsets.only(
+                //   // left: size.width * 0.08,
+                //   // right: size.width * 0.08,
+                //   // top: size.height * 0.05,
+                // ),
                 // color: Colors.green,
                 height: size.height * 0.78,
 
@@ -152,21 +152,31 @@ class patient_symptoms extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        CustomText(
-                          text: "Know about symptoms",
-                          textStyle: TextStyle(
-                            color: primaryColor,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                            fontFamily: 'Inter',
+                        Container(
+                          padding: EdgeInsets.only(
+                            right: size.width * 0.08,
+                            left: size.width * 0.08,
+                          ),
+                          child: CustomText(
+                            text: "Know about symptoms",
+                            textStyle: TextStyle(
+                              color: primaryColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                              fontFamily: 'Inter',
+                            ),
                           ),
                         ),
                       ],
                     ),
                     SizedBox(
-                      height: size.height * 0.03,
+                      height: size.height * 0.02,
                     ),
                     Container(
+                      padding: EdgeInsets.only(
+                        right: size.width * 0.08,
+                        left: size.width * 0.08,
+                      ),
                       height: size.height * 0.62,
                       width: double.infinity,
                       child: SingleChildScrollView(

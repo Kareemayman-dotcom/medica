@@ -110,6 +110,7 @@ flutter:
     - assets/images/washHands.jpg
     - assets/icons/chevron-right.svg
     - assets/icons/Doc.svg
+    - assets/icons/star.svg
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -174,6 +175,21 @@ flutter:
           weight: 100
           style: italic
         - asset: assets/fonts/Inter-V.ttf
+
+    - family: DMSans
+      fonts:
+        - asset: assets/fonts/DMSans-Bold.ttf
+          weight: 800
+        - asset: assets/fonts/DMSans-BoldItalic.ttf
+          weight: 800
+        - asset: assets/fonts/DMSans-Medium.ttf
+          weight: 600
+        - asset: assets/fonts/DMSans-MediumItalic.ttf
+          weight: 600
+        - asset: assets/fonts/DMSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/DMSans-Italic.ttf
+          weight: 400
 
     - family: MyFlutterApp
       fonts:
