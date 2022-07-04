@@ -147,14 +147,16 @@ class patient_book extends StatelessWidget {
                         topLeft: Radius.circular(75),
                         // topRight: Radius.circular(10),
                       ),
-                      color: Colors.white,
+                      color: whitegrayish,
                     ),
                     height: size.height * 0.78,
                     width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Wrap(
+                    child: Column(
+                      children: [
+                        Container(
+                          // padding: EdgeInsets.only(bot),
+                          margin: EdgeInsets.only(bottom: size.height * 0.01),
+                          child: Wrap(
                             // alignment: WrapAlignment.start,
                             // direction: Axis.horizontal,
                             children: [
@@ -170,136 +172,135 @@ class patient_book extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
-                            height: size.height * 0.05,
+                        ),
+                        Container(
+                          // width: double.infinity,
+                          // color: Colors.amber,
+                          height: size.height * 0.58,
+                          child: SingleChildScrollView(
+                            child: Wrap(
+                              // alignment: WrapAlignment.spaceBetween,
+                              // crossAxisAlignment: WrapCrossAlignment.end,
+                              children: [
+                                book[0],
+                                book[1],
+                                book[2],
+                                book[3],
+                                book[3],
+                                book[3],
+                                book[3],
+                                book[3],
+                              ],
+                            ),
                           ),
-                          Wrap(
-                            // alignment: WrapAlignment.spaceBetween,
-                            // crossAxisAlignment: WrapCrossAlignment.end,
-                            children: [
-                              book[0],
-                              book[1],
-                              book[2],
-                              book[3],
-                              book[3],
-                              book[3],
-                              book[3],
-                              book[3],
-                            ],
-                          )
-                        ],
-                      ),
+                        ),
+                        Container(
+                          // padding: EdgeInsets.only(
+                          //   top: size.height * 0.02,
+                          //   right: size.width * 0.1,
+                          //   left: size.width * 0.1,
+                          // ),
+                          width: double.infinity,
+                          height: size.height * 0.080,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
+                              )),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.04),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Get.to(() => patient_home());
+                                  },
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                        'assets/images/homeNavBarHome.svg',
+                                        color: primaryColorOutOfFocus,
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.008,
+                                      ),
+                                      CustomText(
+                                        text: 'Home',
+                                        textStyle: TextStyle(
+                                            color: primaryColorOutOfFocus),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                          'assets/images/clipboardNavBarHome.svg'),
+                                      SizedBox(
+                                        height: size.height * 0.008,
+                                      ),
+                                      CustomText(
+                                        text: 'Consult',
+                                        textStyle: TextStyle(color: linkColor),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                          'assets/images/message-circleNavBarHome.svg',
+                                          color: primaryColorOutOfFocus),
+                                      SizedBox(
+                                        height: size.height * 0.008,
+                                      ),
+                                      CustomText(
+                                        text: 'Chat',
+                                        textStyle: TextStyle(
+                                            color: primaryColorOutOfFocus),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {},
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SvgPicture.asset(
+                                          'assets/images/UserNavBarHome.svg',
+                                          color: primaryColorOutOfFocus),
+                                      SizedBox(
+                                        height: size.height * 0.008,
+                                      ),
+                                      CustomText(
+                                        text: 'Profile',
+                                        textStyle: TextStyle(
+                                            color: primaryColorOutOfFocus),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   )
                 ],
               ),
             ]),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  // padding: EdgeInsets.only(
-                  //   top: size.height * 0.02,
-                  //   right: size.width * 0.1,
-                  //   left: size.width * 0.1,
-                  // ),
-                  width: double.infinity,
-                  height: size.height * 0.080,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      )),
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: size.width * 0.04),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            Get.to(() => patient_home());
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/images/homeNavBarHome.svg',
-                                color: primaryColorOutOfFocus,
-                              ),
-                              SizedBox(
-                                height: size.height * 0.008,
-                              ),
-                              CustomText(
-                                text: 'Home',
-                                textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
-                              )
-                            ],
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                  'assets/images/clipboardNavBarHome.svg'),
-                              SizedBox(
-                                height: size.height * 0.008,
-                              ),
-                              CustomText(
-                                text: 'Consult',
-                                textStyle: TextStyle(color: linkColor),
-                              )
-                            ],
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                  'assets/images/message-circleNavBarHome.svg',
-                                  color: primaryColorOutOfFocus),
-                              SizedBox(
-                                height: size.height * 0.008,
-                              ),
-                              CustomText(
-                                text: 'Chat',
-                                textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
-                              )
-                            ],
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                  'assets/images/UserNavBarHome.svg',
-                                  color: primaryColorOutOfFocus),
-                              SizedBox(
-                                height: size.height * 0.008,
-                              ),
-                              CustomText(
-                                text: 'Profile',
-                                textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            )
           ],
         ),
       ),

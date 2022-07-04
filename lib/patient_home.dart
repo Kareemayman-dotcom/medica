@@ -2,6 +2,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -182,24 +183,21 @@ class patient_home extends StatelessWidget {
                       // SizedBox(
                       //   height: size.height * 0.01,
                       // ),
-                      Wrap(spacing: 10, children: [
-                        Padding(
-                          padding: EdgeInsets.only(bottom: size.height * 0.01),
-                          child: depts[0],
+                      Container(
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(children: [
+                            depts[0],
+                            depts[1],
+                            depts[2],
+                            depts[3],
+                            depts[3],
+                            depts[3],
+                            depts[3],
+                            depts[3],
+                          ]),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: size.height * 0.01),
-                          child: depts[1],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: size.height * 0.01),
-                          child: depts[2],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(bottom: size.height * 0.01),
-                          child: depts[3],
-                        ),
-                      ]),
+                      ),
                       SizedBox(
                         height: size.height * 0.025,
                       ),
