@@ -194,6 +194,9 @@ flutter:
     - family: MyFlutterApp
       fonts:
         - asset: assets/icons/MyFlutterApp.ttf
+    - family: ProfileIcons
+      fonts:
+        - asset: assets/icons/ProfileIcons.ttf
 
   #   - family: Trajan Pro
   #     fonts:
