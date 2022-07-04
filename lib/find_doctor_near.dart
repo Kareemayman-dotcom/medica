@@ -7,7 +7,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_book.dart';
-import 'package:medica/patient_consult.dart';
 import 'package:medica/patient_home.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
