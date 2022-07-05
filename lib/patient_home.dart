@@ -29,21 +29,25 @@ class patient_home extends StatelessWidget {
   patient_home.withuser(this._name);
 
   List depts = [
-    const Depts(
+    Depts(
       deptName: 'Cardio',
       icon: 'assets/images/depts/Cardio.png',
+      onPressed: () {Get.to(() => patient_find());},
     ),
-    const Depts(
+    Depts(
       deptName: 'Biochem',
       icon: 'assets/images/depts/BioChem.png',
+      onPressed: () {Get.to(() => patient_symptoms());},
     ),
-    const Depts(
+    Depts(
       deptName: 'Research',
       icon: 'assets/images/depts/Research.png',
+      onPressed: () {Get.to(() => patient_book());},
     ),
-    const Depts(
+    Depts(
       deptName: 'Neurology',
       icon: 'assets/images/depts/Neurology.png',
+      onPressed: () {},
     ),
   ];
 
@@ -110,9 +114,9 @@ class patient_home extends StatelessWidget {
                         text: name,
                         textStyle: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w600),
+                            fontSize: 15,
+                            fontFamily: 'DMSans',
+                            fontWeight: FontWeight.bold),
                       ),
                       Image.asset('assets/images/Notify.png')
                     ],

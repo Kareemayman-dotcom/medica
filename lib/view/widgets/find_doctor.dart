@@ -1,5 +1,10 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
+import 'package:medica/chatRoomsScreen.dart';
+import 'package:medica/view/map.dart';
 
 import 'constance.dart';
 import 'custom_text.dart';
@@ -10,7 +15,7 @@ class FindDoctor extends StatelessWidget {
   String imageAddress;
   BoxFit imageFit;
   int experienceYears;
-  double rating;
+  double? lng, lat;
   FindDoctor({
     Key? key,
     required this.docName,
@@ -18,7 +23,8 @@ class FindDoctor extends StatelessWidget {
     this.imageAddress = 'assets/images/logo.png',
     this.imageFit = BoxFit.fitHeight,
     required this.experienceYears,
-    this.rating = 5.0,
+    this.lat,
+    this.lng,
   }) : super(key: key);
 
   @override
@@ -59,11 +65,11 @@ class FindDoctor extends StatelessWidget {
                     // alignment: Alignment.centerLeft,
                     padding: EdgeInsets.only(
                       // top: 13,
-                      right: 10,
+                      // right: 10,
                       left: 10,
                     ),
                     width: size.width * 0.5,
-                    height: size.height * 0.12,
+                    // height: size.height * 0.12,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -80,15 +86,18 @@ class FindDoctor extends StatelessWidget {
                               ),
                             ),
                             Container(
+                              alignment: Alignment.centerRight,
                               padding: EdgeInsets.only(top: size.height * 0.01),
                               child: Row(
+                                // mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  SvgPicture.asset('assets/icons/star.svg'),
-                                  CustomText(
-                                    text: '($rating)',
-                                    textStyle:
-                                        TextStyle(color: Colors.grey.shade600),
-                                  )
+                                  IconButton(
+                                      alignment: Alignment.centerRight,
+                                      onPressed: () {
+                                        Get.to(
+                                            () => map.withlatlng(lat!, lng!));
+                                      },
+                                      icon: Icon(Icons.location_on_outlined))
                                 ],
                               ),
                             )
