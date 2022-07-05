@@ -116,7 +116,7 @@ class PatientLogin extends GetWidget<AuthViewModel> {
                       height: size.height * 0.666666,
                       // color: Colors.green,
                       padding: EdgeInsets.symmetric(
-                        vertical: size.height * 0.06,
+                        vertical: size.height * 0.04,
                         horizontal: size.width * 0.05,
                       ),
                       child: Column(

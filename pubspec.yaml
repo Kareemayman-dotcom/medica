@@ -44,6 +44,7 @@ dependencies:
   flutter_staggered_grid_view: ^0.4.0
   image_picker: ^0.8.5+3
   path: ^1.8.0
+  url_launcher: ^6.1.4
 
 dev_dependencies:
   flutter_test:
@@ -111,6 +112,17 @@ flutter:
     - assets/icons/chevron-right.svg
     - assets/icons/Doc.svg
     - assets/icons/star.svg
+    - assets/images/User.svg
+    - assets/images/chevron-right.svg
+    - assets/images/Heart.svg
+    - assets/images/information-svgrepo-com.svg
+    - assets/images/socialmedia/facebook.svg
+    - assets/images/socialmedia/Vector.svg
+    - assets/images/socialmedia/linkedin.svg
+
+
+    
+ 
 
   # To add assets to your application, add an assets section, like this:
   # assets:
