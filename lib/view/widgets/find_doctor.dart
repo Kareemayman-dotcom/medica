@@ -15,7 +15,7 @@ class FindDoctor extends StatelessWidget {
   String imageAddress;
   BoxFit imageFit;
   int experienceYears;
-  double? lng,lat;
+  double? lng, lat;
   FindDoctor({
     Key? key,
     required this.docName,
@@ -65,11 +65,11 @@ class FindDoctor extends StatelessWidget {
                     // alignment: Alignment.centerLeft,
                     padding: EdgeInsets.only(
                       // top: 13,
-                      right: 10,
+                      // right: 10,
                       left: 10,
                     ),
                     width: size.width * 0.5,
-                    height: size.height * 0.12,
+                    // height: size.height * 0.12,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -86,13 +86,18 @@ class FindDoctor extends StatelessWidget {
                               ),
                             ),
                             Container(
+                              alignment: Alignment.centerRight,
                               padding: EdgeInsets.only(top: size.height * 0.01),
                               child: Row(
+                                // mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  RawMaterialButton(onPressed: () { Get.to(() => map.withlatlng(lat!,lng!)); },
-                                  child: Icon(Icons.location_on_outlined))
-                                  ,
-                                  
+                                  IconButton(
+                                      alignment: Alignment.centerRight,
+                                      onPressed: () {
+                                        Get.to(
+                                            () => map.withlatlng(lat!, lng!));
+                                      },
+                                      icon: Icon(Icons.location_on_outlined))
                                 ],
                               ),
                             )
