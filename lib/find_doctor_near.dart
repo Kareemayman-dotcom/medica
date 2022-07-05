@@ -22,44 +22,14 @@ import 'package:medica/view/widgets/symptom_card.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
 
-class patient_find extends StatelessWidget {
-  List doctorCat = [
-    docCat(
-      catName: 'Cardio',
-      numOfDoctors: 25,
-      isActiv: true,
-    ),
-    docCat(
-      catName: 'Biochem',
-      numOfDoctors: 12,
-      // isActiv: true,
-    ),
-    docCat(
-      catName: 'Research',
-      numOfDoctors: 45,
-      // isActiv: true,
-    ),
-    docCat(
-      catName: 'Neurology',
-      numOfDoctors: 25,
-      // isActiv: true,
-    ),
-    docCat(
-      catName: 'General',
-      numOfDoctors: 25,
-      // isActiv: true,
-    ),
-    docCat(
-      catName: 'General',
-      numOfDoctors: 25,
-      // isActiv: true,
-    ),
-    docCat(
-      catName: 'General',
-      numOfDoctors: 25,
-      // isActiv: true,
-    ),
-  ];
+class patient_find extends StatefulWidget {
+  @override
+  State<patient_find> createState() => _patient_findState();
+}
+
+class _patient_findState extends State<patient_find> {
+  // List doctorCat = [];
+
   List findDoctor = [
     FindDoctor(
       docName: 'Dr. Omar Essam',
@@ -92,22 +62,88 @@ class patient_find extends StatelessWidget {
   ];
 
   // final numbers = List.generate(100, (index) => '$index');
-
-//   Widget buildGridView() => GridView.builder(
-//         gridDelegate:
-//             SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-//         itemCount: numbers.length,
-//         itemBuilder: (context, index) {
-//           final item = numbers[index];
-//           return buildNumber(item);
-//         },
-//       );
-//   Widget buildNumber(String number) => Container(
-//     child: GridTile(header: Text,),
-//   );
-
   @override
   Widget build(BuildContext context) {
+    List<bool> doctorCatbool = [
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+    ];
+    List doctorCat = [
+      docCat(
+        catName: 'Cardio',
+        numOfDoctors: 25,
+        onPressed: () {
+          // setState(() {
+          //   for (var i = 0; i < doctorCatbool.length; i++) {
+          //     if (i == 0) {
+          //       doctorCatbool[i] = true;
+          //     } else {
+          //       doctorCatbool[i] = false;
+          //     }
+          //   }
+          // });
+        },
+        isActiv: doctorCatbool[0],
+      ),
+      docCat(
+        catName: 'Biochem',
+        numOfDoctors: 12,
+        onPressed: () {
+          // setState(() {
+          //   for (var i = 0; i < doctorCatbool.length; i++) {
+          //     if (i == 0) {
+          //       doctorCatbool[i] = true;
+          //     } else {
+          //       doctorCatbool[i] = false;
+          //     }
+          //   }
+          // });
+        },
+        isActiv: doctorCatbool[1],
+        // isActiv: true,
+      ),
+      docCat(
+        catName: 'Research',
+        numOfDoctors: 45,
+        onPressed: () {},
+        isActiv: doctorCatbool[2],
+        // isActiv: true,
+      ),
+      docCat(
+        catName: 'Neurology',
+        numOfDoctors: 25,
+        onPressed: () {},
+        isActiv: doctorCatbool[3],
+        // isActiv: true,
+      ),
+      docCat(
+        catName: 'General',
+        numOfDoctors: 25,
+        onPressed: () {},
+        isActiv: doctorCatbool[4],
+        // isActiv: true,
+      ),
+      docCat(
+        catName: 'General',
+        numOfDoctors: 25,
+        onPressed: () {},
+        isActiv: doctorCatbool[5],
+        // isActiv: true,
+      ),
+      docCat(
+        catName: 'General',
+        numOfDoctors: 25,
+        onPressed: () {},
+        isActiv: doctorCatbool[6],
+        // isActiv: true,
+      ),
+    ];
+    setState(() {});
     final Size size = MediaQuery.of(context).size;
     return WillPopScope(
       onWillPop: () async {
@@ -228,12 +264,15 @@ class patient_find extends StatelessWidget {
                         // reverse: true,
                         child: Row(
                           // mainAxisAlignment: MainAxisAlignment.start,
+
                           children: [
                             doctorCat[0],
                             doctorCat[1],
                             doctorCat[2],
                             doctorCat[3],
                             doctorCat[4],
+                            doctorCat[5],
+                            doctorCat[6],
                           ],
                         ),
                       ),

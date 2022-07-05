@@ -123,11 +123,6 @@ flutter:
     - assets/images/socialmedia/Vector.svg
     - assets/images/socialmedia/linkedin.svg
     - assets/images/Mail.svg
-  
-
-
-    
- 
 
   # To add assets to your application, add an assets section, like this:
   # assets:
