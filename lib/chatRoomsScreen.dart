@@ -5,6 +5,7 @@ import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_home.dart';
+import 'package:medica/patient_profile.dart';
 import 'package:medica/search.dart';
 import 'package:medica/view/widgets/constance.dart';
 
@@ -147,7 +148,9 @@ class _ChatRoomState extends State<ChatRoom> {
                               ),
                             ),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Get.to(() => patient_profile());
+                              },
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [

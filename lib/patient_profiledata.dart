@@ -12,7 +12,7 @@ import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
 import 'package:medica/patient_home.dart';
-import 'package:medica/patient_profiledata.dart';
+import 'package:medica/patient_profile.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/patient_symptoms.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
@@ -28,7 +28,7 @@ import 'package:medica/core/view_model/auth_view_model.dart';
 import 'package:path/path.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class patient_profile extends StatelessWidget {
+class patient_profiledata extends StatelessWidget {
   /*  String _name;
 
   String get name => _name;
@@ -98,9 +98,24 @@ class patient_profile extends StatelessWidget {
                     left: size.width * 0.08,
                   ),
                   child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
+                   // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SizedBox(height: size.height * 0.02),
+                    
+                      Row(
+                        children: [
+                          CustomText(
+                            text: '\t\t\t Username',
+                            textAlign: TextAlign.left,
+                            textStyle: TextStyle(
+                                color: Color(0xff300C92),
+                                fontSize: 14,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: size.height * 0.01),
                       TextButton(
                           style: TextButton.styleFrom(
                             maximumSize:
@@ -117,9 +132,7 @@ class patient_profile extends StatelessWidget {
                                 //   ),
                                 borderRadius: BorderRadius.circular(40)),
                           ),
-                          onPressed: (){
-                            Get.to(() => patient_profiledata());
-                            },
+                          onPressed: null,
                           child: Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: size.width * 0.02),
@@ -128,227 +141,70 @@ class patient_profile extends StatelessWidget {
                               children: [
                                 SvgPicture.asset('assets/images/User.svg'),
                                 CustomText(
-                                  text: '\t\t Profile',
+                                  text: '\t\t Username',
                                   textStyle: TextStyle(
                                       color: Colors.black87,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: 16),
+                                      fontSize: 15),
                                 ),
-                                SizedBox(width: size.width * 0.45),
-                                SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'),
                               ],
                             ),
                           )),
-                      SizedBox(height: size.height * 0.02),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            maximumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            minimumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                //   side:
-                                // BorderSide(
-                                //   color: Colors.grey,
-                                //   width: 1,
-                                //   style: BorderStyle.solid
-                                //   ),
-                                borderRadius: BorderRadius.circular(40)),
-                          ),
-                          onPressed: null,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.02),
-                            child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SvgPicture.asset('assets/images/Heart.svg'),
-                                CustomText(
-                                  text: '\t\t Favourite',
-                                  textStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16),
-                                ),
-                                SizedBox(width: size.width * 0.38),
-                                SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'),
-                              ],
-                            ),
-                          )),
-                      SizedBox(height: size.height * 0.02),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            maximumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            minimumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                //    side:
-                                // BorderSide(
-                                //   color: Colors.grey,
-                                //   width: 1,
-                                //   style: BorderStyle.solid
-                                //   ),
-                                borderRadius: BorderRadius.circular(40)),
-                          ),
-                          onPressed: null,
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.02),
-                            child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                SvgPicture.asset(
-                                    'assets/images/information-svgrepo-com.svg'),
-                                CustomText(
-                                  text: '\t\t About us',
-                                  textStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16),
-                                ),
-                                SizedBox(width: size.width * 0.38),
-                                SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'),
-                              ],
-                            ),
-                          )),
-                      SizedBox(height: size.height * 0.02),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                            maximumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            minimumSize:
-                                Size(double.infinity, size.height * 0.070),
-                            backgroundColor: Colors.white,
-                            shape: RoundedRectangleBorder(
-                                //   side:
-                                // BorderSide(
-                                //   color: Colors.grey,
-                                //   width: 1,
-                                //   style: BorderStyle.solid
-                                //   ),
-                                borderRadius: BorderRadius.circular(40)),
-                          ),
-                          onPressed: () {
-                            Get.to(() => patient_getstarted());
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.02),
-                            child: Row(
-                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Icon(
-                                  ProfileIcons.logout,
-                                  color: secondaryColor,
-                                  size: 18,
-                                ),
-                                CustomText(
-                                  text: '\t\t Logout',
-                                  textStyle: TextStyle(
-                                      color: Colors.black87,
-                                      fontFamily: 'Inter',
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 16),
-                                ),
-                                // SizedBox(width: size.width * 0.45),
-                                // SvgPicture.asset(
-                                //     'assets/images/chevron-right.svg'),
-                              ],
-                            ),
-                          )),
-                      SizedBox(height: size.height * 0.15),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      SizedBox(height: size.height * 0.04),
+                       Row(
                         children: [
-                          TextButton(
-                              onPressed: () async {
-                                if (await canLaunch(
-                                    'https://www.facebook.com/omaressam.re')) {
-                                  await launch(
-                                      'https://www.facebook.com/omaressam.re');
-                                }
-                                // launchUrl(Uri.parse('https://www.facebook.com'));
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: size.width * 0.02),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SvgPicture.asset(
-                                        'assets/images/socialmedia/facebook.svg'),
-                                  ],
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: null,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: size.width * 0.02),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SvgPicture.asset(
-                                        'assets/images/socialmedia/Vector.svg'),
-                                  ],
-                                ),
-                              )),
-                          TextButton(
-                              onPressed: null,
-                              child: Padding(
-                                padding: EdgeInsets.symmetric(
-                                    horizontal: size.width * 0.02),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SvgPicture.asset(
-                                        'assets/images/socialmedia/linkedin.svg'),
-                                  ],
-                                ),
-                              )),
+                          CustomText(
+                            text: '\t\t\t Email',
+                            textAlign: TextAlign.left,
+                            textStyle: TextStyle(
+                                color: Color(0xff300C92),
+                                fontSize: 14,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400),
+                          ),
                         ],
                       ),
-                      SizedBox(height: size.height * 0.040),
+                      SizedBox(height: size.height * 0.01),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            maximumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            minimumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                //   side:
+                                // BorderSide(
+                                //   color: Colors.grey,
+                                //   width: 1,
+                                //   style: BorderStyle.solid
+                                //   ),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                          onPressed: null,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                SvgPicture.asset('assets/images/Mail.svg'),
+                                CustomText(
+                                  text: '\t\t Email Address',
+                                  textStyle: TextStyle(
+                                      color: Colors.black87,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15),
+                                ),
+                              ],
+                            ),
+                          )),
+                      SizedBox(height: size.height * 0.41),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          CustomText(
-                            text: 'Terms and conditions',
-                            textStyle: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 11,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400),
-                          ),
-                          SizedBox(height: size.height * 0.010),
-                          Divider(
-                            color: Colors.grey[400],
-                            indent: size.width * 0.2,
-                            endIndent: size.width * 0.2,
-                            thickness: 1,
-                            height: 1,
-                          ),
-                          SizedBox(height: size.height * 0.010),
-                          CustomText(
-                            text: 'Privacy policy',
-                            textStyle: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 11,
-                                fontFamily: 'Inter',
-                                fontWeight: FontWeight.w400),
-                          ),
                           SizedBox(height: size.height * 0.040),
                           CustomText(
                             text: 'Version 1.0',
@@ -453,7 +309,9 @@ class patient_profile extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => patient_profile());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

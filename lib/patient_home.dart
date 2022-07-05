@@ -260,9 +260,9 @@ class patient_home extends StatelessWidget {
                       TextButton(
                           style: TextButton.styleFrom(
                               maximumSize:
-                                  Size(double.infinity, size.height * 0.085),
+                                  Size(double.infinity, size.height * 0.082),
                               minimumSize:
-                                  Size(double.infinity, size.height * 0.085),
+                                  Size(double.infinity, size.height * 0.082),
                               // foregroundColor: secondaryColor,
                               backgroundColor: secondaryColor,
                               shape: RoundedRectangleBorder(
@@ -285,7 +285,7 @@ class patient_home extends StatelessWidget {
                                       color: Colors.white,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w600,
-                                      fontSize: 19),
+                                      fontSize: 17),
                                 ),
                                 Container(
                                   child: Image.asset(

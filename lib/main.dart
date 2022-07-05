@@ -13,6 +13,9 @@ import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/constance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:medica/patient_profile.dart';
+import 'package:medica/patient_profiledata.dart';
+
+
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +52,7 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
                 initialBinding: Binding(),
                 debugShowCheckedModeBanner: false,
-                home: isUserLoggedIn ? patient_home() : patient_getstarted());
+                home: patient_profiledata());
                  
           }
         });

@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:medica/chatRoomsScreen.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_home.dart';
+import 'package:medica/patient_profile.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
 import 'package:medica/view/widgets/LnRCurve.dart';
@@ -22,6 +23,7 @@ import 'package:medica/view/widgets/patient_book_card.dart';
 import 'package:medica/view/widgets/symptom_card.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
+
 
 class patient_book extends StatelessWidget {
   List book = [
@@ -285,7 +287,9 @@ class patient_book extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(() => patient_profile());
+                                  },
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
