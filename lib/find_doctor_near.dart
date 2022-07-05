@@ -25,22 +25,22 @@ import 'package:medica/core/view_model/auth_view_model.dart';
 class patient_find extends StatelessWidget {
   List doctorCat = [
     docCat(
-      catName: 'General',
+      catName: 'Cardio',
       numOfDoctors: 25,
       isActiv: true,
     ),
     docCat(
-      catName: 'Dental',
+      catName: 'Biochem',
       numOfDoctors: 12,
       // isActiv: true,
     ),
     docCat(
-      catName: 'Cardio',
+      catName: 'Research',
       numOfDoctors: 45,
       // isActiv: true,
     ),
     docCat(
-      catName: 'General',
+      catName: 'Neurology',
       numOfDoctors: 25,
       // isActiv: true,
     ),
@@ -62,20 +62,24 @@ class patient_find extends StatelessWidget {
   ];
   List findDoctor = [
     FindDoctor(
-      docName: 'Wear Mask ',
-      docSpec: 'The point of using Lor Ipsum normal of letters...',
-      imageAddress: 'assets/images/wearMask.jpg',
+      docName: 'Dr. Omar Essam',
+      docSpec: 'Cardiovascular Pathologist in El Dokki Clinic',
+      imageAddress: 'assets/images/OIP.png',
       imageFit: BoxFit.fitWidth,
       experienceYears: 15,
+      lat: 30.0380503,
+      lng: 31.2112887,
     ),
     FindDoctor(
-      docName: 'Use Sanitizer',
-      experienceYears: 15,
-      docSpec: 'The point of using Lor Ipsum normal of letters...',
-      imageAddress: 'assets/images/useSanitizer.jpg',
+      docName: 'Dr. Kareem ',
+      experienceYears: 20,
+      docSpec: 'Cardiologist in 6th of October Clinic',
+      imageAddress: 'assets/images/Kareem.png',
+      lat: 29.9725103,
+      lng: 30.9366578,
     ),
     FindDoctor(
-      docName: 'Regular Hand Wash',
+      docName: 'Dr. Mai Farah',
       docSpec: 'The point of using Lor Ipsum normal of letters...',
       imageAddress: 'assets/images/washHands.jpg',
       experienceYears: 15,
@@ -202,7 +206,7 @@ class patient_find extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           CustomText(
-                            text: "Find Doctors A vailable near",
+                            text: "Find Doctors Nearby",
                             textStyle: TextStyle(
                               color: primaryColor,
                               fontSize: 20,
