@@ -11,6 +11,7 @@ import 'package:medica/find_doctor_near.dart';
 import 'package:medica/patient%20_login.dart';
 import 'package:medica/patient_book.dart';
 import 'package:medica/patient_getstarted.dart';
+import 'package:medica/patient_profile.dart';
 import 'package:medica/patient_register.dart';
 import 'package:medica/patient_symptoms.dart';
 import 'package:medica/view/widgets/HomeCurve.dart';
@@ -32,17 +33,23 @@ class patient_home extends StatelessWidget {
     Depts(
       deptName: 'Cardio',
       icon: 'assets/images/depts/Cardio.png',
-      onPressed: () {Get.to(() => patient_find());},
+      onPressed: () {
+        Get.to(() => patient_find());
+      },
     ),
     Depts(
       deptName: 'Biochem',
       icon: 'assets/images/depts/BioChem.png',
-      onPressed: () {Get.to(() => patient_symptoms());},
+      onPressed: () {
+        Get.to(() => patient_symptoms());
+      },
     ),
     Depts(
       deptName: 'Research',
       icon: 'assets/images/depts/Research.png',
-      onPressed: () {Get.to(() => patient_book());},
+      onPressed: () {
+        Get.to(() => patient_book());
+      },
     ),
     Depts(
       deptName: 'Neurology',
@@ -546,7 +553,9 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () { Get.to(() => ChatRoom());},
+                          onPressed: () {
+                            Get.to(() => ChatRoom());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -565,7 +574,9 @@ class patient_home extends StatelessWidget {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => patient_profile());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

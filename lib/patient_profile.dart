@@ -21,19 +21,21 @@ import 'package:medica/view/widgets/custom_background.dart';
 import 'package:medica/view/widgets/custom_text.dart';
 import 'package:medica/view/widgets/custom_text_form_field.dart';
 import 'package:medica/view/widgets/depts.dart';
+import 'package:medica/view/widgets/profile_icons_icons.dart';
 import 'package:medica/view/widgets/wavey_shape.dart';
 import 'package:medica/core/view_model/auth_view_model.dart';
+import 'package:path/path.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class patient_profile extends StatelessWidget {
-
- /*  String _name;
+  /*  String _name;
 
   String get name => _name;
 
   set name(String name) {
     _name = name;
   }*/
- 
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -59,8 +61,7 @@ class patient_profile extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-
-                   SizedBox(
+                  SizedBox(
                     height: size.height * 0.06,
                   ),
                   Row(
@@ -94,334 +95,275 @@ class patient_profile extends StatelessWidget {
                     top: size.height * 0.05,
                     right: size.width * 0.08,
                     left: size.width * 0.08,
-                  ),   
-
+                  ),
                   child: Column(
-                   // mainAxisAlignment: MainAxisAlignment.start,
+                    // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      
-                      
                       SizedBox(height: size.height * 0.02),
-
                       TextButton(
-                        style:TextButton.styleFrom(
-                          maximumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                              minimumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                                  
-                          backgroundColor: Colors.white,
-
-                             shape:
-                              RoundedRectangleBorder( 
-                              //side: 
-                              // BorderSide(
-                              //   color: Colors.grey,
-                              //   width: 1,
-                              //   style: BorderStyle.solid
-                              //   ),
-                                borderRadius: BorderRadius.circular(40)
-                                ),
-                                ),
-
-                        onPressed: null,
-
-                         child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-
-                          child: Row(
-                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          style: TextButton.styleFrom(
+                            maximumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            minimumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                //side:
+                                // BorderSide(
+                                //   color: Colors.grey,
+                                //   width: 1,
+                                //   style: BorderStyle.solid
+                                //   ),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                          onPressed: null,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SvgPicture.asset(
-                                    'assets/images/User.svg'
-                                    ),
+                                SvgPicture.asset('assets/images/User.svg'),
                                 CustomText(
                                   text: '\t\t Profile',
                                   textStyle: TextStyle(
                                       color: Colors.black87,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: 19),
+                                      fontSize: 16),
                                 ),
-                                
                                 SizedBox(width: size.width * 0.45),
-
                                 SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'
-                                    ),
-
+                                    'assets/images/chevron-right.svg'),
                               ],
                             ),
-                         )
-                         ),
-                   
-                  SizedBox(height: size.height * 0.02),
-
-
-                  TextButton(
-                        style:TextButton.styleFrom(
-                          maximumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                              minimumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                                  
-                          backgroundColor: Colors.white,
-
-                             shape:
-                              RoundedRectangleBorder( 
-                              //   side: 
-                              // BorderSide(
-                              //   color: Colors.grey,
-                              //   width: 1,
-                              //   style: BorderStyle.solid
-                              //   ),
-                                 borderRadius: BorderRadius.circular(40)
-                                 ),
-                                ),
-
-                        onPressed: null,
-
-                         child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-
-                          child: Row(
-                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          )),
+                      SizedBox(height: size.height * 0.02),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            maximumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            minimumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                //   side:
+                                // BorderSide(
+                                //   color: Colors.grey,
+                                //   width: 1,
+                                //   style: BorderStyle.solid
+                                //   ),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                          onPressed: null,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SvgPicture.asset(
-                                    'assets/images/Heart.svg'
-                                    ),
+                                SvgPicture.asset('assets/images/Heart.svg'),
                                 CustomText(
                                   text: '\t\t Favourite',
                                   textStyle: TextStyle(
                                       color: Colors.black87,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: 19),
+                                      fontSize: 16),
                                 ),
-                                
                                 SizedBox(width: size.width * 0.38),
-
                                 SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'
-                                    ),
-
+                                    'assets/images/chevron-right.svg'),
                               ],
                             ),
-                         )
-                         ),
-                   
-                  SizedBox(height: size.height * 0.02),
-
-
-                  TextButton(
-                        style:TextButton.styleFrom(
-                          maximumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                              minimumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                                  
-                          backgroundColor: Colors.white,
-
-                             shape:
-                              RoundedRectangleBorder(
-                              //    side: 
-                              // BorderSide(
-                              //   color: Colors.grey,
-                              //   width: 1,
-                              //   style: BorderStyle.solid
-                              //   ),
-                                borderRadius: BorderRadius.circular(40)
-                                ),
-                                ),
-
-                        onPressed: null,
-
-                         child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-
-                          child: Row(
-                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          )),
+                      SizedBox(height: size.height * 0.02),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            maximumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            minimumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                //    side:
+                                // BorderSide(
+                                //   color: Colors.grey,
+                                //   width: 1,
+                                //   style: BorderStyle.solid
+                                //   ),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                          onPressed: null,
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 SvgPicture.asset(
-                                    'assets/images/information-svgrepo-com.svg'
-                                    ),
+                                    'assets/images/information-svgrepo-com.svg'),
                                 CustomText(
                                   text: '\t\t About us',
                                   textStyle: TextStyle(
                                       color: Colors.black87,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: 19),
+                                      fontSize: 16),
                                 ),
-                                
                                 SizedBox(width: size.width * 0.38),
-
                                 SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'
-                                    ),
-
+                                    'assets/images/chevron-right.svg'),
                               ],
                             ),
-                         )
-                         ),
-                   
-                  SizedBox(height: size.height * 0.02),
-
-
-
-                  TextButton(
-                        style:TextButton.styleFrom(
-                          maximumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                              minimumSize:
-                                  Size(double.infinity, size.height * 0.070),
-                                  
-                          backgroundColor: Colors.white,
-
-                             shape:
-                              RoundedRectangleBorder( 
-                              //   side: 
-                              // BorderSide(
-                              //   color: Colors.grey,
-                              //   width: 1,
-                              //   style: BorderStyle.solid
-                              //   ),
-                                borderRadius: BorderRadius.circular(40)
-                                ),
-                                ),
-
-                        onPressed: null,
-
-                         child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-
-                          child: Row(
-                             // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          )),
+                      SizedBox(height: size.height * 0.02),
+                      TextButton(
+                          style: TextButton.styleFrom(
+                            maximumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            minimumSize:
+                                Size(double.infinity, size.height * 0.070),
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                                //   side:
+                                // BorderSide(
+                                //   color: Colors.grey,
+                                //   width: 1,
+                                //   style: BorderStyle.solid
+                                //   ),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                          onPressed: () {
+                            Get.to(() => patient_getstarted());
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02),
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SvgPicture.asset(
-                                    'assets/images/User.svg'
-                                    ),
+                                Icon(
+                                  ProfileIcons.logout,
+                                  color: secondaryColor,
+                                  size: 18,
+                                ),
                                 CustomText(
                                   text: '\t\t Logout',
                                   textStyle: TextStyle(
                                       color: Colors.black87,
                                       fontFamily: 'Inter',
                                       fontWeight: FontWeight.w400,
-                                      fontSize: 19),
+                                      fontSize: 16),
                                 ),
-                                
-                                SizedBox(width: size.width * 0.45),
-
-                                SvgPicture.asset(
-                                    'assets/images/chevron-right.svg'
-                                    ),
-
+                                // SizedBox(width: size.width * 0.45),
+                                // SvgPicture.asset(
+                                //     'assets/images/chevron-right.svg'),
                               ],
                             ),
-                         )
-                         ),
-                   
-                  SizedBox(height: size.height * 0.15),
-                  
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      
-                     
-                      TextButton(
-                        onPressed: null,
-                        child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-                          child: Row(
-                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                             children: [
-                              SvgPicture.asset('assets/images/socialmedia/facebook.svg'),
-                              ],
-                            ),
-                         )
-                         ),
-
-                        TextButton(
-                        onPressed: null,
-                        child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-                          child: Row(
-                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                             children: [
-                              SvgPicture.asset('assets/images/socialmedia/Vector.svg'),
-                              ],
-                            ),
-                         )
-                         ),
-
+                          )),
+                      SizedBox(height: size.height * 0.15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
                           TextButton(
-                        onPressed: null,
-                        child: Padding( 
-                          padding:  EdgeInsets.symmetric( horizontal: size.width * 0.02),
-                          child: Row(
-                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                             children: [
-                              SvgPicture.asset('assets/images/socialmedia/linkedin.svg'),
-                              ],
-                            ),
-                         )
-                         ),
-                    ],
-                  ),
-                  
-                  SizedBox(height: size.height * 0.040),
-
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-
-                      CustomText(
-                        text: 'Terms and conditions',
-                        textStyle: TextStyle(
-                           color: Colors.black87,
-                            fontSize: 11,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400 ),
-                       ),
-                      
-                      SizedBox(height: size.height * 0.010),
-
-                      Divider(
-                         color: Colors.grey[400],
-                         indent: size.width * 0.2,
-                         endIndent: size.width * 0.2,
-                         thickness: 1,
-                        height: 1,
+                              onPressed: () async {
+                                if (await canLaunch(
+                                    'https://www.facebook.com/omaressam.re')) {
+                                  await launch(
+                                      'https://www.facebook.com/omaressam.re');
+                                }
+                                // launchUrl(Uri.parse('https://www.facebook.com'));
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: size.width * 0.02),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                        'assets/images/socialmedia/facebook.svg'),
+                                  ],
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: null,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: size.width * 0.02),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                        'assets/images/socialmedia/Vector.svg'),
+                                  ],
+                                ),
+                              )),
+                          TextButton(
+                              onPressed: null,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: size.width * 0.02),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    SvgPicture.asset(
+                                        'assets/images/socialmedia/linkedin.svg'),
+                                  ],
+                                ),
+                              )),
+                        ],
                       ),
-
-                       SizedBox(height: size.height * 0.010),
-
-                     CustomText(
-                        text: 'Praivcy policy',
-                        textStyle: TextStyle(
-                           color: Colors.grey[700],
-                            fontSize: 11,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400 ),
-                       ),  
-                       SizedBox(height: size.height * 0.040),
-
-                       CustomText(
-                        text: 'Virsion 1.0',
-                        textStyle: TextStyle(
-                           color: Colors.grey[500],
-                            fontSize: 9,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w400 ),
-                       ),  
-
+                      SizedBox(height: size.height * 0.040),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CustomText(
+                            text: 'Terms and conditions',
+                            textStyle: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 11,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(height: size.height * 0.010),
+                          Divider(
+                            color: Colors.grey[400],
+                            indent: size.width * 0.2,
+                            endIndent: size.width * 0.2,
+                            thickness: 1,
+                            height: 1,
+                          ),
+                          SizedBox(height: size.height * 0.010),
+                          CustomText(
+                            text: 'Privacy policy',
+                            textStyle: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 11,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(height: size.height * 0.040),
+                          CustomText(
+                            text: 'Version 1.0',
+                            textStyle: TextStyle(
+                                color: Colors.grey[500],
+                                fontSize: 9,
+                                fontFamily: 'Inter',
+                                fontWeight: FontWeight.w400),
+                          ),
+                        ],
+                      ),
                     ],
                   ),
-                  
-                   SizedBox(height: size.height * 0.010),
 ////////////////////////////////////////////navigation////////////////////////////////////////////////////////
- 
-Column(
+                ),
+              ],
+            ),
+            Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
@@ -445,18 +387,22 @@ Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => patient_home());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/homeNavBarHome.svg'),
+                                  'assets/images/homeNavBarHome.svg',
+                                  color: primaryColorOutOfFocus),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Home',
-                                textStyle: TextStyle(color: linkColor),
+                                textStyle:
+                                    TextStyle(color: primaryColorOutOfFocus),
                               )
                             ],
                           ),
@@ -483,7 +429,9 @@ Column(
                           ),
                         ),
                         TextButton(
-                          onPressed: () { Get.to(() => ChatRoom());},
+                          onPressed: () {
+                            Get.to(() => ChatRoom());
+                          },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -507,15 +455,14 @@ Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SvgPicture.asset(
-                                  'assets/images/UserNavBarHome.svg',
-                                  color: primaryColorOutOfFocus),
+                                'assets/images/UserNavBarHome.svg',
+                              ),
                               SizedBox(
                                 height: size.height * 0.008,
                               ),
                               CustomText(
                                 text: 'Profile',
-                                textStyle:
-                                    TextStyle(color: primaryColorOutOfFocus),
+                                textStyle: TextStyle(color: linkColor),
                               )
                             ],
                           ),
@@ -526,22 +473,8 @@ Column(
                 )
               ],
             )
-                  
-                  
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-                    ]
-                  )         
-                ),             
-              ],
-            ),
-            
           ],
         ),
-                
-              
       ),
     );
   }

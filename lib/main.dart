@@ -49,7 +49,8 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
                 initialBinding: Binding(),
                 debugShowCheckedModeBanner: false,
-                home: patient_profile());
+                home: isUserLoggedIn ? patient_home() : patient_getstarted());
+                 
           }
         });
   }
