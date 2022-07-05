@@ -20,7 +20,9 @@ class Depts extends StatelessWidget {
         horizontal: size.width * 0.01,
       ),
       child: ElevatedButton(
-          onPressed: onPressed(),
+          onPressed: () {
+            onPressed();
+          },
           style: TextButton.styleFrom(
               padding: EdgeInsets.all(0),
               maximumSize: Size(

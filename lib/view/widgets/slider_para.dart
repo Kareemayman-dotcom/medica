@@ -24,8 +24,8 @@ class sliderCard extends StatelessWidget {
               textStyle: TextStyle(
                 color: Colors.white,
                 fontSize: 28.0,
-                fontFamily: 'Inter',
-                fontWeight: FontWeight.w800,
+                fontFamily: 'DMSans',
+                fontWeight: FontWeight.bold,
               ),
             ),
             const Divider(
@@ -42,7 +42,7 @@ class sliderCard extends StatelessWidget {
                 textStyle: TextStyle(
                   color: Colors.white,
                   fontSize: 17.0,
-                  fontFamily: 'Inter',
+                  fontFamily: 'DMSans',
                   fontWeight: FontWeight.w400,
                 ),
                 // textAlign: TextAlign.justify,

@@ -32,17 +32,17 @@ class patient_home extends StatelessWidget {
     Depts(
       deptName: 'Cardio',
       icon: 'assets/images/depts/Cardio.png',
-      onPressed: () {},
+      onPressed: () {Get.to(() => patient_find());},
     ),
     Depts(
       deptName: 'Biochem',
       icon: 'assets/images/depts/BioChem.png',
-      onPressed: () {},
+      onPressed: () {Get.to(() => patient_symptoms());},
     ),
     Depts(
       deptName: 'Research',
       icon: 'assets/images/depts/Research.png',
-      onPressed: () {},
+      onPressed: () {Get.to(() => patient_book());},
     ),
     Depts(
       deptName: 'Neurology',
@@ -114,9 +114,9 @@ class patient_home extends StatelessWidget {
                         text: name,
                         textStyle: TextStyle(
                             color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Inter',
-                            fontWeight: FontWeight.w600),
+                            fontSize: 15,
+                            fontFamily: 'DMSans',
+                            fontWeight: FontWeight.bold),
                       ),
                       Image.asset('assets/images/Notify.png')
                     ],

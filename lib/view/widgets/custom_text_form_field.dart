@@ -39,6 +39,7 @@ class CustomTextFromField extends StatelessWidget {
             CustomText(
               text: text,
               textStyle: TextStyle(
+                fontFamily: 'DMSans',
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: color,
@@ -57,7 +58,7 @@ class CustomTextFromField extends StatelessWidget {
               hintStyle: TextStyle(
                   color: Color(0xff6D6487),
                   fontSize: 15,
-                  fontFamily: 'Inter',
+                  fontFamily: 'DMSans',
                   fontWeight: FontWeight.normal),
               fillColor: Colors.white,
               border: InputBorder.none),

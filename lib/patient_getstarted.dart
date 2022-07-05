@@ -62,7 +62,7 @@ class patient_getstarted extends StatelessWidget {
                     text: 'Let\'s Get Started',
                     textStyle: TextStyle(
                       color: Color(0xff300C92),
-                      fontFamily: 'Inter',
+                      fontFamily: 'DMSans',
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
@@ -91,7 +91,7 @@ class patient_getstarted extends StatelessWidget {
                               text: 'REGISTER',
                               textStyle: TextStyle(
                                   color: Colors.white,
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'DMSans',
                                   fontWeight: FontWeight.w800,
                                   fontSize: 14))),
                       SizedBox(
@@ -115,7 +115,7 @@ class patient_getstarted extends StatelessWidget {
                               text: 'LOGIN',
                               textStyle: TextStyle(
                                   color: Colors.white,
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'DMSans',
                                   fontWeight: FontWeight.w800,
                                   fontSize: 14))),
                     ],

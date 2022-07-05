@@ -77,7 +77,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                     textStyle: TextStyle(
                         color: Colors.white,
                         fontSize: 32,
-                        fontFamily: 'Inter',
+                        fontFamily: 'DMSans',
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
@@ -114,8 +114,9 @@ class patient_register extends GetWidget<AuthViewModel> {
                     text: 'Register to Continue',
                     textStyle: TextStyle(
                         color: Colors.white,
-                        fontFamily: 'Inter',
-                        fontSize: size.width * 0.06),
+                        fontFamily: 'DMSans',
+                        fontSize: size.width * 0.06,
+                        fontWeight: FontWeight.bold)
                   ),
                   Divider(
                     color: Color(0xffFEB197),
@@ -311,7 +312,7 @@ class patient_register extends GetWidget<AuthViewModel> {
                                       text: 'REGISTER',
                                       textStyle: TextStyle(
                                           color: Colors.white,
-                                          fontFamily: 'Inter',
+                                          fontFamily: 'DMSans',
                                           fontWeight: FontWeight.w800,
                                           fontSize: 14))),
                             ),
@@ -324,7 +325,10 @@ class patient_register extends GetWidget<AuthViewModel> {
                                 CustomText(
                                   text: "Already have an account?",
                                   textStyle:
-                                      TextStyle(color: Color(0xff6D6487)),
+                                      TextStyle(color: Color(0xff6D6487),
+                                      fontFamily: 'DMSans',
+                                      fontSize: 15.0,
+                                      fontWeight: FontWeight.normal),
                                 ),
                                 // SizedBox(
                                 //   width: size.width * 0.001,
