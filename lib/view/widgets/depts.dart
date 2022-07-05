@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+
 import 'constance.dart';
 import 'custom_text.dart';
 
 class Depts extends StatelessWidget {
   final String deptName;
   final String icon;
+  final Function onPressed;
 
-  const Depts({Key? key, required this.deptName, required this.icon})
-      : super(key: key);
+  const Depts({Key? key, required this.deptName, required this.icon, required this.onPressed}) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +20,7 @@ class Depts extends StatelessWidget {
         horizontal: size.width * 0.01,
       ),
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: onPressed(),
           style: TextButton.styleFrom(
               padding: EdgeInsets.all(0),
               maximumSize: Size(

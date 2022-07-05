@@ -29,21 +29,25 @@ class patient_home extends StatelessWidget {
   patient_home.withuser(this._name);
 
   List depts = [
-    const Depts(
+    Depts(
       deptName: 'Cardio',
       icon: 'assets/images/depts/Cardio.png',
+      onPressed: () {},
     ),
-    const Depts(
+    Depts(
       deptName: 'Biochem',
       icon: 'assets/images/depts/BioChem.png',
+      onPressed: () {},
     ),
-    const Depts(
+    Depts(
       deptName: 'Research',
       icon: 'assets/images/depts/Research.png',
+      onPressed: () {},
     ),
-    const Depts(
+    Depts(
       deptName: 'Neurology',
       icon: 'assets/images/depts/Neurology.png',
+      onPressed: () {},
     ),
   ];
 
