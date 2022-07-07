@@ -16,6 +16,10 @@ class docCat extends StatefulWidget {
     required this.onPressed,
   }) : super(key: key);
 
+  set setIsActive(bool isActiv) {
+    this.isActiv = isActiv;
+  }
+
   @override
   State<docCat> createState() => _docCatState();
 }
@@ -39,6 +43,7 @@ class _docCatState extends State<docCat> {
         bgColor = unSelectedbgColor;
       }
     });
+
     return Container(
       margin: EdgeInsets.only(right: size.width * 0.02),
       child: Row(

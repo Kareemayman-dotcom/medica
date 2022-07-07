@@ -78,15 +78,15 @@ class _patient_findState extends State<patient_find> {
         catName: 'Cardio',
         numOfDoctors: 25,
         onPressed: () {
-          // setState(() {
-          //   for (var i = 0; i < doctorCatbool.length; i++) {
-          //     if (i == 0) {
-          //       doctorCatbool[i] = true;
-          //     } else {
-          //       doctorCatbool[i] = false;
-          //     }
-          //   }
-          // });
+          setState(() {
+            for (var i = 0; i < doctorCatbool.length; i++) {
+              if (i == 0) {
+                doctorCatbool[i] = true;
+              } else {
+                doctorCatbool[i] = false;
+              }
+            }
+          });
         },
         isActiv: doctorCatbool[0],
       ),
@@ -94,15 +94,15 @@ class _patient_findState extends State<patient_find> {
         catName: 'Biochem',
         numOfDoctors: 12,
         onPressed: () {
-          // setState(() {
-          //   for (var i = 0; i < doctorCatbool.length; i++) {
-          //     if (i == 0) {
-          //       doctorCatbool[i] = true;
-          //     } else {
-          //       doctorCatbool[i] = false;
-          //     }
-          //   }
-          // });
+          setState(() {
+            for (var i = 0; i < doctorCatbool.length; i++) {
+              if (i == 1) {
+                doctorCatbool[i] = true;
+              } else {
+                doctorCatbool[i] = false;
+              }
+            }
+          });
         },
         isActiv: doctorCatbool[1],
         // isActiv: true,
