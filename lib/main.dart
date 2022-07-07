@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:medica/doctor_profile.dart';
 import 'package:medica/helper/binding.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:medica/patient_book.dart';
@@ -14,8 +15,6 @@ import 'package:medica/view/widgets/constance.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:medica/patient_profile.dart';
 import 'package:medica/patient_profiledata.dart';
-
-
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -52,7 +51,7 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
                 initialBinding: Binding(),
                 debugShowCheckedModeBanner: false,
-                home: isUserLoggedIn ? patient_home() : patient_getstarted());                 
+                home: isUserLoggedIn ? doctorProfile() : patient_getstarted());
           }
         });
   }

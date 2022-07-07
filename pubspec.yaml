@@ -114,6 +114,8 @@ flutter:
     - assets/images/Kareem.png
     - assets/icons/chevron-right.svg
     - assets/icons/Doc.svg
+    - assets/icons/phone.svg
+    - assets/icons/chat.svg
     - assets/icons/star.svg
     - assets/images/User.svg
     - assets/images/chevron-right.svg
