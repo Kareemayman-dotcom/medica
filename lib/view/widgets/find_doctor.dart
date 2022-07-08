@@ -124,7 +124,7 @@ class FindDoctor extends StatelessWidget {
                               ),
                             ),
                           ],
-                        ),
+                        ),  
                       ],
                     ),
                   )

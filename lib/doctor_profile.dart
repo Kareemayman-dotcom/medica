@@ -154,6 +154,131 @@ class doctorProfile extends StatelessWidget {
                                 )
                               ],
                             ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(
+                              top: size.height * 0.015,
+                              left: size.width * 0.08,
+                              right: size.width * 0.08,
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.055,
+                                vertical: size.height * 0.02),
+                            // height: size.height * 0.2,
+                            decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(25)),
+                              color: Colors.white,
+                            ),
+                            child: IntrinsicHeight(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SvgPicture.asset('assets/icons/Exp.svg',
+                                          width: size.height * 0.022),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: 'Experience',
+                                        textStyle: TextStyle(
+                                          color: primaryColor.withAlpha(120),
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: '15',
+                                        textStyle: TextStyle(
+                                          color: primaryColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  VerticalDivider(
+                                    color: primaryColor.withAlpha(40),
+                                    endIndent: 10,
+                                    indent: 10,
+                                    // width: 40,
+                                    thickness: 1,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SvgPicture.asset('assets/icons/Pat.svg',
+                                          width: size.height * 0.03),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: 'Patients',
+                                        textStyle: TextStyle(
+                                          color: primaryColor.withAlpha(120),
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: '18K',
+                                        textStyle: TextStyle(
+                                          color: primaryColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  VerticalDivider(
+                                    color: primaryColor.withAlpha(40),
+                                    endIndent: 10,
+                                    indent: 10,
+                                    // width: 40,
+                                    thickness: 1,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      SvgPicture.asset('assets/icons/Certi.svg',
+                                          width: size.height * 0.022),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: 'Certification',
+                                        textStyle: TextStyle(
+                                          color: primaryColor.withAlpha(120),
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: size.height * 0.01,
+                                      ),
+                                      CustomText(
+                                        text: '20',
+                                        textStyle: TextStyle(
+                                          color: primaryColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w900,
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
                           )
                         ],
                       ),

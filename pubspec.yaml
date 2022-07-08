@@ -116,6 +116,9 @@ flutter:
     - assets/icons/Doc.svg
     - assets/icons/phone.svg
     - assets/icons/chat.svg
+    - assets/icons/Exp.svg
+    - assets/icons/Certi.svg
+    - assets/icons/Pat.svg
     - assets/icons/star.svg
     - assets/images/User.svg
     - assets/images/chevron-right.svg
